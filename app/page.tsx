@@ -72,33 +72,40 @@ export default function HomePage() {
         <div className="space-y-4 lg:hidden">
           <div className="grid gap-4">
             {featured.map((book) => (
-              <Link
-                key={book.slug}
-                href={`/books/${book.slug}`}
-                className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 shadow-[0_30px_120px_rgba(0,0,0,0.35)]"
-              >
-                <div className="relative min-h-[19rem] overflow-hidden rounded-[1.35rem]">
-                  <Image
-                    src={book.art_out || book.cover_out}
-                    alt={book.title}
-                    fill
-                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                    sizes="100vw"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-[#090b10] via-[#090b10]/72 to-transparent" />
-                  <div className="absolute inset-x-5 bottom-5">
-                    <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#d0a85c] drop-shadow-[0_1px_6px_rgba(0,0,0,0.95)]">
-                      {book.author}
-                    </p>
-                    <h2 className="mt-2 max-w-[12ch] font-serif text-2xl leading-[0.92] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
-                      {book.title}
-                    </h2>
-                    <p className="mt-2 max-w-[28ch] text-sm text-zinc-200 drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
-                      {book.thesis_subtitle}
-                    </p>
+              <div key={book.slug} className="space-y-3">
+                <Link
+                  href={`/books/${book.slug}`}
+                  className="group relative block overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 shadow-[0_30px_120px_rgba(0,0,0,0.35)]"
+                >
+                  <div className="relative min-h-[19rem] overflow-hidden rounded-[1.35rem]">
+                    <Image
+                      src={book.art_out || book.cover_out}
+                      alt={book.title}
+                      fill
+                      className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                      sizes="100vw"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-[#090b10] via-[#090b10]/72 to-transparent" />
+                    <div className="absolute inset-x-5 bottom-5">
+                      <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#d0a85c] drop-shadow-[0_1px_6px_rgba(0,0,0,0.95)]">
+                        {book.author}
+                      </p>
+                      <h2 className="mt-2 max-w-[12ch] font-serif text-2xl leading-[0.92] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
+                        {book.title}
+                      </h2>
+                      <p className="mt-2 max-w-[28ch] text-sm text-zinc-200 drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
+                        {book.thesis_subtitle}
+                      </p>
+                    </div>
                   </div>
+                </Link>
+                <div className="rounded-[1.75rem] border border-white/10 bg-[#0c1016] px-5 py-5 text-base leading-relaxed text-zinc-200">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#d0a85c]">
+                    {book.title}
+                  </p>
+                  <p className="mt-3 text-zinc-300">“{heroQuotes[book.slug]}”</p>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
@@ -140,7 +147,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto grid w-full max-w-7xl gap-4 px-4 pb-12 sm:px-5 lg:grid-cols-3 lg:px-8">
+      <section className="mx-auto hidden w-full max-w-7xl gap-4 px-4 pb-12 sm:px-5 lg:grid lg:grid-cols-3 lg:px-8">
         {featured.map((book) => (
           <div
             key={book.slug}
