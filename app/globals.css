@@ -1,0 +1,37 @@
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at top, rgba(208, 168, 92, 0.12), transparent 28%),
+      radial-gradient(circle at 85% 12%, rgba(83, 120, 255, 0.12), transparent 20%),
+      #07090d;
+  }
+
+  ::selection {
+    background: rgba(208, 168, 92, 0.26);
+    color: white;
+  }
+}
+
+@layer components {
+  .font-serif {
+    font-family: var(--font-serif), serif;
+  }
+
+  .font-sans {
+    font-family: var(--font-sans), sans-serif;
+  }
+}

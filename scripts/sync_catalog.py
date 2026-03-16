@@ -15,6 +15,7 @@ BOOKS_DIR = ROOT / 'books'
 SITE_ROOT = Path(__file__).resolve().parent.parent
 CONTENT_PATH = SITE_ROOT / 'content' / 'catalog.json'
 COVERS_DIR = SITE_ROOT / 'public' / 'assets' / 'covers'
+ART_DIR = SITE_ROOT / 'public' / 'assets' / 'art'
 LOGO_SRC = ROOT / 'assets-dont-delete' / 'heritage-canon-imprint-logo.png'
 LOGO_DEST = SITE_ROOT / 'public' / 'assets' / 'heritage-canon-logo.png'
 BIO_SRC = ROOT / 'assets-dont-delete' / 'bio.png'
@@ -57,6 +58,30 @@ def export_cover(src: Path, slug: str) -> str:
             cover = cover.resize((target_width, target_height), Image.LANCZOS)
         cover.save(dest, format='WEBP', quality=82, method=6)
     return f'/assets/covers/{slug}.webp'
+
+
+def choose_art(book_dir: Path) -> Path | None:
+    candidates = [
+        book_dir / 'cover_image' / 'cover_generated.png',
+        book_dir / 'cover_image' / 'cover_generated.jpg',
+    ]
+    for path in candidates:
+        if path.exists():
+            return path
+    return None
+
+
+def export_art(src: Path, slug: str) -> str:
+    dest = ART_DIR / f'{slug}.webp'
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    with Image.open(src) as image:
+        art = image.convert('RGB')
+        target_width = 1400
+        if art.width > target_width:
+            target_height = int(round(art.height * (target_width / art.width)))
+            art = art.resize((target_width, target_height), Image.LANCZOS)
+        art.save(dest, format='WEBP', quality=86, method=6)
+    return f'/assets/art/{slug}.webp'
 
 
 def read_description(book_dir: Path) -> tuple[str, str]:
@@ -130,6 +155,7 @@ def published_links(pub_status: dict) -> list[dict]:
 def main() -> None:
     books = []
     COVERS_DIR.mkdir(parents=True, exist_ok=True)
+    ART_DIR.mkdir(parents=True, exist_ok=True)
     if LOGO_SRC.exists():
         LOGO_DEST.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(LOGO_SRC, LOGO_DEST)
@@ -155,6 +181,7 @@ def main() -> None:
         cover_src = choose_cover(book_dir, slug)
         if cover_src is None:
             continue
+        art_src = choose_art(book_dir) or cover_src
         description, excerpt = read_description(book_dir)
         books.append(
             {
@@ -168,6 +195,7 @@ def main() -> None:
                 'year': str(data.get('first_publication_year') or ''),
                 'publisher': 'Heritage Canon',
                 'cover_out': export_cover(cover_src, slug),
+                'art_out': export_art(art_src, slug),
                 'description': description,
                 'excerpt': excerpt,
                 'formats': [link['format'] for link in buy_links],

@@ -21,21 +21,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.11'
+          node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pip install pillow
+        run: npm install
 
       - name: Build site
-        run: python build_site.py
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./out
 
   deploy:
     environment:

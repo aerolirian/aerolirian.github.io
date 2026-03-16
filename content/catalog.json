@@ -23,7 +23,8 @@
           "asin": "B0GSP86YM3",
           "url": "https://www.amazon.com/dp/B0GSP86YM3"
         }
-      ]
+      ],
+      "art_out": "/assets/art/a_portrait_of_the_artist_as_a_young_man.webp"
     },
     {
       "slug": "alice_in_wonderland",
@@ -48,7 +49,8 @@
           "asin": "B0GSNQQ156",
           "url": "https://www.amazon.com/dp/B0GSNQQ156"
         }
-      ]
+      ],
+      "art_out": "/assets/art/alice_in_wonderland.webp"
     },
     {
       "slug": "arrowsmith",
@@ -80,7 +82,8 @@
           "asin": "B0GS2B371S",
           "url": "https://www.amazon.com/dp/B0GS2B371S"
         }
-      ]
+      ],
+      "art_out": "/assets/art/arrowsmith.webp"
     },
     {
       "slug": "babbitt",
@@ -105,7 +108,8 @@
           "asin": "B0GSNJ3JZT",
           "url": "https://www.amazon.com/dp/B0GSNJ3JZT"
         }
-      ]
+      ],
+      "art_out": "/assets/art/babbitt.webp"
     },
     {
       "slug": "buddenbrooks",
@@ -130,7 +134,8 @@
           "asin": "B0GR5FXGWV",
           "url": "https://www.amazon.com/dp/B0GR5FXGWV"
         }
-      ]
+      ],
+      "art_out": "/assets/art/buddenbrooks.webp"
     },
     {
       "slug": "death_comes_for_the_archbishop",
@@ -155,7 +160,8 @@
           "asin": "B0GJ6VRXCR",
           "url": "https://www.amazon.com/dp/B0GJ6VRXCR"
         }
-      ]
+      ],
+      "art_out": "/assets/art/death_comes_for_the_archbishop.webp"
     },
     {
       "slug": "death_in_venice",
@@ -194,7 +200,8 @@
           "asin": "B0GS2T1J4M",
           "url": "https://www.amazon.com/dp/B0GS2T1J4M"
         }
-      ]
+      ],
+      "art_out": "/assets/art/death_in_venice.webp"
     },
     {
       "slug": "dubliners",
@@ -226,7 +233,8 @@
           "asin": "B0FFM45LLS",
           "url": "https://www.amazon.com/dp/B0FFM45LLS"
         }
-      ]
+      ],
+      "art_out": "/assets/art/dubliners.webp"
     },
     {
       "slug": "elmer_gantry",
@@ -251,7 +259,8 @@
           "asin": "B0F1V7YCXY",
           "url": "https://www.amazon.com/dp/B0F1V7YCXY"
         }
-      ]
+      ],
+      "art_out": "/assets/art/elmer_gantry.webp"
     },
     {
       "slug": "far_from_the_madding_crowd",
@@ -276,7 +285,8 @@
           "asin": "B0F8NWB4YG",
           "url": "https://www.amazon.com/dp/B0F8NWB4YG"
         }
-      ]
+      ],
+      "art_out": "/assets/art/far_from_the_madding_crowd.webp"
     },
     {
       "slug": "growth_of_the_soil",
@@ -315,7 +325,8 @@
           "asin": "B0GRZMYKS6",
           "url": "https://www.amazon.com/dp/B0GRZMYKS6"
         }
-      ]
+      ],
+      "art_out": "/assets/art/growth_of_the_soil.webp"
     },
     {
       "slug": "main_street",
@@ -347,7 +358,8 @@
           "asin": "B0F2JCLHCD",
           "url": "https://www.amazon.com/dp/B0F2JCLHCD"
         }
-      ]
+      ],
+      "art_out": "/assets/art/main_street.webp"
     },
     {
       "slug": "moby_dick",
@@ -379,7 +391,8 @@
           "asin": "B0GS54Y9H3",
           "url": "https://www.amazon.com/dp/B0GS54Y9H3"
         }
-      ]
+      ],
+      "art_out": "/assets/art/moby_dick.webp"
     },
     {
       "slug": "o_pioneers",
@@ -404,7 +417,8 @@
           "asin": "B0GSP192VH",
           "url": "https://www.amazon.com/dp/B0GSP192VH"
         }
-      ]
+      ],
+      "art_out": "/assets/art/o_pioneers.webp"
     },
     {
       "slug": "the_age_of_innocence",
@@ -429,7 +443,8 @@
           "asin": "B0GRNCDQDY",
           "url": "https://www.amazon.com/dp/B0GRNCDQDY"
         }
-      ]
+      ],
+      "art_out": "/assets/art/the_age_of_innocence.webp"
     },
     {
       "slug": "the_centaur",
@@ -454,7 +469,8 @@
           "asin": "B0GSNGL6BZ",
           "url": "https://www.amazon.com/dp/B0GSNGL6BZ"
         }
-      ]
+      ],
+      "art_out": "/assets/art/the_centaur.webp"
     },
     {
       "slug": "the_gentleman_from_indiana",
@@ -479,7 +495,8 @@
           "asin": "B0GSNTNQ1Q",
           "url": "https://www.amazon.com/dp/B0GSNTNQ1Q"
         }
-      ]
+      ],
+      "art_out": "/assets/art/the_gentleman_from_indiana.webp"
     },
     {
       "slug": "the_great_gatsby",
@@ -518,7 +535,8 @@
           "asin": "B0GRRH6CW5",
           "url": "https://www.amazon.com/dp/B0GRRH6CW5"
         }
-      ]
+      ],
+      "art_out": "/assets/art/the_great_gatsby.webp"
     },
     {
       "slug": "the_king_of_elflands_daughter",
@@ -557,7 +575,8 @@
           "asin": "B0GS5JJYP7",
           "url": "https://www.amazon.com/dp/B0GS5JJYP7"
         }
-      ]
+      ],
+      "art_out": "/assets/art/the_king_of_elflands_daughter.webp"
     },
     {
       "slug": "the_turmoil",
@@ -582,7 +601,8 @@
           "asin": "B0GSNR73Y1",
           "url": "https://www.amazon.com/dp/B0GSNR73Y1"
         }
-      ]
+      ],
+      "art_out": "/assets/covers/the_turmoil.webp"
     },
     {
       "slug": "the_village",
@@ -607,7 +627,8 @@
           "asin": "B0GQP7CTN2",
           "url": "https://www.amazon.com/dp/B0GQP7CTN2"
         }
-      ]
+      ],
+      "art_out": "/assets/covers/the_village.webp"
     },
     {
       "slug": "the_wendigo",
@@ -646,7 +667,8 @@
           "asin": "B0GS55FGP3",
           "url": "https://www.amazon.com/dp/B0GS55FGP3"
         }
-      ]
+      ],
+      "art_out": "/assets/covers/the_wendigo.webp"
     },
     {
       "slug": "the_willows",
@@ -685,7 +707,8 @@
           "asin": "B0GS4WBT9W",
           "url": "https://www.amazon.com/dp/B0GS4WBT9W"
         }
-      ]
+      ],
+      "art_out": "/assets/covers/the_willows.webp"
     },
     {
       "slug": "ulysses",
@@ -710,7 +733,8 @@
           "asin": "B0GSP3R9YN",
           "url": "https://www.amazon.com/dp/B0GSP3R9YN"
         }
-      ]
+      ],
+      "art_out": "/assets/covers/ulysses.webp"
     },
     {
       "slug": "when_the_sleeper_wakes",
@@ -742,7 +766,8 @@
           "asin": "B0GFX67JT5",
           "url": "https://www.amazon.com/dp/B0GFX67JT5"
         }
-      ]
+      ],
+      "art_out": "/assets/covers/when_the_sleeper_wakes.webp"
     }
   ]
 }
