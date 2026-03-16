@@ -107,14 +107,14 @@ export default async function BookPage({ params }: BookPageProps) {
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,9,13,0.2),rgba(7,9,13,0.84)_30%,#07090d)]" />
         </div>
-        <div className="relative mx-auto grid w-full max-w-7xl gap-6 px-4 py-12 sm:px-5 sm:py-16 lg:grid-cols-[20rem_minmax(0,1fr)] lg:px-8 lg:py-20">
-          <div className="mx-auto w-full max-w-xs overflow-hidden rounded-[2rem] border border-white/10 shadow-[0_30px_120px_rgba(0,0,0,0.4)]">
+        <div className="relative mx-auto grid w-full max-w-7xl gap-6 px-4 py-12 sm:px-5 sm:py-16 lg:grid-cols-[20rem_minmax(0,1fr)] lg:items-start lg:px-8 lg:py-20">
+          <div className="mx-auto w-full max-w-xs self-start overflow-hidden rounded-[2rem] border border-white/10 shadow-[0_30px_120px_rgba(0,0,0,0.4)]">
             <Image
               src={book.cover_out}
               alt={`Cover of ${book.title}`}
               width={720}
               height={1152}
-              className="h-auto w-full object-cover"
+              className="block h-auto w-full object-cover"
               sizes="(max-width: 1024px) 70vw, 20rem"
               priority
             />
