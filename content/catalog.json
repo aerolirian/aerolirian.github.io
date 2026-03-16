@@ -1,0 +1,327 @@
+{
+  "books": [
+    {
+      "slug": "arrowsmith",
+      "title": "Arrowsmith",
+      "full_title": "Arrowsmith: Philosophical Edition — What RFK Jr. and Big Pharma Have in Common",
+      "thesis_subtitle": "What RFK Jr. and Big Pharma Have in Common",
+      "author": "Sinclair Lewis",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novel",
+      "year": "1925",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/arrowsmith.webp",
+      "description": "Sinclair Lewis's Arrowsmith is a novel about science, ambition, and the institutions that corrupt both. Through Martin Arrowsmith's struggle to preserve intellectual honesty amid vanity, money, careerism, and public pressure, Lewis asks whether truth can survive once research becomes entangled with prestige and power. It is not simply a satire of medicine or a celebration of scientific idealism, but a study of the moral fragility of modern expertise, and of the cost exacted by any system that rewards influence more readily than rigor. This Heritage Canon Philosophical Edition includes a new introduction by Daniel Shilansky, who brings Lewis's novel into conversation with the crisis of scientific authority. Reading Arrowsmith against both populist distrust and corporate capture, he shows why figures like RFK Jr. and the world of Big Pharma are not opposites but distorted reflections of the same temptation: the urge to subordinate truth to power, image, and control. The result is an edition that reveals Arrowsmith as a novel about the moral fate of science in modern life. The Heritage Canon Philosophical Editions series pairs classic works of literature with original philosophical introductions, offering readers enduring books together with serious interpretive essays that reveal their continuing intellectual and moral power.",
+      "excerpt": "Sinclair Lewis's Arrowsmith is a novel about science, ambition, and the institutions that corrupt both. Through Martin Arrowsmith's struggle to preserve intellectual honesty...",
+      "formats": [
+        "ebook",
+        "paperback"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GRJJDHWK",
+          "url": "https://www.amazon.com/dp/B0GRJJDHWK"
+        },
+        {
+          "label": "Paperback",
+          "format": "paperback",
+          "asin": "B0GS2B371S",
+          "url": "https://www.amazon.com/dp/B0GS2B371S"
+        }
+      ]
+    },
+    {
+      "slug": "buddenbrooks",
+      "title": "Buddenbrooks",
+      "full_title": "Buddenbrooks: Philosophical Edition — Fate, Decline, and the Illusion of Self",
+      "thesis_subtitle": "Fate, Decline, and the Illusion of Self",
+      "author": "Thomas Mann",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novel",
+      "year": "1901",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/buddenbrooks.webp",
+      "description": "This philosophical edition of Buddenbrooks includes: The proud bourgeois family faces a choice: cling to tradition and instinct or embrace modern reflection and aesthetic detachment, knowing that either path risks destruction. This dilemma ignites a deeper conflict about what it means to be truly alive—whether unrestrained will fuels vitality or leads to decay. In Buddenbrooks , Thomas Mann exposes the fragile line between cultural strength and decline, where the pursuit of comfort and order threatens to stifle the human spirit itself. The novel becomes a mirror for a civilization teetering on the edge—caught between raw desire and refined introspection, between vitality and decline. It’s not an idle question; it’s a battle for the soul of Western life itself.",
+      "excerpt": "This philosophical edition of Buddenbrooks includes: The proud bourgeois family faces a choice: cling to tradition and instinct or embrace modern reflection and aesthetic...",
+      "formats": [
+        "ebook"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GR5FXGWV",
+          "url": "https://www.amazon.com/dp/B0GR5FXGWV"
+        }
+      ]
+    },
+    {
+      "slug": "death_in_venice",
+      "title": "Death in Venice",
+      "full_title": "Death in Venice: Philosophical Edition — Lust, Oil, and the Cost Paid by Children",
+      "thesis_subtitle": "Lust, Oil, and the Cost Paid by Children",
+      "author": "Thomas Mann",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novella",
+      "year": "1912",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/death_in_venice.webp",
+      "description": "Thomas Mann’s *Death in Venice* plunges us into the mind of Gustav von Aschenbach, a revered artist whose pursuit of perfection collides with the intoxicating allure of Venice. As Aschenbach grapples with an impossible choice between rigid ideals and seductive chaos, Mann masterfully exposes the fragile veneer of civilization, revealing how reason can mask a primal hunger threatening to consume everything. This is a profound exploration of the cost of desire, and the terrifying truth that human excellence may be a thin shield over an abyss. In this Heritage Canon Philosophical Edition, Daniel Shilansky’s introduction, Lust, Oil, and the Cost Paid by Children, illuminates the enduring relevance of Mann’s masterpiece. Shilansky unpacks how Aschenbach’s descent offers a chilling diagnosis of our own era, where the pursuit of beauty and order can ignite destructive forces beyond control. This edition challenges us to confront the darkness within, making *Death in Venice* not merely a story, but a reckoning for our times. The Heritage Canon Philosophical Editions series pairs classic works of literature with original philosophical introductions, offering readers enduring books together with serious interpretive essays that reveal their continuing intellectual and moral power.",
+      "excerpt": "Thomas Mann’s *Death in Venice* plunges us into the mind of Gustav von Aschenbach, a revered artist whose pursuit of perfection collides with the intoxicating allure of Venice....",
+      "formats": [
+        "ebook",
+        "paperback",
+        "hardcover"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GRJBZCL3",
+          "url": "https://www.amazon.com/dp/B0GRJBZCL3"
+        },
+        {
+          "label": "Paperback",
+          "format": "paperback",
+          "asin": "B0GS2DL415",
+          "url": "https://www.amazon.com/dp/B0GS2DL415"
+        },
+        {
+          "label": "Hardcover",
+          "format": "hardcover",
+          "asin": "B0GS2T1J4M",
+          "url": "https://www.amazon.com/dp/B0GS2T1J4M"
+        }
+      ]
+    },
+    {
+      "slug": "growth_of_the_soil",
+      "title": "Growth of the Soil",
+      "full_title": "Growth of the Soil: Philosophical Edition — What Trump, Orbán, and Marine Le Pen Owe to a Norwegian Farmer",
+      "thesis_subtitle": "What Trump, Orbán, and Marine Le Pen Owe to a Norwegian Farmer",
+      "author": "Knut Hamsun",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novel",
+      "year": "1917",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/growth_of_the_soil.webp",
+      "description": "Knut Hamsun’s Nobel Prize-winning novel, Growth of the Soil, charts the elemental journey of a man carving a life from the wilderness, driven by instinct and a profound connection to the land. This saga of rootedness and self-sufficiency reveals the seductive power of an organic myth, one that venerates the untamed soil and the individual who tames it, embodying a life untouched by modern doubt. Yet, Hamsun refuses to romanticize this vision, making visible the distance between genuine belonging and the sentimental longing that can be manipulated for power. This Heritage Canon Philosophical Edition, with a new introduction by Daniel Shilansky, unpacks the contemporary resonance of Hamsun’s work, revealing what figures like Trump, Orbán, and Marine Le Pen owe to this Norwegian farmer. Shilansky exposes how the novel’s dangerous myth—that true belonging can be reclaimed through borders and blood—has been weaponized by these leaders to rally their followers. Growth of the Soil emerges not as an endorsement, but as a prescient warning for our time. The Heritage Canon Philosophical Editions series pairs classic works of literature with original philosophical introductions, offering readers enduring books together with serious interpretive essays that reveal their continuing intellectual and moral power.",
+      "excerpt": "Knut Hamsun’s Nobel Prize-winning novel, Growth of the Soil, charts the elemental journey of a man carving a life from the wilderness, driven by instinct and a profound...",
+      "formats": [
+        "ebook",
+        "paperback",
+        "hardcover"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GRP5XN1Q",
+          "url": "https://www.amazon.com/dp/B0GRP5XN1Q"
+        },
+        {
+          "label": "Paperback",
+          "format": "paperback",
+          "asin": "B0GRZZKLHX",
+          "url": "https://www.amazon.com/dp/B0GRZZKLHX"
+        },
+        {
+          "label": "Hardcover",
+          "format": "hardcover",
+          "asin": "B0GRZMYKS6",
+          "url": "https://www.amazon.com/dp/B0GRZMYKS6"
+        }
+      ]
+    },
+    {
+      "slug": "moby_dick",
+      "title": "Moby Dick",
+      "full_title": "Moby Dick: Philosophical Edition — Reason, Obsession, and the Abyss; Or, Make The Pequod Great Again",
+      "thesis_subtitle": "Reason, Obsession, and the Abyss;\nOr, Make The Pequod Great Again",
+      "author": "Herman Melville",
+      "intro_author": "Daniel Shilansky",
+      "genre": "",
+      "year": "1851",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/moby_dick.webp",
+      "description": "When Herman Melville published Moby Dick in 1851, he entered one of the central disputes of the modern world: can reality be known, mastered, and made to answer to human will? In Captain Ahab's pursuit of the white whale, Melville transforms that question into a voyage of obsession, ambition, and ruin. The novel becomes not only an epic of the sea, but a profound test of every promise that the world can be forced to yield its hidden meaning. This Heritage Canon Philosophical Edition includes a new introduction by Daniel Shilansky, who reads Moby Dick as a devastating critique of the modern dream of mastery. Bringing Melville into conversation with science, Romanticism, tragedy, and contemporary politics, Shilansky shows why Ahab's refusal to accept limits still speaks with unsettling power in an age that confuses will with truth and treats the world's indifference as an insult to be avenged. The Heritage Canon Philosophical Editions series pairs classic works of literature with original philosophical introductions, offering readers enduring books together with serious interpretive essays that reveal their continuing intellectual and moral power.",
+      "excerpt": "When Herman Melville published Moby Dick in 1851, he entered one of the central disputes of the modern world: can reality be known, mastered, and made to answer to human will?...",
+      "formats": [
+        "ebook",
+        "paperback"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GQR6KJ1D",
+          "url": "https://www.amazon.com/dp/B0GQR6KJ1D"
+        },
+        {
+          "label": "Paperback",
+          "format": "paperback",
+          "asin": "B0GS54Y9H3",
+          "url": "https://www.amazon.com/dp/B0GS54Y9H3"
+        }
+      ]
+    },
+    {
+      "slug": "the_great_gatsby",
+      "title": "The Great Gatsby",
+      "full_title": "The Great Gatsby: Philosophical Edition — MAGA, Putin, and the Seduction of the Past",
+      "thesis_subtitle": "MAGA, Putin, and the Seduction of the Past",
+      "author": "F. Scott Fitzgerald",
+      "intro_author": "Daniel Shilansky",
+      "genre": "",
+      "year": "1925",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/the_great_gatsby.webp",
+      "description": "The Great Gatsby is one of the great American novels because it sees so clearly the beauty and danger of longing. Jay Gatsby's magnificent act of self-creation is also an act of denial: a refusal to accept time, loss, and the limits of the world. In Fitzgerald's hands, the story becomes not only a portrait of wealth and illusion, but a profound meditation on memory, ambition, and the human wish to make the past live again. Its elegance never softens its judgment. This Heritage Canon Philosophical Edition includes a new introduction by Daniel Shilansky, who places Gatsby in conversation with the modern politics of nostalgia. His essay shows how Fitzgerald's novel helps explain the enduring power of retrospective idealization, and why dreams of recovered greatness continue to shape private desire and public life. The result is an edition that reads Gatsby not as a period piece, but as a diagnosis of a recurring modern temptation. The Heritage Canon Philosophical Editions series pairs classic works of literature with original philosophical introductions, offering readers enduring books together with serious interpretive essays that reveal their continuing intellectual and moral power.",
+      "excerpt": "The Great Gatsby is one of the great American novels because it sees so clearly the beauty and danger of longing. Jay Gatsby's magnificent act of self-creation is also an act of...",
+      "formats": [
+        "ebook",
+        "paperback",
+        "hardcover"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GRJTWBL1",
+          "url": "https://www.amazon.com/dp/B0GRJTWBL1"
+        },
+        {
+          "label": "Paperback",
+          "format": "paperback",
+          "asin": "B0GRR5VRJ7",
+          "url": "https://www.amazon.com/dp/B0GRR5VRJ7"
+        },
+        {
+          "label": "Hardcover",
+          "format": "hardcover",
+          "asin": "B0GRRH6CW5",
+          "url": "https://www.amazon.com/dp/B0GRRH6CW5"
+        }
+      ]
+    },
+    {
+      "slug": "the_king_of_elflands_daughter",
+      "title": "The King of Elfland's Daughter",
+      "full_title": "The King of Elfland's Daughter: Philosophical Edition — The Illusion of Endless Desire",
+      "thesis_subtitle": "The Illusion of Endless Desire",
+      "author": "Lord Dunsany",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Fantasy",
+      "year": "1924",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/the_king_of_elflands_daughter.webp",
+      "description": "Lord Dunsany's *The King of Elfland's Daughter* is a timeless exploration of desire's limits, tracing a prince's quest for an immortal love that proves both beautiful and tragically out of reach. Elfland is no mere fantasy but a fully realized, indifferent universe, revealing the profound chasm between mortal longing and an eternal, unyielding reality. This novel powerfully asserts that some worlds demand acceptance of their distance, exposing the futility of finite desire to possess or comprehend the infinite. This Heritage Canon Philosophical Edition, with a new introduction by Daniel Shilansky, unpacks the novel's enduring wisdom on The Illusion of Endless Desire. Shilansky illuminates how Dunsany challenges our most cherished notions of fulfillment, offering a vital corrective to contemporary assumptions about human will and the nature of enchantment itself. It is an essential reading for anyone grappling with the boundaries of ambition and the true cost of longing. The Heritage Canon Philosophical Editions series pairs classic works of literature with original philosophical introductions, offering readers enduring books together with serious interpretive essays that reveal their continuing intellectual and moral power.",
+      "excerpt": "Lord Dunsany's *The King of Elfland's Daughter* is a timeless exploration of desire's limits, tracing a prince's quest for an immortal love that proves both beautiful and...",
+      "formats": [
+        "ebook",
+        "paperback",
+        "hardcover"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GQTSM4C3",
+          "url": "https://www.amazon.com/dp/B0GQTSM4C3"
+        },
+        {
+          "label": "Paperback",
+          "format": "paperback",
+          "asin": "B0GS55RLMX",
+          "url": "https://www.amazon.com/dp/B0GS55RLMX"
+        },
+        {
+          "label": "Hardcover",
+          "format": "hardcover",
+          "asin": "B0GS5JJYP7",
+          "url": "https://www.amazon.com/dp/B0GS5JJYP7"
+        }
+      ]
+    },
+    {
+      "slug": "the_wendigo",
+      "title": "The Wendigo",
+      "full_title": "The Wendigo: Philosophical Edition — The Loss of Self and the Call of the Inhuman",
+      "thesis_subtitle": "The Loss of Self and the Call of the Inhuman",
+      "author": "Algernon Blackwood",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Horror",
+      "year": "1910",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/the_wendigo.webp",
+      "description": "In Algernon Blackwood’s *The Wendigo*, a man pursues a primal call into the Canadian wilderness, only to find his very sense of self utterly redirected, his mind pulled irrevocably away from the human. This is not a tale of nature overwhelming or terrifying, but of an encounter that rewires identity itself, challenging the foundations of our understanding of nature’s power and our place within it. It reveals a terrifying truth: some experiences refuse to be processed, leaving no room for the human subject as we know it. This Heritage Canon Philosophical Edition, with a new introduction by Daniel Shilansky, explores *The Wendigo* as a profound meditation on the loss of self and the call of the inhuman. Shilansky unpacks Blackwood’s unsettling vision, revealing how the story cuts through illusions of control and understanding, exposing a raw, unassimilable force lurking beyond reason. The result is an edition that reads Blackwood not merely as a master of the uncanny, but as a prophet of encounters that change us forever, without mercy or resolution. The Heritage Canon Philosophical Editions series pairs classic works of literature with original philosophical introductions, offering readers enduring books together with serious interpretive essays that reveal their continuing intellectual and moral power.",
+      "excerpt": "In Algernon Blackwood’s *The Wendigo*, a man pursues a primal call into the Canadian wilderness, only to find his very sense of self utterly redirected, his mind pulled...",
+      "formats": [
+        "ebook",
+        "paperback",
+        "hardcover"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GQQJJ4NZ",
+          "url": "https://www.amazon.com/dp/B0GQQJJ4NZ"
+        },
+        {
+          "label": "Paperback",
+          "format": "paperback",
+          "asin": "B0GS5B9SN3",
+          "url": "https://www.amazon.com/dp/B0GS5B9SN3"
+        },
+        {
+          "label": "Hardcover",
+          "format": "hardcover",
+          "asin": "B0GS55FGP3",
+          "url": "https://www.amazon.com/dp/B0GS55FGP3"
+        }
+      ]
+    },
+    {
+      "slug": "the_willows",
+      "title": "The Willows",
+      "full_title": "The Willows: Philosophical Edition — The Limits of the Human Will",
+      "thesis_subtitle": "The Limits of the Human Will",
+      "author": "Algernon Blackwood",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Horror",
+      "year": "1907",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/the_willows.webp",
+      "description": "In Algernon Blackwood’s The Willows, two men venture into a landscape that defies human comprehension, their rational minds buckling under the weight of an ancient, unnameable intelligence. This is a story that confronts the deepest human need for control, exposing the terrifying truth that some forces simply exist beyond our reach, challenging the very foundations of certainty. It asks whether knowledge can ever truly conquer the unknown, or if some truths are meant to remain hidden, forever whispering at the edge of our perception. This Heritage Canon Philosophical Edition, with an illuminating introduction by Daniel Shilansky, explores The Willows as a profound meditation on the limits of the human will. Shilansky unpacks Blackwood’s masterful descent into the uncanny, revealing how the story’s enduring power lies in its unflinching portrayal of humanity’s fragile place in a universe far grander and more indifferent than we dare to imagine. The Heritage Canon Philosophical Editions series pairs classic works of literature with original philosophical introductions, offering readers enduring books together with serious interpretive essays that reveal their continuing intellectual and moral power.",
+      "excerpt": "In Algernon Blackwood’s The Willows, two men venture into a landscape that defies human comprehension, their rational minds buckling under the weight of an ancient, unnameable...",
+      "formats": [
+        "ebook",
+        "paperback",
+        "hardcover"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GS33KZJX",
+          "url": "https://www.amazon.com/dp/B0GS33KZJX"
+        },
+        {
+          "label": "Paperback",
+          "format": "paperback",
+          "asin": "B0GS5867JM",
+          "url": "https://www.amazon.com/dp/B0GS5867JM"
+        },
+        {
+          "label": "Hardcover",
+          "format": "hardcover",
+          "asin": "B0GS4WBT9W",
+          "url": "https://www.amazon.com/dp/B0GS4WBT9W"
+        }
+      ]
+    }
+  ]
+}
