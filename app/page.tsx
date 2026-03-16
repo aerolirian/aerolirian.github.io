@@ -46,7 +46,7 @@ export default function HomePage() {
             Now in print
           </p>
           <h1 className="mt-4 max-w-[11ch] font-serif text-4xl leading-[0.9] tracking-[-0.04em] text-white sm:mt-5 sm:text-6xl md:text-7xl">
-            Philosophical editions of classic literature.
+            Philosophical editions of classic literature
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-300 sm:mt-6 sm:text-lg">
             Every classic was written into a world of arguments — about
