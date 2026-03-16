@@ -59,26 +59,6 @@ export default function HomePage() {
               Meet the editor
             </Link>
           </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm">
-              <p className="text-[0.68rem] uppercase tracking-[0.22em] text-zinc-500">
-                Available editions
-              </p>
-              <p className="mt-3 font-serif text-4xl text-white">{books.length}</p>
-            </div>
-            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm">
-              <p className="text-[0.68rem] uppercase tracking-[0.22em] text-zinc-500">
-                Authors
-              </p>
-              <p className="mt-3 font-serif text-4xl text-white">{authors.length}</p>
-            </div>
-            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm">
-              <p className="text-[0.68rem] uppercase tracking-[0.22em] text-zinc-500">
-                Formats
-              </p>
-              <p className="mt-3 font-serif text-4xl text-white">{formats.length}</p>
-            </div>
-          </div>
         </div>
 
         <div className="space-y-4 lg:hidden">
