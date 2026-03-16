@@ -111,7 +111,60 @@ def normalize_site_description(text: str) -> str:
         text,
         flags=re.I,
     )
+    text = re.sub(
+        r'\s*The Heritage Canon Philosophical Editions series pairs classic works of literature.*$',
+        '',
+        text,
+        flags=re.I,
+    )
     return text.strip()
+
+
+def split_sentences(text: str) -> list[str]:
+    return [part.strip() for part in re.split(r'(?<=[.!?])\s+(?=[A-Z“"])', text) if part.strip()]
+
+
+def chunk_sentences(text: str, target_chars: int = 360) -> list[str]:
+    sentences = split_sentences(text)
+    if len(sentences) <= 2:
+        return [' '.join(sentences).strip()] if sentences else []
+
+    paragraphs: list[str] = []
+    current: list[str] = []
+    current_len = 0
+
+    for sentence in sentences:
+        projected = current_len + (1 if current else 0) + len(sentence)
+        if current and projected > target_chars and len(current) >= 2:
+            paragraphs.append(' '.join(current).strip())
+            current = [sentence]
+            current_len = len(sentence)
+        else:
+            current.append(sentence)
+            current_len = projected
+
+    if current:
+        paragraphs.append(' '.join(current).strip())
+
+    if len(paragraphs) == 1 and len(sentences) >= 4:
+        midpoint = len(sentences) // 2
+        return [
+            ' '.join(sentences[:midpoint]).strip(),
+            ' '.join(sentences[midpoint:]).strip(),
+        ]
+
+    return paragraphs
+
+
+def paragraphize_description(text: str) -> str:
+    marker = 'This Heritage Canon Philosophical Edition includes'
+    if marker in text:
+        lead, intro = text.split(marker, 1)
+        paragraphs = chunk_sentences(lead.strip())
+        intro_text = f'{marker} {intro.strip()}'.strip()
+        paragraphs.extend(chunk_sentences(intro_text))
+        return '\n\n'.join(part for part in paragraphs if part)
+    return '\n\n'.join(chunk_sentences(text))
 
 
 def read_description(book_dir: Path) -> tuple[str, str]:
@@ -138,8 +191,9 @@ def read_description(book_dir: Path) -> tuple[str, str]:
     if not text:
         text = 'A Heritage Canon philosophical edition.'
     plain = normalize_site_description(text)
-    excerpt = shorten(plain, width=180, placeholder='...')
-    return plain, excerpt
+    paragraphized = paragraphize_description(plain)
+    excerpt = shorten(clean_text(paragraphized), width=180, placeholder='...')
+    return paragraphized, excerpt
 
 
 def formats(book_dir: Path, status: dict) -> list[str]:
