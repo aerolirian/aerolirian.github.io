@@ -2,18 +2,37 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 
 import { BookTile } from '@/components/book-tile'
-import { EDITOR, getFeaturedBooks } from '@/lib/catalog'
+import { JsonLd } from '@/components/json-ld'
+import { EDITOR, SITE, getFeaturedBooks } from '@/lib/catalog'
 
 export const metadata: Metadata = {
   title: 'Daniel Shilansky',
   description: 'Editor of Heritage Canon.',
+  alternates: {
+    canonical: `${SITE.url}/editor/${EDITOR.slug}`,
+  },
 }
 
 export default function EditorPage() {
   const books = getFeaturedBooks(6)
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: EDITOR.name,
+    image: `${SITE.url}${EDITOR.image}`,
+    jobTitle: EDITOR.role,
+    alumniOf: 'Tel Aviv University',
+    worksFor: {
+      '@type': 'Organization',
+      name: SITE.name,
+      url: SITE.url,
+    },
+    url: `${SITE.url}/editor/${EDITOR.slug}`,
+  }
 
   return (
     <main className="mx-auto w-full max-w-7xl px-5 pb-20 pt-16 lg:px-8">
+      <JsonLd data={jsonLd} />
       <section className="grid gap-8 lg:grid-cols-[20rem_minmax(0,1fr)]">
         <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]">
           <Image

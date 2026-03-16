@@ -1,15 +1,45 @@
 import type { Metadata } from 'next'
 
+import { JsonLd } from '@/components/json-ld'
 import { SITE } from '@/lib/catalog'
 
 export const metadata: Metadata = {
   title: 'About',
   description: SITE.description,
+  alternates: {
+    canonical: `${SITE.url}/about`,
+  },
 }
 
 export default function AboutPage() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'About Heritage Canon',
+    url: `${SITE.url}/about`,
+    description: SITE.description,
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: SITE.url,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'About',
+          item: `${SITE.url}/about`,
+        },
+      ],
+    },
+  }
+
   return (
     <main className="mx-auto w-full max-w-5xl px-5 pb-20 pt-16 lg:px-8">
+      <JsonLd data={jsonLd} />
       <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
         About
       </p>

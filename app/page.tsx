@@ -2,16 +2,36 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { CatalogBrowser } from '@/components/catalog-browser'
+import { JsonLd } from '@/components/json-ld'
 import { getAuthors, getBooks, getFeaturedBooks, getFormats } from '@/lib/catalog'
+import { SITE } from '@/lib/catalog'
 
 export default function HomePage() {
   const books = getBooks()
   const featured = getFeaturedBooks()
   const authors = getAuthors(books)
   const formats = getFormats(books)
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Heritage Canon catalog',
+    url: SITE.url,
+    description: SITE.description,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: books.length,
+      itemListElement: books.slice(0, 12).map((book, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `${SITE.url}/books/${book.slug}`,
+        name: book.title,
+      })),
+    },
+  }
 
   return (
     <main>
+      <JsonLd data={jsonLd} />
       <section className="mx-auto grid w-full max-w-7xl gap-10 px-5 pb-16 pt-16 lg:grid-cols-[1.05fr_minmax(0,0.95fr)] lg:px-8 lg:pt-20">
         <div className="max-w-3xl">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">

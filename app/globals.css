@@ -35,3 +35,35 @@
     font-family: var(--font-sans), sans-serif;
   }
 }
+
+#cc-main {
+  --cc-bg: #0d1118;
+  --cc-primary-color: #f3ede2;
+  --cc-secondary-color: #c4c7cf;
+  --cc-btn-primary-bg: #d0a85c;
+  --cc-btn-primary-color: #111318;
+  --cc-btn-primary-border-color: #d0a85c;
+  --cc-btn-primary-hover-bg: #e1bb73;
+  --cc-btn-primary-hover-color: #111318;
+  --cc-btn-primary-hover-border-color: #e1bb73;
+  --cc-btn-secondary-bg: transparent;
+  --cc-btn-secondary-color: #f3ede2;
+  --cc-btn-secondary-border-color: rgba(255, 255, 255, 0.16);
+  --cc-btn-secondary-hover-bg: rgba(255, 255, 255, 0.06);
+  --cc-btn-secondary-hover-color: #f3ede2;
+  --cc-btn-secondary-hover-border-color: rgba(255, 255, 255, 0.24);
+  --cc-border-radius: 1.25rem;
+  --cc-font-family: var(--font-sans), sans-serif;
+}
+
+#cc-main .cm,
+#cc-main .pm {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 120px rgba(0, 0, 0, 0.4);
+}
+
+#cc-main .cm__title,
+#cc-main .pm__title {
+  font-family: var(--font-serif), serif;
+  letter-spacing: -0.02em;
+}

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { BookTile } from '@/components/book-tile'
+import { JsonLd } from '@/components/json-ld'
 import { EDITOR, SITE, getBook, getBooks, getRelatedBooks } from '@/lib/catalog'
 
 type BookPageProps = {
@@ -23,6 +24,9 @@ export async function generateMetadata({
   return {
     title: book.title,
     description: book.description,
+    alternates: {
+      canonical: `${SITE.url}/books/${book.slug}`,
+    },
     openGraph: {
       title: book.full_title || book.title,
       description: book.description,
@@ -37,9 +41,59 @@ export default async function BookPage({ params }: BookPageProps) {
   const book = getBook(slug)
   if (!book) notFound()
   const related = getRelatedBooks(slug)
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Catalog',
+        item: SITE.url,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: book.title,
+        item: `${SITE.url}/books/${book.slug}`,
+      },
+    ],
+  }
+  const bookJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Book',
+    name: book.title,
+    alternateName: book.full_title || undefined,
+    image: [`${SITE.url}${book.cover_out}`, `${SITE.url}${book.art_out || book.cover_out}`],
+    description: book.description,
+    author: {
+      '@type': 'Person',
+      name: book.author,
+    },
+    editor: {
+      '@type': 'Person',
+      name: book.intro_author,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: book.publisher,
+      url: SITE.url,
+    },
+    datePublished: book.year || undefined,
+    bookEdition: 'Philosophical Edition',
+    url: `${SITE.url}/books/${book.slug}`,
+    offers: book.buy_links.map((link) => ({
+      '@type': 'Offer',
+      category: link.label,
+      priceCurrency: 'USD',
+      url: link.url,
+    })),
+  }
 
   return (
     <main className="pb-20">
+      <JsonLd data={breadcrumbJsonLd} />
+      <JsonLd data={bookJsonLd} />
       <section className="relative overflow-hidden border-b border-white/10">
         <div className="absolute inset-0">
           <Image
