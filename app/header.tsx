@@ -23,7 +23,7 @@ export function Header() {
           </div>
         </Link>
         <nav className="flex w-full items-center justify-between gap-3 text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-zinc-400 sm:w-auto sm:justify-end sm:gap-5 sm:text-[0.7rem] sm:tracking-[0.22em]">
-          <Link href="/">Catalog</Link>
+          <Link href="/#catalog">Catalog</Link>
           <Link href="/editor/daniel-shilansky">Editor</Link>
           <Link href="/about">About</Link>
         </nav>
