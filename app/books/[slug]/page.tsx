@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 
 import { BookTile } from '@/components/book-tile'
 import { JsonLd } from '@/components/json-ld'
+import { LocalizedBuyLinks } from '@/components/localized-buy-links'
 import { EDITOR, SITE, getBook, getBooks, getRelatedBooks } from '@/lib/catalog'
 
 type BookPageProps = {
@@ -131,19 +132,7 @@ export default async function BookPage({ params }: BookPageProps) {
             <p className="mt-4 text-sm uppercase tracking-[0.22em] text-zinc-500">
               {book.author}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              {book.buy_links.map((link) => (
-                <a
-                  key={link.format}
-                  href={link.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full border border-white/10 bg-white px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#111318] transition hover:bg-[#d0a85c]"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
+            <LocalizedBuyLinks links={book.buy_links} />
             <div className="mt-8 grid gap-4 border-t border-white/10 pt-6 text-sm text-zinc-300 md:grid-cols-2">
               <div>
                 <p className="text-[0.68rem] uppercase tracking-[0.2em] text-zinc-500">

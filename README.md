@@ -16,6 +16,7 @@ Next.js site for `https://heritagecanon.com`.
 - display subtitle comes from `thesis_subtitle`
 - metadata can still use `full_title`
 - art cards use the centered `cover_image` asset
+- book buy links localize to the reader's Amazon storefront when possible
 
 ## Local workflow
 
