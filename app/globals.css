@@ -157,6 +157,10 @@ body.theme-paper-light .book-tile-overlay {
     rgba(28, 18, 10, 0) 100%
   );
 }
+body.theme-paper-light .hero-card-author,
+body.theme-paper-light .book-tile-author {
+  color: #d0a85c;
+}
 body.theme-paper-light .hero-quote-card {
   border: 0;
   border-top: 1px solid rgba(73, 55, 29, 0.14);

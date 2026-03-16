@@ -29,7 +29,7 @@ export function BookTile({ book, compact = false }: BookTileProps) {
           </div>
           <div className="absolute inset-x-5 bottom-5 flex items-end gap-4">
             <div>
-              <p className="drop-shadow-[0_1px_6px_rgba(0,0,0,0.95)] text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-[#d0a85c]">
+              <p className="book-tile-author drop-shadow-[0_1px_6px_rgba(0,0,0,0.95)] text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-[#d0a85c]">
                 {book.author}
               </p>
             </div>
