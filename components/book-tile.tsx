@@ -22,10 +22,10 @@ export function BookTile({ book, compact = false }: BookTileProps) {
             className="object-cover transition duration-500 group-hover:scale-[1.03]"
             sizes={compact ? '(max-width: 768px) 100vw, 30vw' : '(max-width: 768px) 100vw, 33vw'}
           />
-          <div className="absolute inset-x-0 bottom-0 h-[20%] bg-gradient-to-t from-[#090b10] to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-[28%] bg-gradient-to-t from-[#090b10] via-[#090b10]/72 to-transparent" />
           <div className="absolute inset-x-5 bottom-5 flex items-end gap-4">
             <div>
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-[#d0a85c]">
+              <p className="drop-shadow-[0_1px_6px_rgba(0,0,0,0.95)] text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-[#d0a85c]">
                 {book.author}
               </p>
             </div>
