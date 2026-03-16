@@ -80,7 +80,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-6 shadow-[0_30px_120px_rgba(0,0,0,0.24)]">
+        <div className="about-principles-shell rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-6 shadow-[0_30px_120px_rgba(0,0,0,0.24)]">
           <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#d0a85c]">
             What defines the series
           </p>
@@ -88,7 +88,7 @@ export default function AboutPage() {
             {principles.map((item) => (
               <div
                 key={item.title}
-                className="rounded-[1.5rem] border border-white/8 bg-[#0b0f15]/75 p-5"
+                className="about-principle-card rounded-[1.5rem] border border-white/8 bg-[#0b0f15]/75 p-5"
               >
                 <h2 className="font-serif text-2xl leading-tight text-white">
                   {item.title}
@@ -103,7 +103,7 @@ export default function AboutPage() {
       </section>
 
       <section className="mx-auto grid w-full max-w-7xl gap-6 px-4 pb-14 sm:px-5 lg:grid-cols-[minmax(0,1fr)_22rem] lg:px-8">
-        <div className="rounded-[2rem] border border-white/10 bg-[#0c1016] p-6 sm:p-8">
+        <div className="about-process-card rounded-[2rem] border border-white/10 bg-[#0c1016] p-6 sm:p-8">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
             How the editions work
           </p>
@@ -119,7 +119,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <aside className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6">
+        <aside className="about-side-card rounded-[2rem] border border-white/10 bg-white/[0.03] p-6">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
             Continue
           </p>

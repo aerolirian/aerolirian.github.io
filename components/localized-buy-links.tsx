@@ -43,7 +43,7 @@ export function LocalizedBuyLinks({ links }: LocalizedBuyLinksProps) {
             target={domain ? '_blank' : undefined}
             rel={domain ? 'noreferrer' : undefined}
             aria-disabled={!domain}
-            className="rounded-full border border-white/10 bg-white px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#111318] transition hover:bg-[#d0a85c]"
+            className="w-full rounded-full border border-white/10 bg-white px-4 py-3 text-center text-sm font-semibold uppercase tracking-[0.18em] text-[#111318] transition hover:bg-[#d0a85c] sm:w-auto"
           >
             {link.label}
           </a>

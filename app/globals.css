@@ -67,3 +67,138 @@
   font-family: var(--font-serif), serif;
   letter-spacing: -0.02em;
 }
+
+
+body.theme-paper-light {
+  color-scheme: light;
+  background:
+    radial-gradient(circle at top, rgba(143, 106, 42, 0.14), transparent 28%),
+    radial-gradient(circle at 84% 10%, rgba(87, 109, 138, 0.12), transparent 22%),
+    #f5efe5;
+}
+body.theme-paper-light * {
+  border-color: rgba(53, 41, 27, 0.12);
+}
+body.theme-paper-light [class*='text-white'],
+body.theme-paper-light [class*='text-zinc-100'] { color: #1f1913; }
+body.theme-paper-light .absolute [class*='text-white'] { color: #fffaf2; }
+body.theme-paper-light .absolute [class*='text-zinc-200'] { color: #f3ece1; }
+body.theme-paper-light [class*='text-zinc-200'] { color: #3e342a; }
+body.theme-paper-light [class*='text-zinc-300'] { color: #5a4d40; }
+body.theme-paper-light [class*='text-zinc-400'] { color: #6e5d4c; }
+body.theme-paper-light [class*='text-zinc-500'] { color: #7a6958; }
+body.theme-paper-light [class*='text-[#d0a85c]'] { color: #7b5b2a; }
+body.theme-paper-light [class*='bg-white/[0.03]'] { background: rgba(255, 250, 242, 0.82); }
+body.theme-paper-light [class*='bg-white/[0.04]'] { background: rgba(255, 250, 242, 0.9); }
+body.theme-paper-light [class*='bg-white/[0.05]'] { background: rgba(255, 250, 242, 0.94); }
+body.theme-paper-light [class*='bg-white/[0.06]'] { background: rgba(255, 250, 242, 0.96); }
+body.theme-paper-light [class*='bg-[#0c1016]'] { background: #ede2d1; }
+body.theme-paper-light [class*='bg-[#0d1016]'] { background: #f8f1e6; }
+body.theme-paper-light [class*='bg-[#0a0d13]/70'] { background: rgba(250, 244, 235, 0.88); }
+body.theme-paper-light [class*='bg-[#07090d]/80'] { background: rgba(245, 239, 229, 0.94); }
+body.theme-paper-light [class*='bg-[#d0a85c]'] { background: #9e7631; }
+body.theme-paper-light [class*='hover:bg-[#e1bb73]']:hover { background: #b58b41; }
+body.theme-paper-light [class*='focus:border-[#d0a85c]/50'],
+body.theme-paper-light [class*='border-[#d0a85c]/50'] { border-color: rgba(158, 118, 49, 0.4); }
+body.theme-paper-light .site-mark { border-radius: 9999px; background: #16120e; padding: 0.35rem; }
+body.theme-paper-light .site-header {
+  border-bottom-color: rgba(53, 41, 27, 0.1);
+  box-shadow: 0 8px 28px rgba(66, 49, 25, 0.05);
+}
+body.theme-paper-light .hero-feature-card,
+body.theme-paper-light .book-tile,
+body.theme-paper-light .catalog-sidebar,
+body.theme-paper-light .catalog-mobile-tools,
+body.theme-paper-light .product-hero-panel,
+body.theme-paper-light .product-editor-card,
+body.theme-paper-light .about-principles-shell,
+body.theme-paper-light .about-process-card,
+body.theme-paper-light .about-side-card,
+body.theme-paper-light .editor-photo-card,
+body.theme-paper-light .editor-copy-card {
+  border-color: rgba(73, 55, 29, 0.1);
+  box-shadow:
+    0 18px 46px rgba(86, 64, 31, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+body.theme-paper-light .hero-feature-card,
+body.theme-paper-light .book-tile {
+  background: rgba(255, 250, 243, 0.72);
+}
+body.theme-paper-light .hero-feature-card {
+  padding: 0.625rem;
+  border-radius: 1.6rem;
+}
+body.theme-paper-light .hero-feature-media {
+  border-radius: 1.2rem;
+}
+body.theme-paper-light .hero-feature-overlay,
+body.theme-paper-light .book-tile-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(28, 18, 10, 0.86) 0%,
+    rgba(28, 18, 10, 0.45) 48%,
+    rgba(28, 18, 10, 0) 100%
+  );
+}
+body.theme-paper-light .hero-quote-card {
+  border: 0;
+  border-top: 1px solid rgba(73, 55, 29, 0.14);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 1.25rem 0 0;
+}
+body.theme-paper-light .hero-quote-card p:last-child {
+  max-width: 34ch;
+  font-style: italic;
+  line-height: 1.7;
+}
+body.theme-paper-light .catalog-sidebar,
+body.theme-paper-light .catalog-mobile-tools,
+body.theme-paper-light .about-principles-shell,
+body.theme-paper-light .about-process-card,
+body.theme-paper-light .about-side-card,
+body.theme-paper-light .editor-photo-card,
+body.theme-paper-light .editor-copy-card {
+  background: rgba(255, 250, 243, 0.74);
+}
+body.theme-paper-light .about-principle-card {
+  border-color: rgba(73, 55, 29, 0.08);
+  background: rgba(255, 248, 238, 0.68);
+}
+body.theme-paper-light .product-hero-section {
+  border-bottom-color: rgba(73, 55, 29, 0.1);
+}
+body.theme-paper-light .product-hero-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(250, 243, 234, 0.18),
+    rgba(54, 37, 18, 0.46) 34%,
+    rgba(245, 239, 229, 0.88) 78%,
+    #f5efe5
+  );
+}
+body.theme-paper-light .product-cover-frame {
+  border-color: rgba(73, 55, 29, 0.12);
+  background: rgba(255, 251, 245, 0.52);
+  padding: 0.6rem;
+  box-shadow:
+    0 24px 70px rgba(75, 53, 24, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+body.theme-paper-light .product-hero-panel,
+body.theme-paper-light .product-editor-card {
+  background: rgba(255, 250, 243, 0.78);
+}
+body.theme-paper-light .book-tile {
+  border-radius: 1.5rem;
+}
+body.theme-paper-light .book-tile-media {
+  border-bottom: 1px solid rgba(73, 55, 29, 0.08);
+}
+body.theme-paper-light .format-chip {
+  background: rgba(255, 248, 238, 0.86);
+}
+body.theme-paper-light ::selection { background: rgba(158, 118, 49, 0.22); color: #1f1913; }
+body.theme-paper-light #cc-main { --cc-bg: #fff9f0; --cc-primary-color: #241b12; --cc-secondary-color: #5e5448; --cc-btn-primary-bg: #9e7631; --cc-btn-primary-color: #111318; --cc-btn-primary-border-color: #9e7631; --cc-btn-primary-hover-bg: #b58b41; --cc-btn-primary-hover-color: #111318; --cc-btn-primary-hover-border-color: #b58b41; --cc-btn-secondary-color: #241b12; --cc-btn-secondary-border-color: rgba(36, 27, 18, 0.16); --cc-btn-secondary-hover-bg: rgba(36, 27, 18, 0.04); }

@@ -75,9 +75,9 @@ export default function HomePage() {
               <div key={book.slug} className="space-y-3">
                 <Link
                   href={`/books/${book.slug}`}
-                  className="group relative block overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 shadow-[0_30px_120px_rgba(0,0,0,0.35)]"
+                  className="hero-feature-card group relative block overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 shadow-[0_30px_120px_rgba(0,0,0,0.35)]"
                 >
-                  <div className="relative min-h-[19rem] overflow-hidden rounded-[1.35rem]">
+                  <div className="hero-feature-media relative min-h-[19rem] overflow-hidden rounded-[1.35rem]">
                     <Image
                       src={book.art_out || book.cover_out}
                       alt={book.title}
@@ -85,7 +85,7 @@ export default function HomePage() {
                       className="object-cover transition duration-500 group-hover:scale-[1.03]"
                       sizes="100vw"
                     />
-                    <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-[#090b10] via-[#090b10]/72 to-transparent" />
+                    <div className="hero-feature-overlay absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-[#090b10] via-[#090b10]/72 to-transparent" />
                     <div className="absolute inset-x-5 bottom-5">
                       <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#d0a85c] drop-shadow-[0_1px_6px_rgba(0,0,0,0.95)]">
                         {book.author}
@@ -99,7 +99,7 @@ export default function HomePage() {
                     </div>
                   </div>
                 </Link>
-                <div className="rounded-[1.75rem] border border-white/10 bg-[#0c1016] px-5 py-5 text-base leading-relaxed text-zinc-200">
+                <div className="hero-quote-card rounded-[1.75rem] border border-white/10 bg-[#0c1016] px-5 py-5 text-base leading-relaxed text-zinc-200">
                   <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#d0a85c]">
                     {book.title}
                   </p>
@@ -115,11 +115,11 @@ export default function HomePage() {
             <Link
               key={book.slug}
               href={`/books/${book.slug}`}
-              className={`group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 shadow-[0_30px_120px_rgba(0,0,0,0.35)] ${
+              className={`hero-feature-card group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 shadow-[0_30px_120px_rgba(0,0,0,0.35)] ${
                 index === 0 ? 'lg:col-span-2' : ''
               }`}
             >
-              <div className="relative min-h-[18rem] overflow-hidden rounded-[1.35rem] sm:min-h-[16rem]">
+              <div className="hero-feature-media relative min-h-[18rem] overflow-hidden rounded-[1.35rem] sm:min-h-[16rem]">
                 <Image
                   src={book.art_out || book.cover_out}
                   alt={book.title}
@@ -127,7 +127,7 @@ export default function HomePage() {
                   className="object-cover transition duration-500 group-hover:scale-[1.03]"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-[#090b10] via-[#090b10]/72 to-transparent" />
+                <div className="hero-feature-overlay absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-[#090b10] via-[#090b10]/72 to-transparent" />
                 <div className="absolute inset-x-5 bottom-5">
                   <div className="max-w-[18rem]">
                     <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#d0a85c] drop-shadow-[0_1px_6px_rgba(0,0,0,0.95)]">
@@ -151,7 +151,7 @@ export default function HomePage() {
         {featured.map((book) => (
           <div
             key={book.slug}
-            className="rounded-[1.75rem] border border-white/10 bg-[#0c1016] px-5 py-5 text-base leading-relaxed text-zinc-200 sm:py-6 sm:text-lg"
+            className="hero-quote-card rounded-[1.75rem] border border-white/10 bg-[#0c1016] px-5 py-5 text-base leading-relaxed text-zinc-200 sm:py-6 sm:text-lg"
           >
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#d0a85c]">
               {book.title}

@@ -34,7 +34,7 @@ export default function EditorPage() {
     <main className="mx-auto w-full max-w-7xl px-4 pb-20 pt-12 sm:px-5 sm:pt-16 lg:px-8">
       <JsonLd data={jsonLd} />
       <section className="grid gap-8 lg:grid-cols-[15rem_minmax(0,1fr)] lg:items-start">
-        <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] lg:mx-0 lg:max-w-none">
+        <div className="editor-photo-card relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] lg:mx-0 lg:max-w-none">
           <Image
             src={EDITOR.image}
             alt={EDITOR.name}
@@ -43,7 +43,7 @@ export default function EditorPage() {
             sizes="(max-width: 1024px) 100vw, 15rem"
           />
         </div>
-        <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 lg:p-8">
+        <div className="editor-copy-card rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 lg:p-8">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
             Series editor
           </p>

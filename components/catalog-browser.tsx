@@ -41,7 +41,7 @@ export function CatalogBrowser({
 
   return (
     <div className="grid gap-8 lg:grid-cols-[18rem_minmax(0,1fr)]">
-      <aside className="hidden top-28 h-fit rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm lg:sticky lg:block">
+      <aside className="catalog-sidebar hidden top-28 h-fit rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm lg:sticky lg:block">
         <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[#d0a85c]">
           Browse
         </p>
@@ -123,7 +123,7 @@ export function CatalogBrowser({
             </p>
           </div>
         </div>
-        <div className="mb-5 rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-4 lg:hidden">
+        <div className="catalog-mobile-tools mb-5 rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-4 lg:hidden">
           <div className="flex items-center justify-between gap-4">
             <div>
               <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-zinc-500">

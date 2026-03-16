@@ -95,7 +95,7 @@ export default async function BookPage({ params }: BookPageProps) {
     <main className="pb-20">
       <JsonLd data={breadcrumbJsonLd} />
       <JsonLd data={bookJsonLd} />
-      <section className="relative overflow-hidden border-b border-white/10">
+      <section className="product-hero-section relative overflow-hidden border-b border-white/10">
         <div className="absolute inset-0">
           <Image
             src={book.art_out || book.cover_out}
@@ -105,10 +105,10 @@ export default async function BookPage({ params }: BookPageProps) {
             sizes="100vw"
             priority
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,9,13,0.2),rgba(7,9,13,0.84)_30%,#07090d)]" />
+          <div className="product-hero-overlay absolute inset-0 bg-[linear-gradient(180deg,rgba(7,9,13,0.2),rgba(7,9,13,0.84)_30%,#07090d)]" />
         </div>
         <div className="relative mx-auto grid w-full max-w-7xl gap-6 px-4 py-12 sm:px-5 sm:py-16 lg:grid-cols-[20rem_minmax(0,1fr)] lg:items-start lg:px-8 lg:py-20">
-          <div className="mx-auto w-full max-w-xs self-start overflow-hidden rounded-[2rem] border border-white/10 shadow-[0_30px_120px_rgba(0,0,0,0.4)]">
+          <div className="product-cover-frame mx-auto w-full max-w-xs self-start overflow-hidden rounded-[2rem] border border-white/10 shadow-[0_30px_120px_rgba(0,0,0,0.4)]">
             <Image
               src={book.cover_out}
               alt={`Cover of ${book.title}`}
@@ -119,7 +119,7 @@ export default async function BookPage({ params }: BookPageProps) {
               priority
             />
           </div>
-          <div className="rounded-[2rem] border border-white/10 bg-[#0a0d13]/70 p-5 backdrop-blur-xl sm:p-6 lg:p-8">
+          <div className="product-hero-panel rounded-[2rem] border border-white/10 bg-[#0a0d13]/70 p-5 backdrop-blur-xl sm:p-6 lg:p-8">
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
               Philosophical edition
             </p>
@@ -180,7 +180,7 @@ export default async function BookPage({ params }: BookPageProps) {
               ))}
           </div>
         </div>
-        <aside className="h-fit rounded-[2rem] border border-white/10 bg-white/[0.03] p-6">
+        <aside className="product-editor-card h-fit rounded-[2rem] border border-white/10 bg-white/[0.03] p-6">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
             Editor
           </p>

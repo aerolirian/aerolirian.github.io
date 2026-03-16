@@ -12,10 +12,10 @@ export function BookTile({ book, compact = false }: BookTileProps) {
   const art = book.art_out || book.cover_out
 
   return (
-    <article className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.03] shadow-[0_20px_80px_rgba(0,0,0,0.25)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#d0a85c]/35 hover:shadow-[0_30px_100px_rgba(0,0,0,0.38)]">
+    <article className="book-tile group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.03] shadow-[0_20px_80px_rgba(0,0,0,0.25)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#d0a85c]/35 hover:shadow-[0_30px_100px_rgba(0,0,0,0.38)]">
       <Link href={`/books/${book.slug}`} className="block">
         <div
-          className={`relative isolate overflow-hidden [transform:translateZ(0)] ${compact ? 'h-40' : 'h-48 sm:h-52'}`}
+          className={`book-tile-media relative isolate overflow-hidden [transform:translateZ(0)] ${compact ? 'h-40' : 'h-48 sm:h-52'}`}
         >
           <div className="absolute inset-[-2px] transform-gpu [backface-visibility:hidden] transition duration-500 will-change-transform group-hover:scale-[1.03]">
             <Image
@@ -25,7 +25,7 @@ export function BookTile({ book, compact = false }: BookTileProps) {
               className="object-cover object-[center_22%]"
               sizes={compact ? '(max-width: 768px) 100vw, 30vw' : '(max-width: 768px) 100vw, 33vw'}
             />
-            <div className="absolute inset-x-0 bottom-0 h-[28%] bg-gradient-to-t from-[#090b10] via-[#090b10]/72 to-transparent" />
+            <div className="book-tile-overlay absolute inset-x-0 bottom-0 h-[28%] bg-gradient-to-t from-[#090b10] via-[#090b10]/72 to-transparent" />
           </div>
           <div className="absolute inset-x-5 bottom-5 flex items-end gap-4">
             <div>
@@ -48,7 +48,7 @@ export function BookTile({ book, compact = false }: BookTileProps) {
             {book.formats.map((format) => (
               <span
                 key={format}
-                className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-zinc-300"
+                className="format-chip rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-zinc-300"
               >
                 {format}
               </span>
