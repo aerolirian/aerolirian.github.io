@@ -9,7 +9,7 @@ type BookTileProps = {
 }
 
 export function BookTile({ book, compact = false }: BookTileProps) {
-  const art = book.catalog_art_out || book.art_out || book.cover_out
+  const art = book.art_out || book.cover_out
 
   return (
     <article className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.03] shadow-[0_20px_80px_rgba(0,0,0,0.25)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#d0a85c]/35 hover:shadow-[0_30px_100px_rgba(0,0,0,0.38)]">
@@ -22,7 +22,7 @@ export function BookTile({ book, compact = false }: BookTileProps) {
               src={art}
               alt={book.title}
               fill
-              className="object-cover"
+              className="object-cover object-[center_22%]"
               sizes={compact ? '(max-width: 768px) 100vw, 30vw' : '(max-width: 768px) 100vw, 33vw'}
             />
             <div className="absolute inset-x-0 bottom-0 h-[28%] bg-gradient-to-t from-[#090b10] via-[#090b10]/72 to-transparent" />

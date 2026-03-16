@@ -16,7 +16,6 @@ SITE_ROOT = Path(__file__).resolve().parent.parent
 CONTENT_PATH = SITE_ROOT / 'content' / 'catalog.json'
 COVERS_DIR = SITE_ROOT / 'public' / 'assets' / 'covers'
 ART_DIR = SITE_ROOT / 'public' / 'assets' / 'art'
-CATALOG_AI_DIR = SITE_ROOT / 'public' / 'assets' / 'catalog-ai'
 LOGO_SRC = ROOT / 'assets-dont-delete' / 'heritage_canon_logo_white_notext.PNG'
 LOGO_DEST = SITE_ROOT / 'public' / 'assets' / 'heritage-canon-logo.png'
 BIO_SRC = ROOT / 'assets-dont-delete' / 'bio.png'
@@ -83,15 +82,6 @@ def export_art(src: Path, slug: str) -> str:
             art = art.resize((target_width, target_height), Image.LANCZOS)
         art.save(dest, format='WEBP', quality=86, method=6)
     return f'/assets/art/{slug}.webp'
-
-
-def catalog_ai_art(slug: str) -> str | None:
-    path = CATALOG_AI_DIR / f'{slug}.webp'
-    if path.exists():
-        return f'/assets/catalog-ai/{slug}.webp'
-    return None
-
-
 def export_bio(src: Path) -> None:
     BIO_DEST.parent.mkdir(parents=True, exist_ok=True)
     with Image.open(src) as image:
@@ -280,7 +270,6 @@ def main() -> None:
                 'publisher': 'Heritage Canon',
                 'cover_out': export_cover(cover_src, slug),
                 'art_out': art_out,
-                'catalog_art_out': catalog_ai_art(slug) or art_out,
                 'description': description,
                 'excerpt': excerpt,
                 'formats': [link['format'] for link in buy_links],
