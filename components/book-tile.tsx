@@ -23,23 +23,12 @@ export function BookTile({ book, compact = false }: BookTileProps) {
             sizes={compact ? '(max-width: 768px) 100vw, 30vw' : '(max-width: 768px) 100vw, 33vw'}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#090b10] via-[#090b10]/45 to-transparent" />
-          <div className="absolute inset-x-5 bottom-5 flex items-end justify-between gap-4">
+          <div className="absolute inset-x-5 bottom-5 flex items-end gap-4">
             <div>
               <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-[#d0a85c]">
                 {book.author}
               </p>
             </div>
-            {!compact && (
-              <div className="relative h-24 w-16 shrink-0 overflow-hidden rounded-xl border border-white/15 shadow-2xl">
-                <Image
-                  src={book.cover_out}
-                  alt={`Cover of ${book.title}`}
-                  fill
-                  className="object-cover"
-                  sizes="64px"
-                />
-              </div>
-            )}
           </div>
         </div>
         <div className="space-y-3 px-5 py-5">
