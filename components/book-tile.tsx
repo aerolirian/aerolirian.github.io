@@ -14,7 +14,7 @@ export function BookTile({ book, compact = false }: BookTileProps) {
   return (
     <article className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.03] shadow-[0_20px_80px_rgba(0,0,0,0.25)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#d0a85c]/35">
       <Link href={`/books/${book.slug}`} className="block">
-        <div className={`relative overflow-hidden ${compact ? 'h-40' : 'h-52'}`}>
+        <div className={`relative overflow-hidden ${compact ? 'h-40' : 'h-48 sm:h-52'}`}>
           <Image
             src={art}
             alt={book.title}
@@ -44,7 +44,7 @@ export function BookTile({ book, compact = false }: BookTileProps) {
         </div>
         <div className="space-y-3 px-5 py-5">
           <div>
-            <h3 className="max-w-[16ch] font-serif text-2xl leading-[0.94] text-white">
+            <h3 className="max-w-[16ch] font-serif text-xl leading-[0.96] text-white sm:text-2xl">
               {book.title}
             </h3>
             <p className="mt-2 max-w-[30ch] text-sm leading-relaxed text-zinc-300">

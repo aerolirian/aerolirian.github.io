@@ -44,7 +44,7 @@ export function CatalogBrowser({
         <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-[#d0a85c]">
           Browse
         </p>
-        <h2 className="mt-3 font-serif text-3xl leading-[0.92] text-white">
+        <h2 className="mt-3 font-serif text-2xl leading-[0.92] text-white sm:text-3xl">
           Find the edition fast.
         </h2>
         <p className="mt-3 text-sm leading-relaxed text-zinc-400">
@@ -121,12 +121,12 @@ export function CatalogBrowser({
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-zinc-500">
               Current catalog
             </p>
-            <h3 className="mt-2 font-serif text-3xl leading-[0.94] text-white">
+            <h3 className="mt-2 font-serif text-2xl leading-[0.94] text-white sm:text-3xl">
               {filtered.length} editions currently available
             </h3>
           </div>
         </div>
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {filtered.map((book) => (
             <BookTile key={book.slug} book={book} />
           ))}

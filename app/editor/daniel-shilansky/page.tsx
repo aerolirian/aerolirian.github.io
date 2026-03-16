@@ -31,7 +31,7 @@ export default function EditorPage() {
   }
 
   return (
-    <main className="mx-auto w-full max-w-7xl px-5 pb-20 pt-16 lg:px-8">
+    <main className="mx-auto w-full max-w-7xl px-4 pb-20 pt-12 sm:px-5 sm:pt-16 lg:px-8">
       <JsonLd data={jsonLd} />
       <section className="grid gap-8 lg:grid-cols-[20rem_minmax(0,1fr)]">
         <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]">
@@ -48,13 +48,13 @@ export default function EditorPage() {
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
             Editor
           </p>
-          <h1 className="mt-4 font-serif text-6xl leading-[0.9] tracking-[-0.04em] text-white">
+          <h1 className="mt-4 font-serif text-4xl leading-[0.92] tracking-[-0.04em] text-white sm:text-6xl">
             {EDITOR.name}
           </h1>
           <p className="mt-4 text-sm uppercase tracking-[0.22em] text-zinc-500">
             {EDITOR.role}
           </p>
-          <div className="mt-8 space-y-5 text-lg leading-relaxed text-zinc-300">
+          <div className="mt-8 space-y-5 text-base leading-relaxed text-zinc-300 sm:text-lg">
             {EDITOR.bio.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
@@ -66,10 +66,10 @@ export default function EditorPage() {
         <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
           Selected editions
         </p>
-        <h2 className="mt-4 max-w-[10ch] font-serif text-5xl leading-[0.92] tracking-[-0.04em] text-white">
+        <h2 className="mt-4 max-w-[10ch] font-serif text-4xl leading-[0.94] tracking-[-0.04em] text-white sm:text-5xl">
           Current Heritage Canon books with his introductions.
         </h2>
-        <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {books.map((book) => (
             <BookTile key={book.slug} book={book} compact />
           ))}

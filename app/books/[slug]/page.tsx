@@ -107,7 +107,7 @@ export default async function BookPage({ params }: BookPageProps) {
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,9,13,0.2),rgba(7,9,13,0.84)_30%,#07090d)]" />
         </div>
-        <div className="relative mx-auto grid w-full max-w-7xl gap-8 px-5 py-16 lg:grid-cols-[20rem_minmax(0,1fr)] lg:px-8 lg:py-20">
+        <div className="relative mx-auto grid w-full max-w-7xl gap-6 px-4 py-12 sm:px-5 sm:py-16 lg:grid-cols-[20rem_minmax(0,1fr)] lg:px-8 lg:py-20">
           <div className="mx-auto w-full max-w-xs overflow-hidden rounded-[2rem] border border-white/10 shadow-[0_30px_120px_rgba(0,0,0,0.4)]">
             <Image
               src={book.cover_out}
@@ -119,21 +119,21 @@ export default async function BookPage({ params }: BookPageProps) {
               priority
             />
           </div>
-          <div className="rounded-[2rem] border border-white/10 bg-[#0a0d13]/70 p-6 backdrop-blur-xl lg:p-8">
+          <div className="rounded-[2rem] border border-white/10 bg-[#0a0d13]/70 p-5 backdrop-blur-xl sm:p-6 lg:p-8">
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
               Philosophical edition
             </p>
-            <h1 className="mt-4 max-w-[12ch] font-serif text-6xl leading-[0.9] tracking-[-0.04em] text-white">
+            <h1 className="mt-4 max-w-[12ch] font-serif text-4xl leading-[0.92] tracking-[-0.04em] text-white sm:text-6xl">
               {book.title}
             </h1>
-            <p className="mt-4 max-w-3xl text-2xl leading-tight text-zinc-200">
+            <p className="mt-4 max-w-3xl text-lg leading-tight text-zinc-200 sm:text-2xl">
               {book.thesis_subtitle}
             </p>
             <p className="mt-4 text-sm uppercase tracking-[0.22em] text-zinc-500">
               {book.author}
             </p>
             <LocalizedBuyLinks links={book.buy_links} />
-            <div className="mt-8 grid gap-4 border-t border-white/10 pt-6 text-sm text-zinc-300 md:grid-cols-2">
+            <div className="mt-8 grid gap-4 border-t border-white/10 pt-6 text-sm text-zinc-300 sm:grid-cols-2">
               <div>
                 <p className="text-[0.68rem] uppercase tracking-[0.2em] text-zinc-500">
                   Introduction by
@@ -163,15 +163,15 @@ export default async function BookPage({ params }: BookPageProps) {
         </div>
       </section>
 
-      <section className="mx-auto grid w-full max-w-7xl gap-8 px-5 py-16 lg:grid-cols-[minmax(0,1fr)_22rem] lg:px-8">
+      <section className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-14 sm:px-5 sm:py-16 lg:grid-cols-[minmax(0,1fr)_22rem] lg:px-8">
         <div>
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
             Edition note
           </p>
-          <h2 className="mt-4 max-w-[12ch] font-serif text-5xl leading-[0.92] tracking-[-0.04em] text-white">
+          <h2 className="mt-4 max-w-[12ch] font-serif text-4xl leading-[0.94] tracking-[-0.04em] text-white sm:text-5xl">
             The subtitle states the editorial claim.
           </h2>
-          <div className="mt-8 space-y-5 text-lg leading-relaxed text-zinc-300">
+          <div className="mt-8 space-y-5 text-base leading-relaxed text-zinc-300 sm:text-lg">
             {book.description
               .split(/\n{2,}/)
               .filter(Boolean)
@@ -201,14 +201,14 @@ export default async function BookPage({ params }: BookPageProps) {
         </aside>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-5 pb-8 lg:px-8">
+      <section className="mx-auto w-full max-w-7xl px-4 pb-8 sm:px-5 lg:px-8">
         <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
           Continue browsing
         </p>
-        <h2 className="mt-4 max-w-[10ch] font-serif text-5xl leading-[0.92] tracking-[-0.04em] text-white">
+        <h2 className="mt-4 max-w-[10ch] font-serif text-4xl leading-[0.94] tracking-[-0.04em] text-white sm:text-5xl">
           More in the catalog.
         </h2>
-        <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {related.map((item) => (
             <BookTile key={item.slug} book={item} compact />
           ))}
