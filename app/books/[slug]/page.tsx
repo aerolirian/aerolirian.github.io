@@ -169,7 +169,7 @@ export default async function BookPage({ params }: BookPageProps) {
             The argument
           </p>
           <h2 className="mt-4 max-w-[12ch] font-serif text-4xl leading-[0.94] tracking-[-0.04em] text-white sm:text-5xl">
-            What this edition argues.
+            What this edition argues
           </h2>
           <div className="mt-8 space-y-5 text-base leading-relaxed text-zinc-300 sm:text-lg">
             {book.description
@@ -206,7 +206,7 @@ export default async function BookPage({ params }: BookPageProps) {
           Continue browsing
         </p>
         <h2 className="mt-4 max-w-[10ch] font-serif text-4xl leading-[0.94] tracking-[-0.04em] text-white sm:text-5xl">
-          More in the catalog.
+          More in the catalog
         </h2>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {related.map((item) => (
