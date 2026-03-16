@@ -15,13 +15,21 @@ export type AnimatedBackgroundProps = {
   children:
     | ReactElement<{
         'data-id': string
+        'data-checked'?: string
         className?: string
         children?: React.ReactNode
+        onMouseEnter?: () => void
+        onMouseLeave?: () => void
+        onClick?: () => void
       }>[]
     | ReactElement<{
         'data-id': string
+        'data-checked'?: string
         className?: string
         children?: React.ReactNode
+        onMouseEnter?: () => void
+        onMouseLeave?: () => void
+        onClick?: () => void
       }>
   defaultValue?: string
   onValueChange?: (newActiveId: string | null) => void
