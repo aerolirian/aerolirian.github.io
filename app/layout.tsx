@@ -71,7 +71,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="theme-color" content="#07090d" />
+        <meta name="theme-color" content="#ead8c6" />
         {CONSENT_ENABLED ? (
           <link
             rel="stylesheet"
@@ -80,12 +80,12 @@ export default function RootLayout({
         ) : null}
       </head>
       <body
-        className={`${sans.variable} ${serif.variable} min-h-screen bg-[#07090d] font-sans text-zinc-100 antialiased`}
+        className={`${sans.variable} ${serif.variable} theme-sandstone-editorial min-h-screen bg-[#ead8c6] font-sans text-[#231913] antialiased`}
       >
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={websiteJsonLd} />
         <ConsentAndAnalytics />
-        <div className="absolute inset-x-0 top-0 -z-10 h-[38rem] bg-[radial-gradient(circle_at_top,rgba(208,168,92,0.18),transparent_36%),radial-gradient(circle_at_80%_10%,rgba(97,144,255,0.14),transparent_26%)]" />
+        <div className="absolute inset-x-0 top-0 -z-10 h-[38rem] bg-[radial-gradient(circle_at_top,rgba(161,78,50,0.18),transparent_36%),radial-gradient(circle_at_82%_10%,rgba(117,86,61,0.14),transparent_24%)]" />
         <Header />
         {children}
         <Footer />
