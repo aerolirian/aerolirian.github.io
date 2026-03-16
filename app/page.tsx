@@ -81,7 +81,41 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
+        <div className="space-y-4 lg:hidden">
+          <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {featured.slice(0, 4).map((book) => (
+              <Link
+                key={book.slug}
+                href={`/books/${book.slug}`}
+                className="group relative min-w-[82vw] snap-center overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 shadow-[0_30px_120px_rgba(0,0,0,0.35)]"
+              >
+                <div className="relative min-h-[19rem] overflow-hidden rounded-[1.35rem]">
+                  <Image
+                    src={book.art_out || book.cover_out}
+                    alt={book.title}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                    sizes="82vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#090b10] via-[#090b10]/50 to-transparent" />
+                  <div className="absolute inset-x-5 bottom-5">
+                    <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#d0a85c]">
+                      {book.author}
+                    </p>
+                    <h2 className="mt-2 max-w-[12ch] font-serif text-2xl leading-[0.92] text-white">
+                      {book.title}
+                    </h2>
+                    <p className="mt-2 max-w-[28ch] text-sm text-zinc-300">
+                      {book.thesis_subtitle}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="hidden gap-4 lg:grid lg:grid-cols-2">
           {featured.slice(0, 4).map((book, index) => (
             <Link
               key={book.slug}
