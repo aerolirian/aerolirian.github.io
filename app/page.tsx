@@ -62,12 +62,12 @@ export default function HomePage() {
         </div>
 
         <div className="space-y-4 lg:hidden">
-          <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="grid gap-4">
             {featured.slice(0, 4).map((book) => (
               <Link
                 key={book.slug}
                 href={`/books/${book.slug}`}
-                className="group relative min-w-[82vw] snap-center overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 shadow-[0_30px_120px_rgba(0,0,0,0.35)]"
+                className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 shadow-[0_30px_120px_rgba(0,0,0,0.35)]"
               >
                 <div className="relative min-h-[19rem] overflow-hidden rounded-[1.35rem]">
                   <Image
@@ -75,7 +75,7 @@ export default function HomePage() {
                     alt={book.title}
                     fill
                     className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                    sizes="82vw"
+                    sizes="100vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#090b10] via-[#090b10]/50 to-transparent" />
                   <div className="absolute inset-x-5 bottom-5">
