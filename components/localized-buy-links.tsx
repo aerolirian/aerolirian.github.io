@@ -49,9 +49,6 @@ export function LocalizedBuyLinks({ links }: LocalizedBuyLinksProps) {
           </a>
         ))}
       </div>
-      <p className="mt-3 text-xs uppercase tracking-[0.18em] text-zinc-500">
-        Amazon storefront: {(domain || 'resolving...').replace('www.', '')}
-      </p>
     </div>
   )
 }
