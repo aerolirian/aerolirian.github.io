@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-5 py-8 text-sm text-zinc-500 lg:flex-row lg:items-center lg:justify-between lg:px-8">
         <div>
           <p>Heritage Canon</p>
-          <p>Classic literature with original philosophical introductions.</p>
+          <p>Philosophical editions of classic literature.</p>
         </div>
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
           <Link href="/privacy" className="transition hover:text-zinc-200">

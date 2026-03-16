@@ -35,7 +35,7 @@ export default function HomePage() {
       <section className="mx-auto grid w-full max-w-7xl gap-10 px-4 pb-14 pt-10 sm:px-5 sm:pt-14 lg:grid-cols-[1.05fr_minmax(0,0.95fr)] lg:px-8 lg:pt-20">
         <div className="max-w-3xl">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
-            Available now
+            Now in print
           </p>
           <h1 className="mt-4 max-w-[11ch] font-serif text-4xl leading-[0.9] tracking-[-0.04em] text-white sm:mt-5 sm:text-6xl md:text-7xl">
             Philosophical editions of classic literature.

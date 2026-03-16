@@ -22,13 +22,12 @@ export default function PrivacyPage() {
           also collect basic analytics to understand how the catalog is used.
         </p>
         <p className="text-lg leading-relaxed">
-          Analytics is optional and controlled through the site’s consent
-          manager. You can change that choice at any time from the footer link.
+          Analytics is optional. You can change your preference at any time
+          from the footer.
         </p>
         <p className="text-lg leading-relaxed">
-          Book purchases are handled on Amazon. When you follow a buy link, you
-          leave this site and are subject to Amazon’s terms and privacy
-          practices.
+          Book purchases happen on Amazon. Buy links take you off this
+          site — Amazon&apos;s terms apply from there.
         </p>
       </div>
     </main>

@@ -7,7 +7,7 @@ import { EDITOR, SITE, getFeaturedBooks } from '@/lib/catalog'
 
 export const metadata: Metadata = {
   title: 'Daniel Shilansky',
-  description: 'Editor of Heritage Canon.',
+  description: 'Series editor of Heritage Canon. Author of the philosophical introductions.',
   alternates: {
     canonical: `${SITE.url}/editor/${EDITOR.slug}`,
   },

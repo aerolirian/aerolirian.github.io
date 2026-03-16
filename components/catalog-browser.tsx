@@ -46,11 +46,10 @@ export function CatalogBrowser({
           Browse
         </p>
         <h2 className="mt-3 font-serif text-2xl leading-[0.92] text-white sm:text-3xl">
-          Find the edition fast.
+          Search the catalog.
         </h2>
         <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-          Search by title, thesis, or author. Filter by format without leaving
-          the page.
+          By title, author, or thesis.
         </p>
         <div className="mt-6 space-y-5">
           <label className="block">

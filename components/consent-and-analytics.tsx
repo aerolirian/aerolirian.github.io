@@ -16,7 +16,7 @@ export function ConsentAndAnalytics() {
         consentModal: {
           title: 'Privacy choices',
           description:
-            'Heritage Canon uses analytics to understand how the catalog is used. Essential site functions stay on. You can enable or refuse analytics.',
+            'We use analytics to understand how the catalog is used. You can accept or decline.',
           acceptAllBtn: 'Accept analytics',
           acceptNecessaryBtn: 'Only necessary',
           showPreferencesBtn: 'Manage choices',
@@ -42,7 +42,7 @@ export function ConsentAndAnalytics() {
             {
               title: 'Analytics',
               description:
-                'Analytics helps measure which books and pages are being used.',
+                'Helps us understand which books and pages readers visit.',
               linkedCategory: 'analytics',
             },
           ],
