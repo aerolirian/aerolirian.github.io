@@ -42,8 +42,9 @@ export default function HomePage() {
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-300 sm:mt-6 sm:text-lg">
             Heritage Canon publishes classic works with original philosophical
-            introductions. Each edition reconstructs the debates, assumptions,
-            and historical pressures that shaped how the book was first read.
+            introductions. Each edition reconstructs the debates, historical
+            pressures, and inherited ways of reading that shaped how the book
+            was first received.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
             <a

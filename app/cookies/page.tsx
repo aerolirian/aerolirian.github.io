@@ -14,7 +14,7 @@ export default function CookiesPage() {
         Cookies
       </p>
       <h1 className="mt-5 max-w-[12ch] font-serif text-6xl leading-[0.9] tracking-[-0.04em] text-white">
-        Consent choices for analytics cookies and tracking.
+        Analytics cookies and consent.
       </h1>
       <div className="mt-10 space-y-6 rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 text-zinc-300">
         <p className="text-lg leading-relaxed">
