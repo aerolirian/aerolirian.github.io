@@ -114,7 +114,7 @@ export default async function BookPage({ params }: BookPageProps) {
               alt={`Cover of ${book.title}`}
               width={720}
               height={1152}
-              className="block h-auto w-full object-cover"
+              className="product-cover-image block h-auto w-full object-cover"
               sizes="(max-width: 1024px) 70vw, 20rem"
               priority
             />
