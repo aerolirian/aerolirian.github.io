@@ -113,7 +113,7 @@ export default function HomePage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#090b10] via-[#090b10]/50 to-transparent" />
-                <div className="absolute inset-x-5 bottom-5 flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div className="absolute inset-x-5 bottom-5">
                   <div className="max-w-[18rem]">
                     <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#d0a85c]">
                       {book.author}
@@ -124,15 +124,6 @@ export default function HomePage() {
                     <p className="mt-2 max-w-[28ch] text-sm text-zinc-300">
                       {book.thesis_subtitle}
                     </p>
-                  </div>
-                  <div className="relative hidden h-28 w-20 shrink-0 overflow-hidden rounded-xl border border-white/15 shadow-2xl sm:block">
-                    <Image
-                      src={book.cover_out}
-                      alt={`Cover of ${book.title}`}
-                      fill
-                      className="object-cover"
-                      sizes="80px"
-                    />
                   </div>
                 </div>
               </div>
