@@ -169,7 +169,7 @@ export default async function BookPage({ params }: BookPageProps) {
             Edition note
           </p>
           <h2 className="mt-4 max-w-[12ch] font-serif text-4xl leading-[0.94] tracking-[-0.04em] text-white sm:text-5xl">
-            The subtitle states the editorial claim.
+            About this edition.
           </h2>
           <div className="mt-8 space-y-5 text-base leading-relaxed text-zinc-300 sm:text-lg">
             {book.description

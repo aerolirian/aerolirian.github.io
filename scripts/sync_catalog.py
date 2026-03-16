@@ -19,7 +19,7 @@ ART_DIR = SITE_ROOT / 'public' / 'assets' / 'art'
 LOGO_SRC = ROOT / 'assets-dont-delete' / 'heritage-canon-imprint-logo.png'
 LOGO_DEST = SITE_ROOT / 'public' / 'assets' / 'heritage-canon-logo.png'
 BIO_SRC = ROOT / 'assets-dont-delete' / 'bio.png'
-BIO_DEST = SITE_ROOT / 'public' / 'assets' / 'bio.png'
+BIO_DEST = SITE_ROOT / 'public' / 'assets' / 'bio.webp'
 
 
 def read_json(path: Path) -> dict:
@@ -82,6 +82,17 @@ def export_art(src: Path, slug: str) -> str:
             art = art.resize((target_width, target_height), Image.LANCZOS)
         art.save(dest, format='WEBP', quality=86, method=6)
     return f'/assets/art/{slug}.webp'
+
+
+def export_bio(src: Path) -> None:
+    BIO_DEST.parent.mkdir(parents=True, exist_ok=True)
+    with Image.open(src) as image:
+        bio = image.convert('RGB')
+        target_width = 800
+        if bio.width > target_width:
+            target_height = int(round(bio.height * (target_width / bio.width)))
+            bio = bio.resize((target_width, target_height), Image.LANCZOS)
+        bio.save(BIO_DEST, format='WEBP', quality=84, method=6)
 
 
 def read_description(book_dir: Path) -> tuple[str, str]:
@@ -160,8 +171,7 @@ def main() -> None:
         LOGO_DEST.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(LOGO_SRC, LOGO_DEST)
     if BIO_SRC.exists():
-        BIO_DEST.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(BIO_SRC, BIO_DEST)
+        export_bio(BIO_SRC)
     for book_dir in sorted(BOOKS_DIR.iterdir()):
         if not book_dir.is_dir():
             continue

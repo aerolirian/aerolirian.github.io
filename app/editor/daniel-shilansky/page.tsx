@@ -33,25 +33,24 @@ export default function EditorPage() {
   return (
     <main className="mx-auto w-full max-w-7xl px-4 pb-20 pt-12 sm:px-5 sm:pt-16 lg:px-8">
       <JsonLd data={jsonLd} />
-      <section className="grid gap-8 lg:grid-cols-[20rem_minmax(0,1fr)]">
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]">
+      <section className="grid gap-8 lg:grid-cols-[15rem_minmax(0,1fr)] lg:items-start">
+        <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] lg:mx-0 lg:max-w-none">
           <Image
             src={EDITOR.image}
             alt={EDITOR.name}
-            width={1024}
-            height={1024}
-            className="h-full w-full object-cover"
-            sizes="(max-width: 1024px) 100vw, 20rem"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 15rem"
           />
         </div>
         <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 lg:p-8">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
-            Editor
+            Series editor
           </p>
-          <h1 className="mt-4 font-serif text-4xl leading-[0.92] tracking-[-0.04em] text-white sm:text-6xl">
+          <h1 className="mt-4 font-serif text-3xl leading-[0.94] tracking-[-0.04em] text-white sm:text-5xl">
             {EDITOR.name}
           </h1>
-          <p className="mt-4 text-sm uppercase tracking-[0.22em] text-zinc-500">
+          <p className="mt-4 text-sm text-zinc-500">
             {EDITOR.role}
           </p>
           <div className="mt-8 space-y-5 text-base leading-relaxed text-zinc-300 sm:text-lg">
@@ -64,10 +63,10 @@ export default function EditorPage() {
 
       <section className="mt-14">
         <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
-          Selected editions
+          In the catalog
         </p>
-        <h2 className="mt-4 max-w-[10ch] font-serif text-4xl leading-[0.94] tracking-[-0.04em] text-white sm:text-5xl">
-          Current Heritage Canon books with his introductions.
+        <h2 className="mt-4 max-w-[12ch] font-serif text-4xl leading-[0.94] tracking-[-0.04em] text-white sm:text-5xl">
+          Editions with Daniel Shilansky&apos;s introductions.
         </h2>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {books.map((book) => (

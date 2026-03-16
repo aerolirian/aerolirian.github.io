@@ -38,13 +38,12 @@ export default function HomePage() {
             Available now
           </p>
           <h1 className="mt-4 max-w-[11ch] font-serif text-4xl leading-[0.9] tracking-[-0.04em] text-white sm:mt-5 sm:text-6xl md:text-7xl">
-            Classic literature staged like a live argument.
+            Philosophical editions of classic literature.
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-300 sm:mt-6 sm:text-lg">
-            Heritage Canon publishes philosophical editions of classic works.
-            Each book pairs the original text with a new introduction that
-            reconstructs the intellectual world around it and states the claim
-            the edition is making.
+            Heritage Canon publishes classic works with original philosophical
+            introductions. Each edition reconstructs the debates, assumptions,
+            and historical pressures that shaped how the book was first read.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
             <a
@@ -130,9 +129,9 @@ export default function HomePage() {
 
       <section className="mx-auto grid w-full max-w-7xl gap-4 px-4 pb-12 sm:px-5 lg:grid-cols-3 lg:px-8">
         {[
-          'The original title stays primary.',
-          'The thesis subtitle states the editorial claim.',
-          'The introduction restores the book’s intellectual pressure.',
+          'The original work remains primary.',
+          'The subtitle states the interpretive claim.',
+          'The introduction reconstructs the book’s intellectual world.',
         ].map((line) => (
           <div
             key={line}
