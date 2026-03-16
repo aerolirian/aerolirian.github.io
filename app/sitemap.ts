@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next'
 
 import { EDITOR, SITE, getBooks } from '@/lib/catalog'
 
+export const dynamic = 'force-static'
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages: MetadataRoute.Sitemap = [
     { url: SITE.url, changeFrequency: 'weekly', priority: 1 },
