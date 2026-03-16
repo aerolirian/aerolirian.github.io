@@ -11,6 +11,24 @@ type CatalogBrowserProps = {
   formats: string[]
 }
 
+type AuthorOption = {
+  label: string
+  value: string
+}
+
+function formatAuthorLabel(author: string) {
+  if (author.startsWith('Lord ')) {
+    return `${author.slice(5)}, Lord`
+  }
+
+  const parts = author.trim().split(/\s+/)
+  if (parts.length < 2) return author
+
+  const surname = parts[parts.length - 1]
+  const given = parts.slice(0, -1).join(' ')
+  return `${surname}, ${given}`
+}
+
 export function CatalogBrowser({
   books,
   authors,
@@ -20,6 +38,17 @@ export function CatalogBrowser({
   const [author, setAuthor] = useState('all')
   const [format, setFormat] = useState('all')
   const [filtersOpen, setFiltersOpen] = useState(false)
+
+  const authorOptions = useMemo<AuthorOption[]>(
+    () =>
+      authors
+        .map((item) => ({
+          label: formatAuthorLabel(item),
+          value: item,
+        }))
+        .sort((a, b) => a.label.localeCompare(b.label)),
+    [authors],
+  )
 
   const filtered = useMemo(() => {
     const needle = query.trim().toLowerCase()
@@ -73,9 +102,9 @@ export function CatalogBrowser({
               className="w-full rounded-2xl border border-white/10 bg-[#0d1016] px-4 py-3 text-sm text-white outline-none focus:border-[#d0a85c]/50"
             >
               <option value="all">All authors</option>
-              {authors.map((item) => (
-                <option key={item} value={item}>
-                  {item}
+              {authorOptions.map((item) => (
+                <option key={item.value} value={item.value}>
+                  {item.label}
                 </option>
               ))}
             </select>
@@ -164,9 +193,9 @@ export function CatalogBrowser({
                   className="w-full rounded-2xl border border-white/10 bg-[#0d1016] px-4 py-3 text-sm text-white outline-none focus:border-[#d0a85c]/50"
                 >
                   <option value="all">All authors</option>
-                  {authors.map((item) => (
-                    <option key={item} value={item}>
-                      {item}
+                  {authorOptions.map((item) => (
+                    <option key={item.value} value={item.value}>
+                      {item.label}
                     </option>
                   ))}
                 </select>
