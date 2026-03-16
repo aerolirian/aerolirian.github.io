@@ -41,10 +41,10 @@ export default function HomePage() {
             Philosophical editions of classic literature.
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-300 sm:mt-6 sm:text-lg">
-            Heritage Canon publishes classic works with original philosophical
-            introductions. Each edition reconstructs the debates, historical
-            pressures, and inherited ways of reading that shaped how the book
-            was first received.
+            Heritage Canon publishes classic literature with original
+            philosophical introductions. Each introduction recovers the
+            debates, pressures, and inherited ways of reading that first
+            readers brought to the work.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
             <a
@@ -145,7 +145,7 @@ export default function HomePage() {
       <section className="mx-auto grid w-full max-w-7xl gap-4 px-4 pb-12 sm:px-5 lg:grid-cols-3 lg:px-8">
         {[
           'The original work remains primary.',
-          'The subtitle states the interpretive claim.',
+          'Each subtitle is a thesis, not a description.',
           'The introduction reconstructs the book’s intellectual world.',
         ].map((line) => (
           <div

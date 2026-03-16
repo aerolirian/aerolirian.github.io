@@ -66,7 +66,7 @@ export default function EditorPage() {
           In the catalog
         </p>
         <h2 className="mt-4 max-w-[12ch] font-serif text-4xl leading-[0.94] tracking-[-0.04em] text-white sm:text-5xl">
-          Editions with Daniel Shilansky&apos;s introductions.
+          Editions introduced by Daniel Shilansky.
         </h2>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {books.map((book) => (

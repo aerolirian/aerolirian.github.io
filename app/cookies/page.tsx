@@ -22,9 +22,7 @@ export default function CookiesPage() {
           Analytics runs only if you opt in.
         </p>
         <p className="text-lg leading-relaxed">
-          If Google Analytics is enabled for the site, it stays blocked until
-          consent is granted. If Umami is enabled, it is also placed behind the
-          same analytics consent category.
+          Any analytics active on the site is blocked until consent is granted.
         </p>
         <p className="text-lg leading-relaxed">
           You can review or change your choice at any time using the cookie

@@ -189,8 +189,8 @@ export default async function BookPage({ params }: BookPageProps) {
           </h3>
           <p className="mt-4 text-sm leading-relaxed text-zinc-400">
             Heritage Canon editions pair the original work with a philosophical
-            introduction that restores the debates and intellectual pressures
-            the text first entered.
+            introduction that recovers the debates and pressures surrounding
+            the work when it first appeared.
           </p>
           <Link
             href={`/editor/${EDITOR.slug}`}

@@ -18,9 +18,9 @@ export default function PrivacyPage() {
       </h1>
       <div className="mt-10 space-y-6 rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 text-zinc-300">
         <p className="text-lg leading-relaxed">
-          Heritage Canon is a static publishing site. We collect only the data
-          needed to serve pages and, if you allow it, analytics data used to
-          understand catalog traffic.
+          This is a static publishing site. We collect only what is needed to
+          serve pages and, when you allow it, basic analytics to understand how
+          the catalog is used.
         </p>
         <p className="text-lg leading-relaxed">
           Analytics is optional and controlled through the site’s consent
