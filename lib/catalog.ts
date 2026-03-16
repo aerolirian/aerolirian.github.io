@@ -19,6 +19,7 @@ export type Book = {
   publisher: string
   cover_out: string
   art_out: string
+  catalog_art_out?: string
   description: string
   excerpt: string
   formats: string[]

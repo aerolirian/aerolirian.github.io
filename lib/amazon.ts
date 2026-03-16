@@ -123,6 +123,9 @@ export function getPreferredAmazonDomain(
   locales: readonly string[],
   timeZone?: string,
 ) {
+  if (timeZone && TIMEZONE_MAP[timeZone]) {
+    return STOREFRONTS[TIMEZONE_MAP[timeZone]]
+  }
   for (const locale of locales) {
     const normalized = locale.toLowerCase()
     const [language, region] = normalized.split(/[-_]/)
@@ -132,9 +135,6 @@ export function getPreferredAmazonDomain(
     if (language && LANGUAGE_MAP[language]) {
       return STOREFRONTS[LANGUAGE_MAP[language]]
     }
-  }
-  if (timeZone && TIMEZONE_MAP[timeZone]) {
-    return STOREFRONTS[TIMEZONE_MAP[timeZone]]
   }
   return STOREFRONTS.US
 }

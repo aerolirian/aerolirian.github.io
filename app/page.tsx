@@ -103,12 +103,14 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="hidden gap-4 lg:grid lg:grid-cols-3">
-          {featured.map((book) => (
+        <div className="hidden gap-4 lg:grid lg:grid-cols-2">
+          {featured.map((book, index) => (
             <Link
               key={book.slug}
               href={`/books/${book.slug}`}
-              className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 shadow-[0_30px_120px_rgba(0,0,0,0.35)]"
+              className={`group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 shadow-[0_30px_120px_rgba(0,0,0,0.35)] ${
+                index === 0 ? 'lg:col-span-2' : ''
+              }`}
             >
               <div className="relative min-h-[18rem] overflow-hidden rounded-[1.35rem] sm:min-h-[16rem]">
                 <Image

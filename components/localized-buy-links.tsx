@@ -10,7 +10,7 @@ type LocalizedBuyLinksProps = {
 }
 
 export function LocalizedBuyLinks({ links }: LocalizedBuyLinksProps) {
-  const [domain, setDomain] = useState('www.amazon.com')
+  const [domain, setDomain] = useState<string | null>(null)
 
   useEffect(() => {
     if (typeof navigator === 'undefined') return
@@ -28,7 +28,7 @@ export function LocalizedBuyLinks({ links }: LocalizedBuyLinksProps) {
     () =>
       links.map((link) => ({
         ...link,
-        url: buildLocalizedAmazonUrl(link, domain),
+        url: domain ? buildLocalizedAmazonUrl(link, domain) : '#',
       })),
     [domain, links],
   )
@@ -40,8 +40,9 @@ export function LocalizedBuyLinks({ links }: LocalizedBuyLinksProps) {
           <a
             key={link.format}
             href={link.url}
-            target="_blank"
-            rel="noreferrer"
+            target={domain ? '_blank' : undefined}
+            rel={domain ? 'noreferrer' : undefined}
+            aria-disabled={!domain}
             className="rounded-full border border-white/10 bg-white px-4 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#111318] transition hover:bg-[#d0a85c]"
           >
             {link.label}
@@ -49,7 +50,7 @@ export function LocalizedBuyLinks({ links }: LocalizedBuyLinksProps) {
         ))}
       </div>
       <p className="mt-3 text-xs uppercase tracking-[0.18em] text-zinc-500">
-        Amazon storefront: {domain.replace('www.', '')}
+        Amazon storefront: {(domain || 'resolving...').replace('www.', '')}
       </p>
     </div>
   )
