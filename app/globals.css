@@ -67,3 +67,35 @@
   font-family: var(--font-serif), serif;
   letter-spacing: -0.02em;
 }
+
+
+body.theme-museum-red {
+  color-scheme: light;
+  background:
+    radial-gradient(circle at top, rgba(125, 46, 45, 0.14), transparent 30%),
+    radial-gradient(circle at 84% 10%, rgba(170, 132, 88, 0.12), transparent 22%),
+    #f0e4de;
+}
+body.theme-museum-red * { border-color: rgba(58, 30, 30, 0.12); }
+body.theme-museum-red [class*='text-white'], body.theme-museum-red [class*='text-zinc-100'] { color: #241818; }
+body.theme-museum-red .absolute [class*='text-white'] { color: #fff7f3; }
+body.theme-museum-red .absolute [class*='text-zinc-200'] { color: #f3e7e2; }
+body.theme-museum-red [class*='text-zinc-200'] { color: #473030; }
+body.theme-museum-red [class*='text-zinc-300'] { color: #634a4a; }
+body.theme-museum-red [class*='text-zinc-400'] { color: #7d6363; }
+body.theme-museum-red [class*='text-zinc-500'] { color: #977c7c; }
+body.theme-museum-red [class*='text-[#d0a85c]'] { color: #7d2e2d; }
+body.theme-museum-red [class*='bg-white/[0.03]'] { background: rgba(255, 248, 244, 0.74); }
+body.theme-museum-red [class*='bg-white/[0.04]'] { background: rgba(255, 248, 244, 0.84); }
+body.theme-museum-red [class*='bg-white/[0.05]'] { background: rgba(255, 248, 244, 0.9); }
+body.theme-museum-red [class*='bg-white/[0.06]'] { background: rgba(255, 248, 244, 0.96); }
+body.theme-museum-red [class*='bg-[#0c1016]'] { background: #e6d5cf; }
+body.theme-museum-red [class*='bg-[#0d1016]'] { background: #faf3f0; }
+body.theme-museum-red [class*='bg-[#0a0d13]/70'] { background: rgba(249, 241, 237, 0.88); }
+body.theme-museum-red [class*='bg-[#07090d]/80'] { background: rgba(240, 228, 222, 0.9); }
+body.theme-museum-red [class*='bg-[#d0a85c]'] { background: #7d2e2d; }
+body.theme-museum-red [class*='hover:bg-[#e1bb73]']:hover { background: #953b39; }
+body.theme-museum-red [class*='focus:border-[#d0a85c]/50'], body.theme-museum-red [class*='border-[#d0a85c]/50'] { border-color: rgba(125, 46, 45, 0.38); }
+body.theme-museum-red .site-mark { border-radius: 9999px; background: #241818; padding: 0.35rem; }
+body.theme-museum-red ::selection { background: rgba(125, 46, 45, 0.2); color: #241818; }
+body.theme-museum-red #cc-main { --cc-bg: #fff8f5; --cc-primary-color: #241818; --cc-secondary-color: #66504f; --cc-btn-primary-bg: #7d2e2d; --cc-btn-primary-color: #fff8f5; --cc-btn-primary-border-color: #7d2e2d; --cc-btn-primary-hover-bg: #953b39; --cc-btn-primary-hover-color: #fff8f5; --cc-btn-primary-hover-border-color: #953b39; --cc-btn-secondary-color: #241818; --cc-btn-secondary-border-color: rgba(36, 24, 24, 0.16); --cc-btn-secondary-hover-bg: rgba(36, 24, 24, 0.04); }

@@ -11,7 +11,7 @@ export function Header() {
             alt="Heritage Canon"
             width={36}
             height={36}
-            className="h-9 w-9 object-contain"
+            className="site-mark h-9 w-9 object-contain"
           />
           <div>
             <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-zinc-400">
