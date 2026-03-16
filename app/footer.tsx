@@ -17,7 +17,7 @@ export function Footer() {
         </div>
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
           <Link href="/impressum" className="transition hover:text-zinc-200">
-            Impressum
+            Impressum / Imprint
           </Link>
           <Link href="/privacy" className="transition hover:text-zinc-200">
             Privacy
