@@ -8,9 +8,17 @@ import { SITE } from '@/lib/catalog'
 
 export default function HomePage() {
   const books = getBooks()
-  const featured = getFeaturedBooks()
+  const featured = getFeaturedBooks(3)
   const authors = getAuthors(books)
   const formats = getFormats(books)
+  const heroQuotes: Record<string, string> = {
+    death_in_venice:
+      'A quarrel about whether the life of reason, discipline, and moral seriousness could be sustained against the claims of instinct, beauty, and the irrational forces that move beneath the surface of civilized existence.',
+    the_great_gatsby:
+      'The novel concerns the nature of the self: what a person is, whether a person can be remade, and what it costs, morally and spiritually, to attempt such a remaking.',
+    moby_dick:
+      'What happens to a democratic community when it is placed under the command of a will that recognizes no limit but its own?',
+  }
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -63,7 +71,7 @@ export default function HomePage() {
 
         <div className="space-y-4 lg:hidden">
           <div className="grid gap-4">
-            {featured.slice(0, 4).map((book) => (
+            {featured.map((book) => (
               <Link
                 key={book.slug}
                 href={`/books/${book.slug}`}
@@ -95,14 +103,12 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="hidden gap-4 lg:grid lg:grid-cols-2">
-          {featured.slice(0, 4).map((book, index) => (
+        <div className="hidden gap-4 lg:grid lg:grid-cols-3">
+          {featured.map((book) => (
             <Link
               key={book.slug}
               href={`/books/${book.slug}`}
-              className={`group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 shadow-[0_30px_120px_rgba(0,0,0,0.35)] ${
-                index === 0 ? 'sm:col-span-2 lg:col-span-2' : ''
-              }`}
+              className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 shadow-[0_30px_120px_rgba(0,0,0,0.35)]"
             >
               <div className="relative min-h-[18rem] overflow-hidden rounded-[1.35rem] sm:min-h-[16rem]">
                 <Image
@@ -133,16 +139,15 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto grid w-full max-w-7xl gap-4 px-4 pb-12 sm:px-5 lg:grid-cols-3 lg:px-8">
-        {[
-          'The full original text, unabridged.',
-          'Every introduction argues a case.',
-          'Context is not background — it is the argument.',
-        ].map((line) => (
+        {featured.map((book) => (
           <div
-            key={line}
-            className="rounded-[1.75rem] border border-white/10 bg-[#0c1016] px-5 py-5 text-base text-zinc-200 sm:py-6 sm:text-lg"
+            key={book.slug}
+            className="rounded-[1.75rem] border border-white/10 bg-[#0c1016] px-5 py-5 text-base leading-relaxed text-zinc-200 sm:py-6 sm:text-lg"
           >
-            {line}
+            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#d0a85c]">
+              {book.title}
+            </p>
+            <p className="mt-3 text-zinc-300">“{heroQuotes[book.slug]}”</p>
           </div>
         ))}
       </section>
