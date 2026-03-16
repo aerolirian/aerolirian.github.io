@@ -48,6 +48,15 @@ export const SITE = {
   url: 'https://heritagecanon.com',
   description:
     'Classic literature with original philosophical introductions. Every edition argues a specific case about the work.',
+  email: 'daniel@heritagecanon.com',
+  legalName: 'Daniel Shilansky',
+  imprint: 'Heritage Canon',
+  address: {
+    street: 'Kastanienallee 16',
+    postalCode: '12627',
+    city: 'Berlin',
+    country: 'Germany',
+  },
 }
 
 export function getBooks(): Book[] {

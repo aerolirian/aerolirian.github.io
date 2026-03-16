@@ -58,6 +58,14 @@ export default function RootLayout({
     url: SITE.url,
     logo: `${SITE.url}/assets/heritage-canon-logo.png`,
     description: SITE.description,
+    email: SITE.email,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: SITE.address.street,
+      postalCode: SITE.address.postalCode,
+      addressLocality: SITE.address.city,
+      addressCountry: SITE.address.country,
+    },
   }
 
   const websiteJsonLd = {

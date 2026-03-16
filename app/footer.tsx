@@ -9,8 +9,16 @@ export function Footer() {
         <div>
           <p>Heritage Canon</p>
           <p>Philosophical editions of classic literature.</p>
+          <p className="mt-1">
+            <a href="mailto:daniel@heritagecanon.com" className="transition hover:text-zinc-200">
+              daniel@heritagecanon.com
+            </a>
+          </p>
         </div>
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+          <Link href="/impressum" className="transition hover:text-zinc-200">
+            Impressum
+          </Link>
           <Link href="/privacy" className="transition hover:text-zinc-200">
             Privacy
           </Link>
