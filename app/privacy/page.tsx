@@ -14,13 +14,12 @@ export default function PrivacyPage() {
         Privacy
       </p>
       <h1 className="mt-5 max-w-[12ch] font-serif text-6xl leading-[0.9] tracking-[-0.04em] text-white">
-        Minimal data collection. Explicit consent for analytics.
+        No tracking without your consent.
       </h1>
       <div className="mt-10 space-y-6 rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 text-zinc-300">
         <p className="text-lg leading-relaxed">
-          This is a static publishing site. We collect only what is needed to
-          serve pages and, when you allow it, basic analytics to understand how
-          the catalog is used.
+          We collect only what is needed to serve pages. If you opt in, we
+          also collect basic analytics to understand how the catalog is used.
         </p>
         <p className="text-lg leading-relaxed">
           Analytics is optional and controlled through the site’s consent

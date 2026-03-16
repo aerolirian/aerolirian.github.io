@@ -18,15 +18,12 @@ export default function CookiesPage() {
       </h1>
       <div className="mt-10 space-y-6 rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 text-zinc-300">
         <p className="text-lg leading-relaxed">
-          Necessary storage is used only to remember your consent settings.
-          Analytics runs only if you opt in.
+          We use a small cookie to remember your consent settings. No analytics
+          data is collected unless you opt in.
         </p>
         <p className="text-lg leading-relaxed">
-          Any analytics active on the site is blocked until consent is granted.
-        </p>
-        <p className="text-lg leading-relaxed">
-          You can review or change your choice at any time using the cookie
-          preferences control in the footer.
+          You can change your choice at any time from the preferences control
+          in the footer.
         </p>
       </div>
     </main>

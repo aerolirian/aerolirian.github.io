@@ -166,10 +166,10 @@ export default async function BookPage({ params }: BookPageProps) {
       <section className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-14 sm:px-5 sm:py-16 lg:grid-cols-[minmax(0,1fr)_22rem] lg:px-8">
         <div>
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
-            Edition note
+            The argument
           </p>
           <h2 className="mt-4 max-w-[12ch] font-serif text-4xl leading-[0.94] tracking-[-0.04em] text-white sm:text-5xl">
-            About this edition.
+            What this edition argues.
           </h2>
           <div className="mt-8 space-y-5 text-base leading-relaxed text-zinc-300 sm:text-lg">
             {book.description
@@ -188,9 +188,9 @@ export default async function BookPage({ params }: BookPageProps) {
             {EDITOR.name}
           </h3>
           <p className="mt-4 text-sm leading-relaxed text-zinc-400">
-            Heritage Canon editions pair the original work with a philosophical
-            introduction that recovers the debates and pressures surrounding
-            the work when it first appeared.
+            Each Heritage Canon introduction argues a philosophical case about
+            the work: what it was doing, what debates it entered, and what its
+            first readers brought to it.
           </p>
           <Link
             href={`/editor/${EDITOR.slug}`}
