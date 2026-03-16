@@ -90,9 +90,9 @@ export function getFeaturedBooks(limit = 6): Book[] {
     'the_great_gatsby',
     'death_in_venice',
     'moby_dick',
-    'arrowsmith',
     'the_wendigo',
     'the_willows',
+    'a_portrait_of_the_artist_as_a_young_man',
   ]
   const bySlug = new Map(getBooks().map((book) => [book.slug, book]))
   const chosen = preferred

@@ -95,6 +95,17 @@ def export_bio(src: Path) -> None:
         bio.save(BIO_DEST, format='WEBP', quality=84, method=6)
 
 
+def normalize_site_description(text: str) -> str:
+    text = clean_text(text)
+    text = re.sub(
+        r'^This philosophical edition(?: of [^:]+)? includes:\s*',
+        '',
+        text,
+        flags=re.I,
+    )
+    return text.strip()
+
+
 def read_description(book_dir: Path) -> tuple[str, str]:
     candidates = [
         book_dir / 'kdp_package' / 'back_cover.txt',
@@ -118,7 +129,7 @@ def read_description(book_dir: Path) -> tuple[str, str]:
                 break
     if not text:
         text = 'A Heritage Canon philosophical edition.'
-    plain = clean_text(text)
+    plain = normalize_site_description(text)
     excerpt = shorten(plain, width=180, placeholder='...')
     return plain, excerpt
 

@@ -77,15 +77,15 @@ export default function HomePage() {
                     className="object-cover transition duration-500 group-hover:scale-[1.03]"
                     sizes="100vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#090b10] via-[#090b10]/50 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-[#090b10] via-[#090b10]/72 to-transparent" />
                   <div className="absolute inset-x-5 bottom-5">
-                    <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#d0a85c]">
+                    <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#d0a85c] drop-shadow-[0_1px_6px_rgba(0,0,0,0.95)]">
                       {book.author}
                     </p>
-                    <h2 className="mt-2 max-w-[12ch] font-serif text-2xl leading-[0.92] text-white">
+                    <h2 className="mt-2 max-w-[12ch] font-serif text-2xl leading-[0.92] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
                       {book.title}
                     </h2>
-                    <p className="mt-2 max-w-[28ch] text-sm text-zinc-300">
+                    <p className="mt-2 max-w-[28ch] text-sm text-zinc-200 drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
                       {book.thesis_subtitle}
                     </p>
                   </div>
@@ -112,16 +112,16 @@ export default function HomePage() {
                   className="object-cover transition duration-500 group-hover:scale-[1.03]"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#090b10] via-[#090b10]/50 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-[#090b10] via-[#090b10]/72 to-transparent" />
                 <div className="absolute inset-x-5 bottom-5">
                   <div className="max-w-[18rem]">
-                    <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#d0a85c]">
+                    <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-[#d0a85c] drop-shadow-[0_1px_6px_rgba(0,0,0,0.95)]">
                       {book.author}
                     </p>
-                    <h2 className="mt-2 max-w-[12ch] font-serif text-2xl leading-[0.92] text-white sm:text-3xl">
+                    <h2 className="mt-2 max-w-[12ch] font-serif text-2xl leading-[0.92] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)] sm:text-3xl">
                       {book.title}
                     </h2>
-                    <p className="mt-2 max-w-[28ch] text-sm text-zinc-300">
+                    <p className="mt-2 max-w-[28ch] text-sm text-zinc-200 drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)]">
                       {book.thesis_subtitle}
                     </p>
                   </div>
