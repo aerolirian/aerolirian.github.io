@@ -17,13 +17,15 @@ export function BookTile({ book, compact = false }: BookTileProps) {
         <div
           className={`relative isolate overflow-hidden [transform:translateZ(0)] shadow-[inset_0_-2px_0_rgba(9,11,16,0.98)] ${compact ? 'h-40' : 'h-48 sm:h-52'}`}
         >
-          <Image
-            src={art}
-            alt={book.title}
-            fill
-            className="object-cover transform-gpu [backface-visibility:hidden] transition duration-500 group-hover:scale-[1.03]"
-            sizes={compact ? '(max-width: 768px) 100vw, 30vw' : '(max-width: 768px) 100vw, 33vw'}
-          />
+          <div className="absolute inset-[-2px]">
+            <Image
+              src={art}
+              alt={book.title}
+              fill
+              className="object-cover transform-gpu [backface-visibility:hidden] transition duration-500 will-change-transform group-hover:scale-[1.03]"
+              sizes={compact ? '(max-width: 768px) 100vw, 30vw' : '(max-width: 768px) 100vw, 33vw'}
+            />
+          </div>
           <div className="absolute inset-x-0 bottom-0 h-[28%] bg-gradient-to-t from-[#090b10] via-[#090b10]/72 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-[2px] bg-[#090b10]" />
           <div className="absolute inset-x-5 bottom-5 flex items-end gap-4">
