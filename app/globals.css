@@ -67,3 +67,35 @@
   font-family: var(--font-serif), serif;
   letter-spacing: -0.02em;
 }
+
+
+body.theme-ink-ivory {
+  color-scheme: light;
+  background:
+    radial-gradient(circle at top, rgba(41, 75, 106, 0.14), transparent 28%),
+    radial-gradient(circle at 84% 10%, rgba(186, 156, 94, 0.12), transparent 22%),
+    #f4efe6;
+}
+body.theme-ink-ivory * { border-color: rgba(30, 42, 56, 0.12); }
+body.theme-ink-ivory [class*='text-white'], body.theme-ink-ivory [class*='text-zinc-100'] { color: #18212b; }
+body.theme-ink-ivory .absolute [class*='text-white'] { color: #f9f6f0; }
+body.theme-ink-ivory .absolute [class*='text-zinc-200'] { color: #ece6dc; }
+body.theme-ink-ivory [class*='text-zinc-200'] { color: #344252; }
+body.theme-ink-ivory [class*='text-zinc-300'] { color: #506071; }
+body.theme-ink-ivory [class*='text-zinc-400'] { color: #6a7988; }
+body.theme-ink-ivory [class*='text-zinc-500'] { color: #818d99; }
+body.theme-ink-ivory [class*='text-[#d0a85c]'] { color: #294b6a; }
+body.theme-ink-ivory [class*='bg-white/[0.03]'] { background: rgba(255, 251, 244, 0.74); }
+body.theme-ink-ivory [class*='bg-white/[0.04]'] { background: rgba(255, 251, 244, 0.84); }
+body.theme-ink-ivory [class*='bg-white/[0.05]'] { background: rgba(255, 251, 244, 0.9); }
+body.theme-ink-ivory [class*='bg-white/[0.06]'] { background: rgba(255, 251, 244, 0.96); }
+body.theme-ink-ivory [class*='bg-[#0c1016]'] { background: #e9e2d7; }
+body.theme-ink-ivory [class*='bg-[#0d1016]'] { background: #fbf7f1; }
+body.theme-ink-ivory [class*='bg-[#0a0d13]/70'] { background: rgba(248, 244, 236, 0.88); }
+body.theme-ink-ivory [class*='bg-[#07090d]/80'] { background: rgba(244, 239, 230, 0.9); }
+body.theme-ink-ivory [class*='bg-[#d0a85c]'] { background: #294b6a; }
+body.theme-ink-ivory [class*='hover:bg-[#e1bb73]']:hover { background: #345e84; }
+body.theme-ink-ivory [class*='focus:border-[#d0a85c]/50'], body.theme-ink-ivory [class*='border-[#d0a85c]/50'] { border-color: rgba(41, 75, 106, 0.38); }
+body.theme-ink-ivory .site-mark { border-radius: 9999px; background: #18212b; padding: 0.35rem; }
+body.theme-ink-ivory ::selection { background: rgba(41, 75, 106, 0.18); color: #18212b; }
+body.theme-ink-ivory #cc-main { --cc-bg: #fffaf2; --cc-primary-color: #18212b; --cc-secondary-color: #576574; --cc-btn-primary-bg: #294b6a; --cc-btn-primary-color: #fffaf2; --cc-btn-primary-border-color: #294b6a; --cc-btn-primary-hover-bg: #345e84; --cc-btn-primary-hover-color: #fffaf2; --cc-btn-primary-hover-border-color: #345e84; --cc-btn-secondary-color: #18212b; --cc-btn-secondary-border-color: rgba(24, 33, 43, 0.16); --cc-btn-secondary-hover-bg: rgba(24, 33, 43, 0.04); }
