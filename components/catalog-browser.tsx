@@ -122,9 +122,6 @@ export function CatalogBrowser({
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-zinc-500">
               Current catalog
             </p>
-            <h3 className="mt-2 font-serif text-2xl leading-[0.94] text-white sm:text-3xl">
-              {filtered.length} editions currently available
-            </h3>
           </div>
         </div>
         <div className="mb-5 rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-4 lg:hidden">
