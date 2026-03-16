@@ -7,7 +7,7 @@ export function Header() {
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-5 lg:px-8">
         <Link href="/" className="flex items-center gap-3 self-start">
           <Image
-            src="/assets/heritage-canon-logo.png"
+            src="/assets/heritage-canon-logo-black-notext.png"
             alt="Heritage Canon"
             width={36}
             height={36}
