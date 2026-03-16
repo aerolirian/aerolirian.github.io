@@ -17,7 +17,11 @@ export function LocalizedBuyLinks({ links }: LocalizedBuyLinksProps) {
     const locales = navigator.languages?.length
       ? navigator.languages
       : [navigator.language]
-    setDomain(getPreferredAmazonDomain(locales))
+    const timeZone =
+      typeof Intl !== 'undefined'
+        ? Intl.DateTimeFormat().resolvedOptions().timeZone
+        : undefined
+    setDomain(getPreferredAmazonDomain(locales, timeZone))
   }, [])
 
   const localizedLinks = useMemo(

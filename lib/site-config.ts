@@ -11,7 +11,4 @@ export const ANALYTICS = {
   umamiDomains: process.env.NEXT_PUBLIC_UMAMI_DOMAINS?.trim() || '',
 }
 
-export const CONSENT_ENABLED = Boolean(
-  ANALYTICS.gaMeasurementId ||
-    (ANALYTICS.umamiWebsiteId && ANALYTICS.umamiSrc),
-)
+export const CONSENT_ENABLED = true

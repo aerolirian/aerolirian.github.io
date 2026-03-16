@@ -77,7 +77,6 @@ const REGION_MAP: Record<string, StorefrontKey> = {
 }
 
 const LANGUAGE_MAP: Record<string, StorefrontKey> = {
-  en: 'US',
   de: 'DE',
   fr: 'FR',
   it: 'IT',
@@ -92,7 +91,38 @@ const LANGUAGE_MAP: Record<string, StorefrontKey> = {
   pt: 'BR',
 }
 
-export function getPreferredAmazonDomain(locales: readonly string[]) {
+const TIMEZONE_MAP: Record<string, StorefrontKey> = {
+  'Europe/Berlin': 'DE',
+  'Europe/Vienna': 'DE',
+  'Europe/Zurich': 'DE',
+  'Europe/Paris': 'FR',
+  'Europe/Rome': 'IT',
+  'Europe/Madrid': 'ES',
+  'Europe/Amsterdam': 'NL',
+  'Europe/Stockholm': 'SE',
+  'Europe/Warsaw': 'PL',
+  'Europe/Brussels': 'BE',
+  'Europe/London': 'UK',
+  'Europe/Dublin': 'UK',
+  'Europe/Istanbul': 'TR',
+  'Asia/Dubai': 'AE',
+  'Asia/Riyadh': 'SA',
+  'Africa/Cairo': 'EG',
+  'Asia/Singapore': 'SG',
+  'Australia/Sydney': 'AU',
+  'Australia/Melbourne': 'AU',
+  'Asia/Tokyo': 'JP',
+  'Asia/Kolkata': 'IN',
+  'America/Toronto': 'CA',
+  'America/Vancouver': 'CA',
+  'America/Mexico_City': 'MX',
+  'America/Sao_Paulo': 'BR',
+}
+
+export function getPreferredAmazonDomain(
+  locales: readonly string[],
+  timeZone?: string,
+) {
   for (const locale of locales) {
     const normalized = locale.toLowerCase()
     const [language, region] = normalized.split(/[-_]/)
@@ -102,6 +132,9 @@ export function getPreferredAmazonDomain(locales: readonly string[]) {
     if (language && LANGUAGE_MAP[language]) {
       return STOREFRONTS[LANGUAGE_MAP[language]]
     }
+  }
+  if (timeZone && TIMEZONE_MAP[timeZone]) {
+    return STOREFRONTS[TIMEZONE_MAP[timeZone]]
   }
   return STOREFRONTS.US
 }
