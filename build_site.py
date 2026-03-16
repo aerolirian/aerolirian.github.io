@@ -7,7 +7,6 @@ import re
 import shutil
 from dataclasses import dataclass
 from pathlib import Path
-from textwrap import shorten
 
 ROOT = Path(__file__).resolve().parent
 CONTENT_PATH = ROOT / 'content' / 'catalog.json'
@@ -15,6 +14,7 @@ PUBLIC_ASSETS = ROOT / 'public' / 'assets'
 DIST_DIR = ROOT / 'dist'
 ASSETS_DIR = DIST_DIR / 'assets'
 BOOKS_DIR = DIST_DIR / 'books'
+EDITOR_DIR = DIST_DIR / 'editor'
 SITE_NAME = 'Heritage Canon'
 SITE_URL = 'https://heritagecanon.com'
 TAGLINE = 'Classic literature with original philosophical introductions.'
@@ -23,6 +23,20 @@ SERIES_BLURB = (
     'that frame them as live intellectual encounters rather than period artifacts.'
 )
 FEATURED_SLUGS = ['the_great_gatsby', 'death_in_venice', 'moby_dick']
+EDITOR_NAME = 'Daniel Shilansky'
+EDITOR_SLUG = 'daniel-shilansky'
+EDITOR_BIO = [
+    'Daniel Shilansky is the editor of Heritage Canon, an independent press publishing philosophical editions of classic literature. Each edition includes an original critical introduction that reconstructs the intellectual world that shaped the work: the philosophical debates, historical pressures, and ways of reading that its first audience brought to the text and that time has since obscured.',
+    'His research focuses on the relationship between narrative art and the Western philosophical tradition, especially the ways works of literature and film participate in philosophical argument rather than merely illustrating it. He writes on the philosophy embedded in narrative art for both academic and general audiences, working from the conviction that the ideas behind canonical works are neither obscure nor rarefied, but urgent and widely accessible.',
+    'He studied at Tel Aviv University.',
+]
+FORMAT_ORDER = {'ebook': 0, 'paperback': 1, 'hardcover': 2, 'audiobook': 3}
+FORMAT_LABELS = {
+    'ebook': 'Kindle',
+    'paperback': 'Paperback',
+    'hardcover': 'Hardcover',
+    'audiobook': 'Audiobook',
+}
 
 
 @dataclass
@@ -54,23 +68,33 @@ def read_books() -> list[Book]:
     return books
 
 
-def format_badges(book: Book) -> str:
-    return ''.join(f'<li>{html.escape(fmt)}</li>' for fmt in book.formats)
-
-
-def buy_buttons(book: Book) -> str:
-    return ''.join(
-        f'<a class="button button--primary button--buy" href="{html.escape(link["url"])}" target="_blank" rel="noreferrer">{html.escape(link["label"])}</a>'
-        for link in book.buy_links
-    )
-
-
 def safe_title(book: Book) -> str:
     return book.full_title or book.title
 
 
-def page_shell(title: str, body_class: str, content: str, description: str, image_url: str | None = None) -> str:
+def format_badges(book: Book) -> str:
+    ordered = sorted(book.formats, key=lambda item: FORMAT_ORDER.get(item, 99))
+    return ''.join(f'<li>{html.escape(FORMAT_LABELS.get(fmt, fmt.title()))}</li>' for fmt in ordered)
+
+
+def buy_buttons(book: Book) -> str:
+    return ''.join(
+        f'<a class="button button--primary button--buy" href="{html.escape(link["url"])}" target="_blank" rel="noreferrer">{html.escape(link["label"])}<span>Amazon</span></a>'
+        for link in book.buy_links
+    )
+
+
+def page_shell(
+    *,
+    title: str,
+    body_class: str,
+    content: str,
+    description: str,
+    image_url: str | None = None,
+    page_path: str = '/',
+) -> str:
     og_image = image_url or f'{SITE_URL}/assets/heritage-canon-logo.png'
+    page_url = f'{SITE_URL}{page_path}'
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -85,7 +109,7 @@ def page_shell(title: str, body_class: str, content: str, description: str, imag
   <meta property="og:title" content="{html.escape(title)}" />
   <meta property="og:description" content="{html.escape(description)}" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="{SITE_URL}" />
+  <meta property="og:url" content="{html.escape(page_url)}" />
   <meta property="og:image" content="{html.escape(og_image)}" />
   <meta name="twitter:card" content="summary_large_image" />
 </head>
@@ -109,35 +133,61 @@ def featured_books(books: list[Book]) -> list[Book]:
     return featured
 
 
+def authors(books: list[Book]) -> list[str]:
+    return sorted({book.author for book in books})
+
+
+def formats(books: list[Book]) -> list[str]:
+    all_formats = {fmt for book in books for fmt in book.formats}
+    return sorted(all_formats, key=lambda item: FORMAT_ORDER.get(item, 99))
+
+
+def book_card(book: Book) -> str:
+    meta = ' · '.join(x for x in [book.author, book.year, book.genre] if x)
+    data_formats = ','.join(sorted(book.formats, key=lambda item: FORMAT_ORDER.get(item, 99)))
+    return f'''
+    <article class="book-card" data-search="{html.escape((book.title + ' ' + book.author + ' ' + book.thesis_subtitle).lower())}" data-author="{html.escape(book.author)}" data-formats="{html.escape(data_formats)}">
+      <a class="book-card__cover" href="/books/{book.slug}/"><img src="{book.cover_out}" alt="Cover of {html.escape(book.title)}" loading="lazy" /></a>
+      <div class="book-card__body">
+        <p class="book-card__eyebrow">{html.escape(book.author)}</p>
+        <h3><a href="/books/{book.slug}/">{html.escape(book.title)}</a></h3>
+        <p class="book-card__subtitle">{html.escape(book.thesis_subtitle)}</p>
+        <p class="book-card__meta">{html.escape(meta)}</p>
+        <ul class="format-badges">{format_badges(book)}</ul>
+        <a class="book-card__link" href="/books/{book.slug}/">View edition</a>
+      </div>
+    </article>
+    '''
+
+
 def build_home(books: list[Book]) -> str:
     featured = featured_books(books)
-    book_cards = []
-    for book in books:
-        meta = ' · '.join(x for x in [book.author, book.year, book.genre] if x)
-        book_cards.append(f'''
-        <article class="book-card" data-search="{html.escape((book.title + ' ' + book.author + ' ' + book.thesis_subtitle).lower())}">
-          <a class="book-card__cover" href="/books/{book.slug}/"><img src="{book.cover_out}" alt="Cover of {html.escape(book.title)}" loading="lazy" /></a>
-          <div class="book-card__body">
-            <p class="book-card__eyebrow">{html.escape(book.author)}</p>
+    author_list = authors(books)
+    format_list = formats(books)
+    featured_panels = ''.join(
+        f'''
+        <article class="hero-panel">
+          <a class="hero-panel__cover" href="/books/{book.slug}/"><img src="{book.cover_out}" alt="Cover of {html.escape(book.title)}" /></a>
+          <div class="hero-panel__body">
+            <p>{html.escape(book.author)}</p>
             <h3><a href="/books/{book.slug}/">{html.escape(book.title)}</a></h3>
-            <p class="book-card__subtitle">{html.escape(book.thesis_subtitle)}</p>
-            <p class="book-card__meta">{html.escape(meta)}</p>
-            <ul class="format-badges">{format_badges(book)}</ul>
+            <span>{html.escape(book.thesis_subtitle)}</span>
           </div>
         </article>
-        ''')
-    featured_markup = []
-    for idx, book in enumerate(featured):
-        featured_markup.append(f'''
-          <a class="hero-cover hero-cover--{idx+1}" href="/books/{book.slug}/" aria-label="{html.escape(book.title)}">
-            <img src="{book.cover_out}" alt="Cover of {html.escape(book.title)}" />
-          </a>
-        ''')
+        ''' for book in featured
+    )
+    card_markup = ''.join(book_card(book) for book in books)
+    author_options = ''.join(f'<option value="{html.escape(author)}">{html.escape(author)}</option>' for author in author_list)
+    format_filters = ''.join(
+        f'<button class="filter-pill" type="button" data-format-filter="{html.escape(fmt)}">{html.escape(FORMAT_LABELS.get(fmt, fmt.title()))}</button>'
+        for fmt in format_list
+    )
     return page_shell(
         title=f'{SITE_NAME} | {TAGLINE}',
         body_class='page-home',
         description=SERIES_BLURB,
         image_url=f'{SITE_URL}{featured[0].cover_out}' if featured else None,
+        page_path='/',
         content=f'''
 <header class="site-header">
   <a class="brand" href="/">
@@ -146,7 +196,7 @@ def build_home(books: list[Book]) -> str:
   </a>
   <nav>
     <a href="/about/">About</a>
-    <a href="#about">Series</a>
+    <a href="/editor/{EDITOR_SLUG}/">Editor</a>
     <a href="#catalog">Catalog</a>
   </nav>
 </header>
@@ -154,58 +204,85 @@ def build_home(books: list[Book]) -> str:
   <section class="hero">
     <div class="hero__copy">
       <p class="hero__kicker">Philosophical Editions</p>
-      <h1>Classics that argue with the present.</h1>
+      <h1>Classic literature with a visible argument.</h1>
       <p class="hero__lede">{html.escape(SERIES_BLURB)}</p>
       <div class="hero__actions">
-        <a class="button button--primary" href="#catalog">Browse the catalog</a>
-        <a class="button button--ghost" href="#about">Read the series statement</a>
+        <a class="button button--primary" href="#catalog">Browse available editions</a>
+        <a class="button button--ghost" href="/editor/{EDITOR_SLUG}/">Meet the editor</a>
       </div>
+      <dl class="hero-stats">
+        <div><dt>Available editions</dt><dd>{len(books)}</dd></div>
+        <div><dt>Authors</dt><dd>{len(author_list)}</dd></div>
+        <div><dt>Formats</dt><dd>{len(format_list)}</dd></div>
+      </dl>
     </div>
-    <div class="hero__covers">{''.join(featured_markup)}</div>
+    <div class="hero__stage">
+      <div class="hero__stack">
+        <a class="hero-cover hero-cover--1" href="/books/{featured[0].slug}/" aria-label="{html.escape(featured[0].title)}"><img src="{featured[0].cover_out}" alt="Cover of {html.escape(featured[0].title)}" /></a>
+        <a class="hero-cover hero-cover--2" href="/books/{featured[1].slug}/" aria-label="{html.escape(featured[1].title)}"><img src="{featured[1].cover_out}" alt="Cover of {html.escape(featured[1].title)}" /></a>
+        <a class="hero-cover hero-cover--3" href="/books/{featured[2].slug}/" aria-label="{html.escape(featured[2].title)}"><img src="{featured[2].cover_out}" alt="Cover of {html.escape(featured[2].title)}" /></a>
+      </div>
+      <div class="hero-panels">{featured_panels}</div>
+    </div>
   </section>
 
-  <section id="about" class="statement section-shell">
+  <section id="about" class="section-shell statement statement--home">
     <div class="section-head">
-      <p class="section-head__kicker">The Project</p>
-      <h2>Literary editions built around a thesis, not a summary.</h2>
+      <p class="section-head__kicker">Series Logic</p>
+      <h2>The title stays primary. The subtitle states the claim.</h2>
     </div>
     <div class="statement__grid">
-      <p>Each Heritage Canon edition pairs a public-domain classic with a substantial new philosophical introduction by Daniel Shilansky. The goal is not to historicize the text into safety, but to recover the live argument inside it.</p>
-      <p>The cover, the ebook title page, and the introduction all work from the same structure: the original work title remains primary, and the thesis subtitle states the pressure point that makes the book newly legible.</p>
+      <p>Each Heritage Canon edition keeps the original work title intact and pairs it with a thesis subtitle that names the philosophical pressure point of the book. The point is not decorative branding. It is an editorial claim about what the work is doing and why it matters now.</p>
+      <p>Every volume includes an original introduction by Daniel Shilansky that reconstructs the intellectual world of the text rather than reducing it to biography or plot summary. The catalog below only includes books that are already live on Amazon in at least one format.</p>
     </div>
   </section>
 
   <section id="catalog" class="catalog section-shell">
     <div class="section-head section-head--inline">
       <div>
-        <p class="section-head__kicker">Catalog</p>
-        <h2>{len(books)} approved editions</h2>
+        <p class="section-head__kicker">Current Catalog</p>
+        <h2>{len(books)} editions currently available</h2>
       </div>
+      <p class="catalog-note">Amazon links on each product page are format-specific and generated directly from the ASINs in the publication status files.</p>
+    </div>
+    <div class="catalog-toolbar">
       <label class="catalog-search">
         <span>Search</span>
         <input id="catalog-search" type="search" placeholder="Title, author, or thesis" />
       </label>
+      <label class="catalog-search catalog-search--select">
+        <span>Author</span>
+        <select id="catalog-author">
+          <option value="">All authors</option>
+          {author_options}
+        </select>
+      </label>
+    </div>
+    <div class="filter-pills">
+      <button class="filter-pill is-active" type="button" data-format-filter="all">All formats</button>
+      {format_filters}
     </div>
     <div id="catalog-grid" class="catalog-grid">
-      {''.join(book_cards)}
+      {card_markup}
     </div>
+    <p id="catalog-empty" class="catalog-empty" hidden>No books match the current filters.</p>
   </section>
 </main>
 <footer class="site-footer">
   <p>Heritage Canon</p>
-  <p>heritagecanon.com</p>
+  <p><a href="/editor/{EDITOR_SLUG}/">Daniel Shilansky</a></p>
 </footer>
 ''',
     )
 
 
 def build_about(books: list[Book]) -> str:
-    authors = sorted({book.author for book in books})
-    author_markup = ''.join(f'<li>{html.escape(author)}</li>' for author in authors)
+    author_markup = ''.join(f'<li>{html.escape(author)}</li>' for author in authors(books))
     return page_shell(
         title='About | Heritage Canon',
         body_class='page-about',
         description=SERIES_BLURB,
+        page_path='/about/',
         content=f'''
 <header class="site-header site-header--tight">
   <a class="brand" href="/">
@@ -214,26 +291,92 @@ def build_about(books: list[Book]) -> str:
   </a>
   <nav>
     <a href="/">Home</a>
+    <a href="/editor/{EDITOR_SLUG}/">Editor</a>
     <a href="/#catalog">Catalog</a>
   </nav>
 </header>
 <main class="about-page">
+  <section class="section-shell about-grid">
+    <div>
+      <div class="section-head">
+        <p class="section-head__kicker">About Heritage Canon</p>
+        <h2>Classic literature with stated philosophical stakes.</h2>
+      </div>
+      <div class="book-copy__prose">
+        <p>{html.escape(SERIES_BLURB)}</p>
+        <p>The editorial structure is consistent across formats. The work title remains primary. The thesis subtitle names the interpretive claim. The introduction then reconstructs the arguments, historical pressures, and inherited habits of reading that make the work legible again.</p>
+        <p>The public website tracks only editions that are already live on Amazon in at least one format. It is a product catalog, not a speculative pipeline view.</p>
+      </div>
+    </div>
+    <aside class="info-card">
+      <p class="info-card__kicker">Current Scope</p>
+      <h3>{len(books)} available editions</h3>
+      <p>Published across {len(authors(books))} authors, with Kindle, paperback, hardcover, and audiobook links surfaced only when the ASIN exists.</p>
+      <a class="button button--ghost" href="/editor/{EDITOR_SLUG}/">Read the editor bio</a>
+    </aside>
+  </section>
   <section class="section-shell">
     <div class="section-head">
-      <p class="section-head__kicker">About Heritage Canon</p>
-      <h2>Classic literature with a stated argument.</h2>
+      <p class="section-head__kicker">Authors in the Catalog</p>
+      <h2>Current catalog.</h2>
     </div>
-    <div class="statement__grid">
-      <p>{html.escape(SERIES_BLURB)}</p>
-      <p>The editorial structure is consistent across formats: the work title remains primary, the thesis subtitle names the interpretive claim, and the introduction makes the case directly. The catalog page only includes books that are already live on Amazon.</p>
+    <ul class="author-list">{author_markup}</ul>
+  </section>
+</main>
+<footer class="site-footer">
+  <p>Heritage Canon</p>
+  <p><a href="/">Back to catalog</a></p>
+</footer>
+''',
+    )
+
+
+def build_editor_page(books: list[Book]) -> str:
+    editor_books = ''.join(
+        f'''
+        <article class="editor-book-card">
+          <a href="/books/{book.slug}/"><img src="{book.cover_out}" alt="Cover of {html.escape(book.title)}" loading="lazy" /></a>
+          <div>
+            <h3><a href="/books/{book.slug}/">{html.escape(book.title)}</a></h3>
+            <p>{html.escape(book.thesis_subtitle)}</p>
+          </div>
+        </article>
+        ''' for book in featured_books(books) + [b for b in books if b.slug not in {f.slug for f in featured_books(books)}][:3]
+    )
+    bio_markup = ''.join(f'<p>{html.escape(paragraph)}</p>' for paragraph in EDITOR_BIO)
+    image_block = '<img class="editor-portrait" src="/assets/bio.png" alt="Portrait of Daniel Shilansky" />' if (PUBLIC_ASSETS / 'bio.png').exists() else ''
+    return page_shell(
+        title=f'{EDITOR_NAME} | Heritage Canon',
+        body_class='page-editor',
+        description=EDITOR_BIO[0],
+        page_path=f'/editor/{EDITOR_SLUG}/',
+        content=f'''
+<header class="site-header site-header--tight">
+  <a class="brand" href="/">
+    <img src="/assets/heritage-canon-logo.png" alt="Heritage Canon logo" />
+    <span>Heritage Canon</span>
+  </a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/#catalog">Catalog</a>
+  </nav>
+</header>
+<main class="editor-page">
+  <section class="section-shell editor-hero">
+    <div class="editor-hero__media">{image_block}</div>
+    <div class="editor-hero__copy">
+      <p class="section-head__kicker">Editor</p>
+      <h1>{EDITOR_NAME}</h1>
+      <div class="book-copy__prose">{bio_markup}</div>
     </div>
   </section>
   <section class="section-shell">
     <div class="section-head">
-      <p class="section-head__kicker">Current Authors</p>
-      <h2>{len(books)} published editions across {len(authors)} authors.</h2>
+      <p class="section-head__kicker">Selected Editions</p>
+      <h2>Current Heritage Canon books with his introductions.</h2>
     </div>
-    <ul class="author-list">{author_markup}</ul>
+    <div class="editor-book-grid">{editor_books}</div>
   </section>
 </main>
 <footer class="site-footer">
@@ -253,7 +396,8 @@ def related_books(books: list[Book], current: Book) -> list[Book]:
 
 
 def build_book_page(book: Book, books: list[Book]) -> str:
-    related = related_books(books, book)
+    desc_paras = [p.strip() for p in re.split(r'\n\s*\n', book.description) if p.strip()]
+    prose_markup = ''.join(f'<p>{html.escape(p)}</p>' for p in desc_paras[:3])
     related_markup = ''.join(
         f'''
         <article class="related-card">
@@ -261,16 +405,14 @@ def build_book_page(book: Book, books: list[Book]) -> str:
           <h3><a href="/books/{other.slug}/">{html.escape(other.title)}</a></h3>
           <p>{html.escape(other.thesis_subtitle)}</p>
         </article>
-        ''' for other in related
+        ''' for other in related_books(books, book)
     )
-    desc_paras = [p.strip() for p in re.split(r'\n\s*\n', book.description) if p.strip()]
-    desc_markup = ''.join(f'<p>{html.escape(p)}</p>' for p in desc_paras[:3])
     meta_pairs = [
         ('Author', book.author),
         ('Original publication', book.year),
         ('Genre', book.genre),
         ('Introduction', book.intro_author),
-        ('Formats', ', '.join(book.formats)),
+        ('Formats live on Amazon', ', '.join(FORMAT_LABELS.get(fmt, fmt.title()) for fmt in book.formats)),
     ]
     meta_markup = ''.join(
         f'<div class="detail-meta__row"><dt>{html.escape(label)}</dt><dd>{html.escape(value)}</dd></div>'
@@ -281,6 +423,7 @@ def build_book_page(book: Book, books: list[Book]) -> str:
         body_class='page-book',
         description=book.excerpt,
         image_url=f'{SITE_URL}{book.cover_out}',
+        page_path=f'/books/{book.slug}/',
         content=f'''
 <header class="site-header site-header--tight">
   <a class="brand" href="/">
@@ -290,7 +433,7 @@ def build_book_page(book: Book, books: list[Book]) -> str:
   <nav>
     <a href="/">Home</a>
     <a href="/about/">About</a>
-    <a href="/#catalog">Catalog</a>
+    <a href="/editor/{EDITOR_SLUG}/">Editor</a>
   </nav>
 </header>
 <main class="book-page">
@@ -304,25 +447,35 @@ def build_book_page(book: Book, books: list[Book]) -> str:
       <p class="book-hero__subtitle">{html.escape(book.thesis_subtitle)}</p>
       <p class="book-hero__author">{html.escape(book.author)}</p>
       <ul class="format-badges">{format_badges(book)}</ul>
-      <div class="buy-button-row">
-        {buy_buttons(book)}
+      <div class="book-purchase-card">
+        <p class="book-purchase-card__kicker">Buy on Amazon</p>
+        <div class="buy-button-row">{buy_buttons(book)}</div>
+        <p class="book-purchase-card__note">Each button points to the format-specific Amazon listing generated from the live ASIN in the publication status file.</p>
       </div>
       <dl class="detail-meta">{meta_markup}</dl>
     </div>
   </section>
 
-  <section class="section-shell book-copy">
-    <div class="section-head">
-      <p class="section-head__kicker">Edition Note</p>
-      <h2>A classic work with a thesis-driven introduction.</h2>
+  <section class="section-shell book-detail-grid">
+    <div class="book-copy">
+      <div class="section-head">
+        <p class="section-head__kicker">Edition Note</p>
+        <h2>The thesis subtitle states the editorial claim.</h2>
+      </div>
+      <div class="book-copy__prose">{prose_markup}</div>
     </div>
-    <div class="book-copy__prose">{desc_markup}</div>
+    <aside class="editor-card">
+      <p class="editor-card__kicker">Editor</p>
+      <h3>{EDITOR_NAME}</h3>
+      <p>Heritage Canon pairs each classic with an original philosophical introduction that reconstructs the world of argument around the text rather than treating it as inert cultural property.</p>
+      <a class="button button--ghost" href="/editor/{EDITOR_SLUG}/">Read full bio</a>
+    </aside>
   </section>
 
   <section class="section-shell related-books">
     <div class="section-head">
-      <p class="section-head__kicker">Continue Reading</p>
-      <h2>More from the catalog</h2>
+      <p class="section-head__kicker">More in the Catalog</p>
+      <h2>Continue reading.</h2>
     </div>
     <div class="related-grid">{related_markup}</div>
   </section>
@@ -336,7 +489,11 @@ def build_book_page(book: Book, books: list[Book]) -> str:
 
 
 def build_sitemap(books: list[Book]) -> str:
-    urls = [SITE_URL + '/'] + [f'{SITE_URL}/books/{book.slug}/' for book in books]
+    urls = [
+        SITE_URL + '/',
+        SITE_URL + '/about/',
+        SITE_URL + f'/editor/{EDITOR_SLUG}/',
+    ] + [f'{SITE_URL}/books/{book.slug}/' for book in books]
     body = ''.join(f'<url><loc>{html.escape(url)}</loc></url>' for url in urls)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{body}</urlset>\n'
 
@@ -351,12 +508,17 @@ def write_text(path: Path, text: str) -> None:
 
 
 def main() -> None:
+    ensure_dir(DIST_DIR)
     ensure_dir(ASSETS_DIR)
     ensure_dir(BOOKS_DIR)
+    ensure_dir(EDITOR_DIR)
 
     shutil.copy2(ROOT / 'src' / 'site.css', ASSETS_DIR / 'site.css')
     shutil.copy2(ROOT / 'src' / 'site.js', ASSETS_DIR / 'site.js')
     shutil.copy2(PUBLIC_ASSETS / 'heritage-canon-logo.png', ASSETS_DIR / 'heritage-canon-logo.png')
+    if (PUBLIC_ASSETS / 'bio.png').exists():
+        shutil.copy2(PUBLIC_ASSETS / 'bio.png', ASSETS_DIR / 'bio.png')
+
     cover_out_dir = ASSETS_DIR / 'covers'
     ensure_dir(cover_out_dir)
     for cover in (PUBLIC_ASSETS / 'covers').glob('*'):
@@ -364,17 +526,23 @@ def main() -> None:
 
     books = read_books()
     published_slugs = {book.slug for book in books}
-    for existing in BOOKS_DIR.iterdir() if BOOKS_DIR.exists() else []:
-        if existing.is_dir() and existing.name not in published_slugs:
-            shutil.rmtree(existing, ignore_errors=True)
+    if BOOKS_DIR.exists():
+        for existing in BOOKS_DIR.iterdir():
+            if existing.is_dir() and existing.name not in published_slugs:
+                shutil.rmtree(existing, ignore_errors=True)
+
     write_text(DIST_DIR / 'index.html', build_home(books))
     write_text(DIST_DIR / '404.html', build_home(books))
     write_text(DIST_DIR / 'about' / 'index.html', build_about(books))
+    write_text(EDITOR_DIR / EDITOR_SLUG / 'index.html', build_editor_page(books))
     for book in books:
         write_text(BOOKS_DIR / book.slug / 'index.html', build_book_page(book, books))
     write_text(DIST_DIR / 'sitemap.xml', build_sitemap(books))
     write_text(DIST_DIR / 'robots.txt', build_robots())
-    write_text(DIST_DIR / '_headers', '/*\n  X-Frame-Options: DENY\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Permissions-Policy: geolocation=(), microphone=(), camera=()\n')
+    write_text(
+        DIST_DIR / '_headers',
+        '/*\n  X-Frame-Options: DENY\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Permissions-Policy: geolocation=(), microphone=(), camera=()\n',
+    )
 
 
 if __name__ == '__main__':

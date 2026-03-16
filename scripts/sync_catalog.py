@@ -17,6 +17,8 @@ CONTENT_PATH = SITE_ROOT / 'content' / 'catalog.json'
 COVERS_DIR = SITE_ROOT / 'public' / 'assets' / 'covers'
 LOGO_SRC = ROOT / 'assets-dont-delete' / 'heritage-canon-imprint-logo.png'
 LOGO_DEST = SITE_ROOT / 'public' / 'assets' / 'heritage-canon-logo.png'
+BIO_SRC = ROOT / 'assets-dont-delete' / 'bio.png'
+BIO_DEST = SITE_ROOT / 'public' / 'assets' / 'bio.png'
 
 
 def read_json(path: Path) -> dict:
@@ -131,6 +133,9 @@ def main() -> None:
     if LOGO_SRC.exists():
         LOGO_DEST.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(LOGO_SRC, LOGO_DEST)
+    if BIO_SRC.exists():
+        BIO_DEST.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(BIO_SRC, BIO_DEST)
     for book_dir in sorted(BOOKS_DIR.iterdir()):
         if not book_dir.is_dir():
             continue

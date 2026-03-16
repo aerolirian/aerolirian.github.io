@@ -1,6 +1,56 @@
 {
   "books": [
     {
+      "slug": "a_portrait_of_the_artist_as_a_young_man",
+      "title": "A Portrait of the Artist as a Young Man",
+      "full_title": "A Portrait of the Artist as a Young Man: Philosophical Edition — The Irish Apostate",
+      "thesis_subtitle": "The Irish Apostate",
+      "author": "James Joyce",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novel",
+      "year": "1916",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/a_portrait_of_the_artist_as_a_young_man.webp",
+      "description": "This philosophical edition of A Portrait of the Artist as a Young Man includes: A young Irish Catholic boy, raised to believe his soul is a vessel for divine truth, faces the impossible choice of renouncing his faith or surrendering his artistic independence—knowing that doing either will shatter the identity he’s been told is his destiny. This moment sparks a profound philosophical crisis: what does it mean to truly become oneself when every step is dictated by inherited authority? James Joyce’s A Portrait of the Artist as a Young Man embodies the Original Deconversion —a ruthless exploration of self-formation, cultural inheritance, and the costs of authentic freedom. It unflinchingly reveals that the self is neither wholly made nor simply given—and that true independence demands a painful, ongoing act of refusal. This novel is a declaration of independence for anyone daring enough to question their foundations—and brave enough to forge their own path.",
+      "excerpt": "This philosophical edition of A Portrait of the Artist as a Young Man includes: A young Irish Catholic boy, raised to believe his soul is a vessel for divine truth, faces the...",
+      "formats": [
+        "ebook"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GSP86YM3",
+          "url": "https://www.amazon.com/dp/B0GSP86YM3"
+        }
+      ]
+    },
+    {
+      "slug": "alice_in_wonderland",
+      "title": "Alice in Wonderland and Other Tales",
+      "full_title": "Alice in Wonderland and Other Tales: Philosophical Edition — The Logic of Nonsense",
+      "thesis_subtitle": "The Logic of Nonsense",
+      "author": "Lewis Carroll",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novel",
+      "year": "1865",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/alice_in_wonderland.webp",
+      "description": "This philosophical edition of Alice's Adventures in Wonderland and Other Writings includes: In Lewis Carroll’s Alice's Adventures in Wonderland , Alice faces the impossible task of reasoning correctly in a world where every logical rule, when applied with perfect fidelity, produces nothing but chaos. This novel unearths the dangerous illusion that reasoning power alone can anchor us to reality—an illusion exploited by figures like Vladimir Putin, who manipulate language and law to justify tyranny. Carroll’s world reveals how the very machinery of logic, when divorced from shared practices and stable references, can serve as a tool for disorder rather than understanding. Both the myth of reason as an infallible guide and the ruthless assertion of will—embodied in authoritarian regimes—share a horrifying convergence: they assume that power and logic are interchangeable, that authority can impose meaning where none exists. Carroll’s masterpiece warns: when reasoning is divorced from its grounding, all that remains is the illusion of coherence hiding a profound collapse.",
+      "excerpt": "This philosophical edition of Alice's Adventures in Wonderland and Other Writings includes: In Lewis Carroll’s Alice's Adventures in Wonderland , Alice faces the impossible task...",
+      "formats": [
+        "ebook"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GSNQQ156",
+          "url": "https://www.amazon.com/dp/B0GSNQQ156"
+        }
+      ]
+    },
+    {
       "slug": "arrowsmith",
       "title": "Arrowsmith",
       "full_title": "Arrowsmith: Philosophical Edition — What RFK Jr. and Big Pharma Have in Common",
@@ -33,6 +83,31 @@
       ]
     },
     {
+      "slug": "babbitt",
+      "title": "Babbitt",
+      "full_title": "Babbitt: Philosophical Edition — The Illusion of Self-Determination",
+      "thesis_subtitle": "The Illusion of Self-Determination",
+      "author": "Sinclair Lewis",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novel",
+      "year": "1922",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/babbitt.webp",
+      "description": "This philosophical edition of Babbitt includes: Babbitt stands on the edge of his life, torn between the comfort of conformity and the gnawing sense that his desires have been hollowed out by a civilization that molds him into a perfect consumer, leaving him unable to imagine a self beyond its rules. This is the peril of a society that erodes individual freedom from within, where the line between who we are and what we’re told to want dissolves into one seamless product. Sinclair Lewis’s novel captures the nightmare of a self so thoroughly shaped by its environment that rebellion feels impossible—and even unthinkable. Babbitt isn’t just about one man’s mediocrity; it’s about how modern life strips us of the capacity for genuine self-awareness. This is not a story of change—it’s an indictment of a world that keeps us quiet in our cages.",
+      "excerpt": "This philosophical edition of Babbitt includes: Babbitt stands on the edge of his life, torn between the comfort of conformity and the gnawing sense that his desires have been...",
+      "formats": [
+        "ebook"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GSNJ3JZT",
+          "url": "https://www.amazon.com/dp/B0GSNJ3JZT"
+        }
+      ]
+    },
+    {
       "slug": "buddenbrooks",
       "title": "Buddenbrooks",
       "full_title": "Buddenbrooks: Philosophical Edition — Fate, Decline, and the Illusion of Self",
@@ -54,6 +129,31 @@
           "format": "ebook",
           "asin": "B0GR5FXGWV",
           "url": "https://www.amazon.com/dp/B0GR5FXGWV"
+        }
+      ]
+    },
+    {
+      "slug": "death_comes_for_the_archbishop",
+      "title": "Death comes for the archbishop",
+      "full_title": "Death comes for the archbishop: Philosophical Edition — Fate and the Eternal Spirit",
+      "thesis_subtitle": "Fate and the Eternal Spirit",
+      "author": "Willa Cather",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novel",
+      "year": "1927",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/death_comes_for_the_archbishop.webp",
+      "description": "Willa Cather’s *Death Comes for the Archbishop*, in its quiet grandeur, confronts the enduring tension between historical transience and the eternal spirit. As Bishop Latour establishes the Church in the stark beauty of New Mexico, he navigates a world where human ambition and the sweep of history meet the timeless rhythms of the land and the sacred. The novel invites us to consider whether faith is merely a product of its time, or if some experiences transcend the relentless march of progress. This Heritage Canon Philosophical Edition, with an introduction by Daniel Shilansky, illuminates Cather’s profound engagement with this question. Shilansky reveals how Cather, through narrative and landscape, offers a powerful counterpoint to the dominant historical thinking of her era, presenting a vision where fate and the eternal spirit coexist in sustained, unresolved proximity. This edition reintroduces a classic as a vital meditation on permanence in an ever-changing world. The Heritage Canon Philosophical Editions series pairs classic works of literature with original philosophical introductions, offering readers enduring books together with serious interpretive essays that reveal their continuing intellectual and moral power.",
+      "excerpt": "Willa Cather’s *Death Comes for the Archbishop*, in its quiet grandeur, confronts the enduring tension between historical transience and the eternal spirit. As Bishop Latour...",
+      "formats": [
+        "paperback"
+      ],
+      "buy_links": [
+        {
+          "label": "Paperback",
+          "format": "paperback",
+          "asin": "B0GJ6VRXCR",
+          "url": "https://www.amazon.com/dp/B0GJ6VRXCR"
         }
       ]
     },
@@ -97,6 +197,88 @@
       ]
     },
     {
+      "slug": "dubliners",
+      "title": "Dubliners",
+      "full_title": "Dubliners: Philosophical Edition — Fate and the Limits of the Self",
+      "thesis_subtitle": "Fate and the Limits of the Self",
+      "author": "James Joyce",
+      "intro_author": "Daniel Shilansky",
+      "genre": "ShortStories",
+      "year": "1914",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/dubliners.webp",
+      "description": "This philosophical edition of Dubliners includes: In Dublin, a man stands at the edge of recognition, knowing what he sees but feeling powerless to act on it—caught in a web woven by Fate and Self that traps him in a cycle of stasis, just as modern populists like Viktor Orbán exploit the illusion of choice to deepen societal paralysis. James Joyce’s Dubliners reveals how the Limits imposed by colonial and religious histories distort not only external circumstances but the very core of human desire and self-perception. The novel exposes a dangerous truth: that collective formations and internalized categories conspire to keep individuals from breaking free, even when clarity arrives. It is a brutal reminder that the most insidious control is not external but internal—an internalization of limits that renders recognition itself a cage. This is no mere portrait of Dublin’s paralysis; it’s a blueprint for how systems manipulate the human will to serve their own ends—and how, in that manipulation, true freedom becomes an impossible dream.",
+      "excerpt": "This philosophical edition of Dubliners includes: In Dublin, a man stands at the edge of recognition, knowing what he sees but feeling powerless to act on it—caught in a web...",
+      "formats": [
+        "ebook",
+        "paperback"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GSPFB18N",
+          "url": "https://www.amazon.com/dp/B0GSPFB18N"
+        },
+        {
+          "label": "Paperback",
+          "format": "paperback",
+          "asin": "B0FFM45LLS",
+          "url": "https://www.amazon.com/dp/B0FFM45LLS"
+        }
+      ]
+    },
+    {
+      "slug": "elmer_gantry",
+      "title": "Elmer Gantry",
+      "full_title": "Elmer Gantry: Philosophical Edition — Fate and Hypocrisy in the Revivalist Soul",
+      "thesis_subtitle": "Fate and Hypocrisy in the Revivalist Soul",
+      "author": "Sinclair Lewis",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novel",
+      "year": "1927",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/elmer_gantry.webp",
+      "description": "This philosophical edition of Elmer Gantry includes: Elmer Gantry stands at the center of Sinclair Lewis’s Fate and Hypocrisy in the Revivalist Soul , a man whose charismatic performance conceals a void, a hollow shell shaped by an institution that rewards superficial virtue while stripping away genuine faith. His body, his language, his very presence are tools of manipulation, exploiting the emotional vulnerabilities of his followers—an echo of the political spectacle wielded by figures like RFK Jr. or Putin—promising salvation while delivering only self-interest. Lewis’s novel exposes how revivalism’s structural reliance on spectacle and sensation creates a system that values performance over truth, rewarding the hypocrite who never believed in what he preaches. It’s not simply about fake faith; it’s about the dangerous convergence of institutional design and human fragility—an apparatus that produces emptiness under the guise of righteousness and leaves the soul exposed to manipulation on a mass scale. This is the revivalist soul Lewis unflinchingly reveals: where genuine belief is secondary to what can be sold, bought, and manipulated.",
+      "excerpt": "This philosophical edition of Elmer Gantry includes: Elmer Gantry stands at the center of Sinclair Lewis’s Fate and Hypocrisy in the Revivalist Soul , a man whose charismatic...",
+      "formats": [
+        "paperback"
+      ],
+      "buy_links": [
+        {
+          "label": "Paperback",
+          "format": "paperback",
+          "asin": "B0F1V7YCXY",
+          "url": "https://www.amazon.com/dp/B0F1V7YCXY"
+        }
+      ]
+    },
+    {
+      "slug": "far_from_the_madding_crowd",
+      "title": "Far from the Madding Crowd",
+      "full_title": "Far from the Madding Crowd: Philosophical Edition — Fate and Morality in Human Struggle",
+      "thesis_subtitle": "Fate and Morality in Human Struggle",
+      "author": "Thomas Hardy",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novel",
+      "year": "1874",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/far_from_the_madding_crowd.webp",
+      "description": "This philosophical edition of Far from the Madding Crowd includes: Gabriel Oak stands in the middle of a world where Fate’s indifferent hand shapes the course of human Struggle, caught between old Morality’s claim to moral responsibility and the brutal realities of natural process. Hardy’s Far from the Madding Crowd refuses to settle this duel—neither dismissing Morality nor surrendering to the cold logic of Fate. Instead, it exposes how contemporary figures like Vladimir Putin manipulate these ancient forces—exploiting the illusion that Nature, or Fate, can be harnessed to justify cruelty and chaos. Hardy’s novel demonstrates that beneath their opposition, Fate and Morality converge in a collision that leaves human effort battered and bewildered, yet still vital. This is a story that dares you to confront the dangerous illusion that human struggle can be reduced to either moral mastery or natural inevitability—and it demands you choose how you will live within that tension.",
+      "excerpt": "This philosophical edition of Far from the Madding Crowd includes: Gabriel Oak stands in the middle of a world where Fate’s indifferent hand shapes the course of human Struggle,...",
+      "formats": [
+        "paperback"
+      ],
+      "buy_links": [
+        {
+          "label": "Paperback",
+          "format": "paperback",
+          "asin": "B0F8NWB4YG",
+          "url": "https://www.amazon.com/dp/B0F8NWB4YG"
+        }
+      ]
+    },
+    {
       "slug": "growth_of_the_soil",
       "title": "Growth of the Soil",
       "full_title": "Growth of the Soil: Philosophical Edition — What Trump, Orbán, and Marine Le Pen Owe to a Norwegian Farmer",
@@ -136,6 +318,38 @@
       ]
     },
     {
+      "slug": "main_street",
+      "title": "Main Street",
+      "full_title": "Main Street: Philosophical Edition — Fate and Freedom in the American Self",
+      "thesis_subtitle": "Fate and Freedom in the American Self",
+      "author": "Sinclair Lewis",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novel",
+      "year": "1920",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/main_street.webp",
+      "description": "This philosophical edition of Main Street includes: In Main Street , Carol Milford faces the impossible choice between conforming to the quiet expectations of her small town or risking her identity to pursue genuine freedom. The town’s veneer of community masks a stifling social order that crushes individuality and hopes, especially for women. Sinclair Lewis’s sharp critique exposes the terrifying cost of democracy’s promise: is it truly about empowering the individual or maintaining social harmony at any cost? Main Street reveals that beneath the comforting surface lies a brutal struggle—between conformity and authenticity, tradition and progress, control and liberation. It challenges every reader to ask whether freedom can survive where community demands conformity.",
+      "excerpt": "This philosophical edition of Main Street includes: In Main Street , Carol Milford faces the impossible choice between conforming to the quiet expectations of her small town or...",
+      "formats": [
+        "ebook",
+        "paperback"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GSNFDJCR",
+          "url": "https://www.amazon.com/dp/B0GSNFDJCR"
+        },
+        {
+          "label": "Paperback",
+          "format": "paperback",
+          "asin": "B0F2JCLHCD",
+          "url": "https://www.amazon.com/dp/B0F2JCLHCD"
+        }
+      ]
+    },
+    {
       "slug": "moby_dick",
       "title": "Moby Dick",
       "full_title": "Moby Dick: Philosophical Edition — Reason, Obsession, and the Abyss; Or, Make The Pequod Great Again",
@@ -164,6 +378,106 @@
           "format": "paperback",
           "asin": "B0GS54Y9H3",
           "url": "https://www.amazon.com/dp/B0GS54Y9H3"
+        }
+      ]
+    },
+    {
+      "slug": "o_pioneers",
+      "title": "O Pioneers!",
+      "full_title": "O Pioneers!: Philosophical Edition — The Land's Will and Human Silence",
+      "thesis_subtitle": "The Land's Will and Human Silence",
+      "author": "Willa Cather",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novel",
+      "year": "1913",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/o_pioneers.webp",
+      "description": "This philosophical edition of O Pioneers! includes: In O Pioneers! , Alexandra Bergson stands before the Nebraska prairie, her mind attuned to its quiet resistance and subtle demands, caught between the false promise of mastery and the illusion of submission. Her dilemma echoes today’s obsession with conquering nature, as political figures and corporations exploit Land's myth — a belief that the land is raw material waiting to be transformed — fueling environmental destruction and social disconnection. Yet, the novel exposes how this faith in control is a dangerous lie, rooted in a deeper human silence that refuses to listen to the land’s own voice. Cather’s story reveals that true knowledge demands a willingness to surrender to something larger — an unsettling truth that the forces of progress and domination are two sides of the same broken coin. O Pioneers! hits like a verdict: mastery is an illusion; silence is the price of understanding.",
+      "excerpt": "This philosophical edition of O Pioneers! includes: In O Pioneers! , Alexandra Bergson stands before the Nebraska prairie, her mind attuned to its quiet resistance and subtle...",
+      "formats": [
+        "ebook"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GSP192VH",
+          "url": "https://www.amazon.com/dp/B0GSP192VH"
+        }
+      ]
+    },
+    {
+      "slug": "the_age_of_innocence",
+      "title": "The Age of Innocence",
+      "full_title": "The Age of Innocence: Philosophical Edition — Loss and Longing in Lives Unlived",
+      "thesis_subtitle": "Loss and Longing in Lives Unlived",
+      "author": "Edith Wharton",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novel",
+      "year": "1920",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/the_age_of_innocence.webp",
+      "description": "This philosophical edition of The Age of Innocence includes: A man sits outside Ellen Olenska’s Paris apartment, knowing he can’t cross the threshold because the Passage of a lifetime has already shaped his Self into something that cannot undo what was done. Edith Wharton’s The Age of Innocence exposes Loss as the cost of clinging to inherited forms, and Longing as the ache for a Self that can never fully be restored. The novel reveals how society’s rituals aren’t mere tradition but dangerous tools that mask the true costs of their preservation—costs paid by those who pay with their lives, their freedom, their very ability to act. In a world where political figures like Putin exploit the myth of moral continuity—weaponizing Loss to justify brutality—Wharton’s story warns that the deepest danger lies in mistaking what is lost for what was never truly ours to keep.",
+      "excerpt": "This philosophical edition of The Age of Innocence includes: A man sits outside Ellen Olenska’s Paris apartment, knowing he can’t cross the threshold because the Passage of a...",
+      "formats": [
+        "paperback"
+      ],
+      "buy_links": [
+        {
+          "label": "Paperback",
+          "format": "paperback",
+          "asin": "B0GRNCDQDY",
+          "url": "https://www.amazon.com/dp/B0GRNCDQDY"
+        }
+      ]
+    },
+    {
+      "slug": "the_centaur",
+      "title": "The Centaur",
+      "full_title": "The Centaur: Philosophical Edition — The Power of the Unknown",
+      "thesis_subtitle": "The Power of the Unknown",
+      "author": "Algernon Blackwood",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Fantasy",
+      "year": "1911",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/the_centaur.webp",
+      "description": "This philosophical edition of The Centaur includes: A man stands on the edge of a forest, torn between accepting the natural world’s limits or risking everything to contact a primal force that defies human understanding. His choice threatens to shatter his sense of self, revealing that some truths lie beyond the boundaries of reason and science. Algernon Blackwood’s The Centaur dares to suggest there is an order of being older and deeper than humanity, one that can touch us if we surrender the illusion of separation. It challenges the very fabric of reality, forcing the reader to feel the porous edges of consciousness itself. This book doesn’t just tell a story — it unsettles your mind and shakes your convictions to their core.",
+      "excerpt": "This philosophical edition of The Centaur includes: A man stands on the edge of a forest, torn between accepting the natural world’s limits or risking everything to contact a...",
+      "formats": [
+        "ebook"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GSNGL6BZ",
+          "url": "https://www.amazon.com/dp/B0GSNGL6BZ"
+        }
+      ]
+    },
+    {
+      "slug": "the_gentleman_from_indiana",
+      "title": "The Gentleman from Indiana",
+      "full_title": "The Gentleman from Indiana: Philosophical Edition — Civic Virtue and the Crisis of the Self",
+      "thesis_subtitle": "Civic Virtue and the Crisis of the Self",
+      "author": "Booth Tarkington",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novel",
+      "year": "1899",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/the_gentleman_from_indiana.webp",
+      "description": "This philosophical edition of The Gentleman from Indiana includes: In the small Indiana town of Plattville, John Harkless stands at the edge of a crisis, wielding civic virtue as both shield and sword against organized violence that threatens to dismantle the community’s very Self . Tarkington’s The Gentleman from Indiana reveals how the myth of moral influence—often celebrated as civic strength—can mask a darker truth: that true Self-reliance is fragile, built on habits shaped by influence both noble and nefarious. As Harkless’s personal integrity confronts the organized coercion of White Caps, the novel exposes how democratic communities are haunted by the same social density that can elevate civic virtue or drown it in terror. This is where the mythic figure of the American gentleman and contemporary figures like RFK Jr. converge—they promise moral salvation but often exploit the dangerous idea that Self can be cultivated from above, without community’s consent. Tarkington's novel hits like a verdict: who we are depends on whether our virtue withstands the unseen convergence of influence and coercion.",
+      "excerpt": "This philosophical edition of The Gentleman from Indiana includes: In the small Indiana town of Plattville, John Harkless stands at the edge of a crisis, wielding civic virtue...",
+      "formats": [
+        "ebook"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GSNTNQ1Q",
+          "url": "https://www.amazon.com/dp/B0GSNTNQ1Q"
         }
       ]
     },
@@ -246,6 +560,56 @@
       ]
     },
     {
+      "slug": "the_turmoil",
+      "title": "The Turmoil",
+      "full_title": "The Turmoil: Philosophical Edition — The Self in the Shadow of Industry",
+      "thesis_subtitle": "The Self in the Shadow of Industry",
+      "author": "Booth Tarkington",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novel",
+      "year": "1915",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/the_turmoil.webp",
+      "description": "This philosophical edition of The Turmoil includes: Bibbs Sheridan feels the shadow of Industry pressing against his delicate senses, caught between a world that demands his body’s submission and a self that clings to inner life. Tarkington’s The Turmoil reveals how Industry’s relentless machine reshapes not just cities but the very Self, erasing the categories through which we understand human worth. It exposes the lie that progress and cultivation can coexist—because Industry doesn’t just threaten the soul from outside; it redefines what it means to be human from within, transforming the Self into a cog in a vast, indifferent system. Contemporary figures like Vladimir Putin exploit this same myth: that relentless expansion justifies any means—yet Tarkington shows how such dehumanization is built into the Shadow of Industry itself, and how it demands a reckoning we dare not ignore.",
+      "excerpt": "This philosophical edition of The Turmoil includes: Bibbs Sheridan feels the shadow of Industry pressing against his delicate senses, caught between a world that demands his...",
+      "formats": [
+        "ebook"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GSNR73Y1",
+          "url": "https://www.amazon.com/dp/B0GSNR73Y1"
+        }
+      ]
+    },
+    {
+      "slug": "the_village",
+      "title": "The Village",
+      "full_title": "The Village: Philosophical Edition — Truth Against Ideology and Illusion",
+      "thesis_subtitle": "Truth Against Ideology and Illusion",
+      "author": "Ivan Alekseevich Bunin",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novel",
+      "year": "1910",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/the_village.webp",
+      "description": "This philosophical edition of The Village includes: A village elder faces a choice: cling to comforting myths about his community or confront the brutal truth staring him in the face. This dilemma unlocks a fierce philosophical battle—between seeing society as a symbol of moral virtue and acknowledging its messy, contradictory reality. Ivan Alekseevich Bunin’s The Village exposes how easy it is to distort truth with comforting narratives, risking moral blindness. It’s a confrontation with the dangerous allure of idealization, demanding that we see human life for what it truly is—unfiltered and complex. This isn’t just a story; it’s a challenge to stare down the illusions we cling to and accept the unsettling weight of reality.",
+      "excerpt": "This philosophical edition of The Village includes: A village elder faces a choice: cling to comforting myths about his community or confront the brutal truth staring him in the...",
+      "formats": [
+        "ebook"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GQP7CTN2",
+          "url": "https://www.amazon.com/dp/B0GQP7CTN2"
+        }
+      ]
+    },
+    {
       "slug": "the_wendigo",
       "title": "The Wendigo",
       "full_title": "The Wendigo: Philosophical Edition — The Loss of Self and the Call of the Inhuman",
@@ -320,6 +684,63 @@
           "format": "hardcover",
           "asin": "B0GS4WBT9W",
           "url": "https://www.amazon.com/dp/B0GS4WBT9W"
+        }
+      ]
+    },
+    {
+      "slug": "ulysses",
+      "title": "Ulysses",
+      "full_title": "Ulysses: Philosophical Edition — The Impossible Self of Consciousness",
+      "thesis_subtitle": "The Impossible Self of Consciousness",
+      "author": "James Joyce",
+      "intro_author": "Daniel Shilansky",
+      "genre": "Novel",
+      "year": "1922",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/ulysses.webp",
+      "description": "This philosophical edition of Ulysses includes: Leopold Bloom stands on the brink of understanding that Consciousness itself is a fragile illusion, caught in a relentless struggle to know what cannot be fully known. Joyce’s Ulysses confronts us with the impossible self, revealing how every attempt to capture the flow of experience exposes its own structural limits—an insight that challenges the very foundations of how we believe the mind works. This novel lays bare the dangerous idea that we can ever truly possess self-knowledge, much like how political figures like Vladimir Putin exploit the myth of a stable, unified nation—concealing chaos beneath a veneer of control. Ulysses is a fierce reminder: the deepest truths about human life are forever just beyond reach, and in that gap lies both our freedom and our peril. It is the ultimate act of intellectual danger—an unflinching gaze at what we dare not fully see.",
+      "excerpt": "This philosophical edition of Ulysses includes: Leopold Bloom stands on the brink of understanding that Consciousness itself is a fragile illusion, caught in a relentless...",
+      "formats": [
+        "ebook"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GSP3R9YN",
+          "url": "https://www.amazon.com/dp/B0GSP3R9YN"
+        }
+      ]
+    },
+    {
+      "slug": "when_the_sleeper_wakes",
+      "title": "The Sleeper Awakes",
+      "full_title": "The Sleeper Awakes: Philosophical Edition — The Illusion of Power and the Collapse of Will",
+      "thesis_subtitle": "The Illusion of Power and the Collapse of Will",
+      "author": "H. G. Wells",
+      "intro_author": "Daniel Shilansky",
+      "genre": "ScienceFiction",
+      "year": "1899",
+      "publisher": "Heritage Canon",
+      "cover_out": "/assets/covers/when_the_sleeper_wakes.webp",
+      "description": "This philosophical edition of The Sleeper Awakes includes: In The Sleeper Awakes , Graham’s Victorian morality and grasp of power clash with a future that has been shaped by the illusion of control—an illusion that the novel reveals as a carefully constructed collapse of agency itself. Wells’s vision uncovers how technological mastery and economic concentration have created a world where formal ownership and genuine authority are severed, exposing the dangerous myth that understanding naturally leads to action. The novel’s world, eerily comparable to the rise of figures like Vladimir Putin or the influence of Big Tech conglomerates today, demonstrates how power can be wielded through systems so complex and autonomous that they dissolve the very capacity for resistance. Wells forces us to confront not only what progress has wrought but how its seductive illusions mask the collapse of will—an insight as relevant now as it was at the dawn of the twentieth century.",
+      "excerpt": "This philosophical edition of The Sleeper Awakes includes: In The Sleeper Awakes , Graham’s Victorian morality and grasp of power clash with a future that has been shaped by the...",
+      "formats": [
+        "ebook",
+        "paperback"
+      ],
+      "buy_links": [
+        {
+          "label": "Kindle",
+          "format": "ebook",
+          "asin": "B0GFWG415M",
+          "url": "https://www.amazon.com/dp/B0GFWG415M"
+        },
+        {
+          "label": "Paperback",
+          "format": "paperback",
+          "asin": "B0GFX67JT5",
+          "url": "https://www.amazon.com/dp/B0GFX67JT5"
         }
       ]
     }
