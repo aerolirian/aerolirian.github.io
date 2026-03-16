@@ -41,7 +41,7 @@ export default function HomePage() {
             Philosophical editions of classic literature.
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-300 sm:mt-6 sm:text-lg">
-            Every great novel was written into a world of arguments — about
+            Every classic was written into a world of arguments — about
             morality, freedom, God, what literature itself should do. Most of
             that world has gone quiet. These editions restore it.
           </p>
