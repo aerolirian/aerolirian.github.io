@@ -7,12 +7,17 @@ export type BuyLink = {
   url: string
 }
 
+export type EssayLink = {
+  label: string
+  url: string
+}
+
 export type Book = {
   slug: string
   title: string
   full_title: string
   thesis_subtitle: string
-  essay_url?: string
+  essays?: EssayLink[]
   author: string
   intro_author: string
   genre: string

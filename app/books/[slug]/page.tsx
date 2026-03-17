@@ -83,20 +83,18 @@ export default async function BookPage({ params }: BookPageProps) {
     datePublished: book.year || undefined,
     bookEdition: 'Philosophical Edition',
     url: `${SITE.url}/books/${book.slug}`,
-    subjectOf: book.essay_url
-      ? {
-          '@type': 'ScholarlyArticle',
-          url: book.essay_url,
-          author: {
-            '@type': 'Person',
-            name: book.intro_author,
-          },
-          publisher: {
-            '@type': 'Organization',
-            name: 'Substack',
-          },
-        }
-      : undefined,
+    subjectOf:
+      book.essays && book.essays.length > 0
+        ? book.essays.map((essay) => ({
+            '@type': 'ScholarlyArticle',
+            name: `${book.title} essay`,
+            url: essay.url,
+            author: {
+              '@type': 'Person',
+              name: book.intro_author,
+            },
+          }))
+        : undefined,
     offers: book.buy_links.map((link) => ({
       '@type': 'Offer',
       category: link.label,
@@ -172,21 +170,24 @@ export default async function BookPage({ params }: BookPageProps) {
                 </p>
                 <p className="mt-2">{book.genre || 'Classic literature'}</p>
               </div>
-              {book.essay_url ? (
+              {book.essays && book.essays.length > 0 ? (
                 <div className="sm:col-span-2">
                   <p className="text-[0.68rem] uppercase tracking-[0.2em] text-zinc-500">
-                    Related essay
+                    Related essays
                   </p>
-                  <p className="mt-2">
-                    <a
-                      href={book.essay_url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-[#d0a85c] underline decoration-white/10 underline-offset-4 transition hover:text-white"
-                    >
-                      Read the related essay on Substack
-                    </a>
-                  </p>
+                  <div className="mt-2 flex flex-wrap gap-x-5 gap-y-2">
+                    {book.essays.map((essay) => (
+                      <a
+                        key={`${essay.label}:${essay.url}`}
+                        href={essay.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-[#d0a85c] underline decoration-white/10 underline-offset-4 transition hover:text-white"
+                      >
+                        {essay.label}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               ) : null}
             </div>

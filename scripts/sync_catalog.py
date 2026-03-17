@@ -226,6 +226,40 @@ def published_links(pub_status: dict) -> list[dict]:
     return links
 
 
+def extract_essays(data: dict) -> list[dict]:
+    essays = []
+
+    raw_items = data.get('essays')
+    if isinstance(raw_items, list):
+        for item in raw_items:
+            if not isinstance(item, dict):
+                continue
+            label = str(item.get('label') or '').strip()
+            url = str(item.get('url') or '').strip()
+            if not url:
+                continue
+            essays.append(
+                {
+                    'label': label or 'Essay',
+                    'url': url,
+                }
+            )
+
+    if essays:
+        return essays
+
+    legacy_url = (
+        data.get('essay_url')
+        or data.get('substack_essay_url')
+        or data.get('substack_url')
+        or ''
+    ).strip()
+    if legacy_url:
+        return [{'label': 'Essay', 'url': legacy_url}]
+
+    return []
+
+
 def main() -> None:
     books = []
     COVERS_DIR.mkdir(parents=True, exist_ok=True)
@@ -263,12 +297,7 @@ def main() -> None:
                 'title': (data.get('title') or slug.replace('_', ' ').title()).strip(),
                 'full_title': (data.get('full_title') or data.get('title') or '').strip(),
                 'thesis_subtitle': (data.get('thesis_subtitle') or '').strip(),
-                'essay_url': (
-                    data.get('essay_url')
-                    or data.get('substack_essay_url')
-                    or data.get('substack_url')
-                    or ''
-                ).strip(),
+                'essays': extract_essays(data),
                 'author': (data.get('author') or '').strip(),
                 'intro_author': (data.get('intro_author') or 'Daniel Shilansky').strip(),
                 'genre': (data.get('genre') or '').strip(),
