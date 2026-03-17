@@ -17,6 +17,12 @@ Next.js site for `https://heritagecanon.com`.
 - metadata can still use `full_title`
 - art cards use the centered `cover_image` asset
 - book buy links localize to the reader's Amazon storefront when possible
+- optional essay links may come from source `book.json`
+- supported source keys for essay links:
+  - `essay_url`
+  - `substack_essay_url`
+  - `substack_url`
+- when an essay URL exists, the book page shows a Substack link and includes the essay as a nested `ScholarlyArticle` in JSON-LD
 
 ## Local workflow
 

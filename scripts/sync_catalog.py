@@ -263,6 +263,12 @@ def main() -> None:
                 'title': (data.get('title') or slug.replace('_', ' ').title()).strip(),
                 'full_title': (data.get('full_title') or data.get('title') or '').strip(),
                 'thesis_subtitle': (data.get('thesis_subtitle') or '').strip(),
+                'essay_url': (
+                    data.get('essay_url')
+                    or data.get('substack_essay_url')
+                    or data.get('substack_url')
+                    or ''
+                ).strip(),
                 'author': (data.get('author') or '').strip(),
                 'intro_author': (data.get('intro_author') or 'Daniel Shilansky').strip(),
                 'genre': (data.get('genre') or '').strip(),

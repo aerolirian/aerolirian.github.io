@@ -12,6 +12,7 @@ export type Book = {
   title: string
   full_title: string
   thesis_subtitle: string
+  essay_url?: string
   author: string
   intro_author: string
   genre: string
