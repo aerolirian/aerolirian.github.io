@@ -28,6 +28,14 @@ Next.js site for `https://heritagecanon.com`.
 
 ## Local workflow
 
+Important:
+
+- do not run `npm install`, `npm ci`, or `next build` from the Google Drive mount at `/home/ubuntu/gdrive/...`
+- the mount can hang on `node_modules` and other heavy filesystem operations
+- use a local clone on real disk instead, for example:
+  - `/home/ubuntu/heritagecanon-site-local`
+  - or a clone under `/tmp`
+
 Refresh catalog data and web assets:
 
 ```bash
