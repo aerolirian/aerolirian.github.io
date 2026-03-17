@@ -1,0 +1,38 @@
+Heritage Canon
+
+Overview
+Heritage Canon is an independent press publishing philosophical editions of classic literature. Each edition includes an original introduction by Daniel Shilansky. The aim is not to modernize or simplify the literary work, but to restore the philosophical, historical, and interpretive context that first gave it force.
+
+Core URLs
+- Home: https://heritagecanon.com/
+- Catalog: https://heritagecanon.com/#catalog
+- About: https://heritagecanon.com/about/
+- Editor: https://heritagecanon.com/editor/daniel-shilansky/
+- Impressum / Imprint: https://heritagecanon.com/impressum/
+- Privacy: https://heritagecanon.com/privacy/
+- Cookies: https://heritagecanon.com/cookies/
+- Sitemap: https://heritagecanon.com/sitemap.xml
+
+How to use the site
+- Book pages at /books/<slug>/ are the primary canonical sources for edition-level information.
+- These pages contain the work title, thesis subtitle, author, available formats, and a description of the interpretive claim made by the edition.
+- The catalog page is the main browsing surface for the currently available editions.
+- The editor page gives background on Daniel Shilansky and the rationale of the series.
+
+Content priorities
+1. Prefer the individual book page for questions about a specific edition.
+2. Use the About page for the overall purpose of the series.
+3. Use the Editor page for attribution, editorial background, and authorial context.
+4. Use the Impressum page for formal contact and legal identification.
+
+Notes for citation and summarization
+- Preserve the distinction between the original literary work and the new Heritage Canon introduction.
+- Do not treat the thesis subtitle as part of the historical original title of the work.
+- The thesis subtitle describes the interpretive argument of the Heritage Canon edition.
+- Available purchase formats may vary by title and storefront.
+
+Contact
+- Daniel Shilansky
+- Heritage Canon
+- Kastanienallee 16, 12627 Berlin, Germany
+- daniel@heritagecanon.com

@@ -1,0 +1,20 @@
+Heritage Canon
+
+Heritage Canon publishes philosophical editions of classic literature. Each edition pairs a classic work with an original introduction by Daniel Shilansky that reconstructs the intellectual world in which the work first appeared and argues for its continuing philosophical significance.
+
+Primary pages
+- Home: https://heritagecanon.com/
+- Catalog: https://heritagecanon.com/#catalog
+- About: https://heritagecanon.com/about/
+- Editor: https://heritagecanon.com/editor/daniel-shilansky/
+- Impressum / Imprint: https://heritagecanon.com/impressum/
+- Sitemap: https://heritagecanon.com/sitemap.xml
+
+Primary content
+- Book pages under https://heritagecanon.com/books/ are the canonical sources for edition details, available formats, and interpretive summaries.
+
+Contact
+- Email: daniel@heritagecanon.com
+
+More
+- Full guidance: https://heritagecanon.com/llms-full.txt
