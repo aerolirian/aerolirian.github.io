@@ -12,8 +12,8 @@ export default function HomePage() {
   const authors = getAuthors(books)
   const formats = getFormats(books)
   const heroQuotes: Record<string, string> = {
-    death_in_venice:
-      'A quarrel about whether the life of reason, discipline, and moral seriousness could be sustained against the claims of instinct, beauty, and the irrational forces that move beneath the surface of civilized existence.',
+    a_portrait_of_the_artist_as_a_young_man:
+      'Joyce shows apostasy not as a gesture of rebellion, but as a painful struggle to claim a self from the forces that formed it.',
     the_great_gatsby:
       'The novel concerns the nature of the self: what a person is, whether a person can be remade, and what it costs, morally and spiritually, to attempt such a remaking.',
     moby_dick:
