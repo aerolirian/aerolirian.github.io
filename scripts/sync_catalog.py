@@ -5,8 +5,10 @@ import html
 import json
 import re
 import shutil
+import subprocess
 from pathlib import Path
 from textwrap import shorten
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from PIL import Image
 
@@ -14,12 +16,66 @@ ROOT = Path('/home/ubuntu/gdrive/heritage_audiobooks')
 BOOKS_DIR = ROOT / 'books'
 SITE_ROOT = Path(__file__).resolve().parent.parent
 CONTENT_PATH = SITE_ROOT / 'content' / 'catalog.json'
+AMAZON_AUDIT_PATH = SITE_ROOT / 'content' / 'amazon_storefront_audit.json'
 COVERS_DIR = SITE_ROOT / 'public' / 'assets' / 'covers'
 ART_DIR = SITE_ROOT / 'public' / 'assets' / 'art'
 LOGO_SRC = ROOT / 'assets-dont-delete' / 'heritage_canon_logo_white_notext.PNG'
 LOGO_DEST = SITE_ROOT / 'public' / 'assets' / 'heritage-canon-logo.png'
 BIO_SRC = ROOT / 'assets-dont-delete' / 'bio.png'
 BIO_DEST = SITE_ROOT / 'public' / 'assets' / 'bio.webp'
+HEADLESS_SHELL = Path(
+    '/home/ubuntu/.cache/ms-playwright/chromium_headless_shell-1208/chrome-linux/headless_shell'
+)
+AMAZON_DOMAINS = [
+    'www.amazon.com',
+    'www.amazon.ca',
+    'www.amazon.com.mx',
+    'www.amazon.com.br',
+    'www.amazon.co.uk',
+    'www.amazon.de',
+    'www.amazon.fr',
+    'www.amazon.it',
+    'www.amazon.es',
+    'www.amazon.nl',
+    'www.amazon.se',
+    'www.amazon.pl',
+    'www.amazon.com.be',
+    'www.amazon.com.tr',
+    'www.amazon.ae',
+    'www.amazon.sa',
+    'www.amazon.eg',
+    'www.amazon.sg',
+    'www.amazon.com.au',
+    'www.amazon.co.jp',
+    'www.amazon.in',
+]
+PRIMARY_AMAZON_FALLBACKS = ['www.amazon.com', 'www.amazon.co.uk']
+AMAZON_AUDIT_WORKERS = 10
+AMAZON_AUDIT_TIMEOUT_SECONDS = 25
+STOREFRONT_TERRITORIES = {
+    'www.amazon.com': {'US'},
+    'www.amazon.ca': {'CA'},
+    'www.amazon.com.mx': {'MX'},
+    'www.amazon.com.br': {'BR'},
+    'www.amazon.co.uk': {'GB', 'UK', 'IE'},
+    'www.amazon.de': {'DE', 'AT', 'CH'},
+    'www.amazon.fr': {'FR'},
+    'www.amazon.it': {'IT'},
+    'www.amazon.es': {'ES'},
+    'www.amazon.nl': {'NL'},
+    'www.amazon.se': {'SE'},
+    'www.amazon.pl': {'PL'},
+    'www.amazon.com.be': {'BE'},
+    'www.amazon.com.tr': {'TR'},
+    'www.amazon.ae': {'AE'},
+    'www.amazon.sa': {'SA'},
+    'www.amazon.eg': {'EG'},
+    'www.amazon.sg': {'SG'},
+    'www.amazon.com.au': {'AU', 'NZ'},
+    'www.amazon.co.jp': {'JP'},
+    'www.amazon.in': {'IN'},
+}
+ALL_STOREFRONT_TERRITORIES = set().union(*STOREFRONT_TERRITORIES.values())
 
 
 def read_json(path: Path) -> dict:
@@ -32,6 +88,10 @@ def clean_text(text: str) -> str:
     text = html.unescape(text)
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
+
+
+def normalize_match_text(text: str) -> str:
+    return re.sub(r'[^a-z0-9]+', ' ', text.lower()).strip()
 
 
 def choose_cover(book_dir: Path, slug: str) -> Path | None:
@@ -50,6 +110,8 @@ def choose_cover(book_dir: Path, slug: str) -> Path | None:
 def export_cover(src: Path, slug: str) -> str:
     dest = COVERS_DIR / f'{slug}.webp'
     dest.parent.mkdir(parents=True, exist_ok=True)
+    if dest.exists() and dest.stat().st_mtime >= src.stat().st_mtime:
+        return f'/assets/covers/{slug}.webp'
     with Image.open(src) as image:
         cover = image.convert('RGB')
         target_width = 720
@@ -74,6 +136,8 @@ def choose_art(book_dir: Path) -> Path | None:
 def export_art(src: Path, slug: str) -> str:
     dest = ART_DIR / f'{slug}.webp'
     dest.parent.mkdir(parents=True, exist_ok=True)
+    if dest.exists() and dest.stat().st_mtime >= src.stat().st_mtime:
+        return f'/assets/art/{slug}.webp'
     with Image.open(src) as image:
         art = image.convert('RGB')
         target_width = 1400
@@ -82,8 +146,12 @@ def export_art(src: Path, slug: str) -> str:
             art = art.resize((target_width, target_height), Image.LANCZOS)
         art.save(dest, format='WEBP', quality=86, method=6)
     return f'/assets/art/{slug}.webp'
+
+
 def export_bio(src: Path) -> None:
     BIO_DEST.parent.mkdir(parents=True, exist_ok=True)
+    if BIO_DEST.exists() and BIO_DEST.stat().st_mtime >= src.stat().st_mtime:
+        return
     with Image.open(src) as image:
         bio = image.convert('RGB')
         target_width = 800
@@ -203,6 +271,172 @@ def formats(book_dir: Path, status: dict) -> list[str]:
     return seen
 
 
+def eligible_amazon_domains(book_dir: Path) -> list[str]:
+    copyright_path = book_dir / 'copyright_data.json'
+    if not copyright_path.exists():
+        return AMAZON_DOMAINS
+
+    data = read_json(copyright_path)
+    mode = str(data.get('mode') or '').strip().lower()
+    territories = {str(code).strip().upper() for code in data.get('territories') or [] if str(code).strip()}
+
+    if not mode or not territories:
+        return AMAZON_DOMAINS
+
+    if mode == 'include':
+        allowed_territories = territories
+    elif mode == 'exclude':
+        allowed_territories = ALL_STOREFRONT_TERRITORIES - territories
+    else:
+        return AMAZON_DOMAINS
+
+    eligible = [
+        domain
+        for domain in AMAZON_DOMAINS
+        if STOREFRONT_TERRITORIES.get(domain, set()) & allowed_territories
+    ]
+
+    return eligible or AMAZON_DOMAINS
+
+
+def extract_amazon_page_details(html_text: str) -> tuple[str, str, bool]:
+    page_title = ''
+    title_match = re.search(r'<title[^>]*>(.*?)</title>', html_text, re.I | re.S)
+    if title_match:
+        page_title = re.sub(r'\s+', ' ', title_match.group(1)).strip()
+
+    product_title = ''
+    product_match = re.search(r'id="productTitle"[^>]*>(.*?)</span>', html_text, re.I | re.S)
+    if product_match:
+        product_title = re.sub(r'<[^>]+>', ' ', product_match.group(1))
+        product_title = re.sub(r'\s+', ' ', product_title).strip()
+
+    lower = html_text.lower()
+    has_brand_signal = 'heritage canon' in lower or 'daniel shilansky' in lower
+    return page_title, product_title, has_brand_signal
+
+
+def audit_amazon_storefront(title: str, author: str, asin: str, domain: str) -> dict:
+    if not HEADLESS_SHELL.exists():
+        raise FileNotFoundError(f'Amazon audit browser not found: {HEADLESS_SHELL}')
+
+    url = f'https://{domain}/dp/{asin}'
+    try:
+        result = subprocess.run(
+            [str(HEADLESS_SHELL), '--dump-dom', url],
+            capture_output=True,
+            text=True,
+            timeout=AMAZON_AUDIT_TIMEOUT_SECONDS,
+            check=False,
+        )
+    except subprocess.TimeoutExpired:
+        return {
+            'asin': asin,
+            'domain': domain,
+            'url': url,
+            'status': 'timeout',
+            'page_title': '',
+            'product_title': '',
+        }
+
+    html_text = result.stdout
+    page_title, product_title, has_brand_signal = extract_amazon_page_details(html_text)
+    expected_title = normalize_match_text(title)
+    expected_author = normalize_match_text(author)
+    product_norm = normalize_match_text(product_title or page_title)
+    html_norm = normalize_match_text(html_text)
+    has_expected_title = bool(expected_title and expected_title in product_norm)
+    has_expected_author = bool(expected_author and expected_author in html_norm)
+
+    if not product_title:
+        status = 'dead'
+    elif has_expected_title and has_expected_author and has_brand_signal:
+        status = 'ok'
+    elif has_expected_title and has_expected_author:
+        status = 'wrong_edition'
+    elif has_expected_title:
+        status = 'wrong_title_match'
+    else:
+        status = 'unrelated'
+
+    return {
+        'asin': asin,
+        'domain': domain,
+        'url': url,
+        'status': status,
+        'page_title': page_title,
+        'product_title': product_title,
+        'has_brand_signal': has_brand_signal,
+        'has_expected_title': has_expected_title,
+        'has_expected_author': has_expected_author,
+    }
+
+
+def audit_buy_links(
+    links: list[dict],
+    title: str,
+    author: str,
+    eligible_domains: list[str],
+) -> tuple[list[dict], list[dict]]:
+    if not links:
+        return [], []
+
+    checks: dict[tuple[str, str], dict] = {}
+    for link in links:
+        for domain in eligible_domains:
+            checks[(link['asin'], domain)] = {
+                'asin': link['asin'],
+                'domain': domain,
+                'title': title,
+                'author': author,
+            }
+
+    audit_rows: list[dict] = []
+    with ThreadPoolExecutor(max_workers=AMAZON_AUDIT_WORKERS) as executor:
+        futures = {
+            executor.submit(
+                audit_amazon_storefront,
+                item['title'],
+                item['author'],
+                item['asin'],
+                item['domain'],
+            ): item
+            for item in checks.values()
+        }
+        for future in as_completed(futures):
+            audit_rows.append(future.result())
+
+    verified_by_asin: dict[str, list[str]] = {}
+    for link in links:
+        asin = link['asin']
+        verified_domains = [
+            domain
+            for domain in eligible_domains
+            if any(
+                row['asin'] == asin and row['domain'] == domain and row['status'] == 'ok'
+                for row in audit_rows
+            )
+        ]
+        verified_by_asin[asin] = verified_domains
+
+    filtered_links = []
+    for link in links:
+        verified_domains = verified_by_asin[link['asin']]
+        if not verified_domains:
+            continue
+        filtered_links.append(
+            {
+                **link,
+                'verified_domains': verified_domains,
+            }
+        )
+
+    return filtered_links, sorted(
+        audit_rows,
+        key=lambda row: (row['asin'], eligible_domains.index(row['domain'])),
+    )
+
+
 def published_links(pub_status: dict) -> list[dict]:
     mapping = [
         ('kdp_ebook_asin', 'Kindle', 'ebook'),
@@ -262,11 +496,13 @@ def extract_essays(data: dict) -> list[dict]:
 
 def main() -> None:
     books = []
+    amazon_audit = []
     COVERS_DIR.mkdir(parents=True, exist_ok=True)
     ART_DIR.mkdir(parents=True, exist_ok=True)
     if LOGO_SRC.exists():
         LOGO_DEST.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(LOGO_SRC, LOGO_DEST)
+        if not LOGO_DEST.exists() or LOGO_DEST.stat().st_mtime < LOGO_SRC.stat().st_mtime:
+            shutil.copy2(LOGO_SRC, LOGO_DEST)
     if BIO_SRC.exists():
         export_bio(BIO_SRC)
     for book_dir in sorted(BOOKS_DIR.iterdir()):
@@ -280,11 +516,30 @@ def main() -> None:
         if not status.get('epub_approved'):
             continue
         pub_status = read_json(book_dir / 'pub_status.json') if (book_dir / 'pub_status.json').exists() else {}
-        buy_links = published_links(pub_status)
-        if not buy_links:
-            continue
         data = read_json(book_path)
         slug = data['slug']
+        raw_buy_links = published_links(pub_status)
+        if not raw_buy_links:
+            continue
+        eligible_domains = eligible_amazon_domains(book_dir)
+        buy_links, audit_rows = audit_buy_links(
+            raw_buy_links,
+            (data.get('title') or slug.replace('_', ' ').title()).strip(),
+            (data.get('author') or '').strip(),
+            eligible_domains,
+        )
+        amazon_audit.extend(
+            {
+                'slug': slug,
+                'title': (data.get('title') or slug.replace('_', ' ').title()).strip(),
+                'author': (data.get('author') or '').strip(),
+                'eligible_domains': eligible_domains,
+                **row,
+            }
+            for row in audit_rows
+        )
+        if not buy_links:
+            continue
         cover_src = choose_cover(book_dir, slug)
         if cover_src is None:
             continue
@@ -312,6 +567,10 @@ def main() -> None:
             }
         )
     CONTENT_PATH.write_text(json.dumps({'books': books}, ensure_ascii=False, indent=2), encoding='utf-8')
+    AMAZON_AUDIT_PATH.write_text(
+        json.dumps({'rows': amazon_audit}, ensure_ascii=False, indent=2),
+        encoding='utf-8',
+    )
 
 
 if __name__ == '__main__':

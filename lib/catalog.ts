@@ -5,6 +5,7 @@ export type BuyLink = {
   format: 'ebook' | 'paperback' | 'hardcover' | 'audiobook' | string
   asin: string
   url: string
+  verified_domains?: string[]
 }
 
 export type EssayLink = {

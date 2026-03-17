@@ -9,6 +9,7 @@ Next.js site for `https://heritagecanon.com`.
 - catalog data synced from `../books`
 - book art sourced from each slug's `cover_image/cover_generated.png`
 - Amazon buy links sourced from each slug's `pub_status.json`
+- Amazon storefronts verified during catalog sync against live Amazon pages and each book's rights data
 
 ## Content rules
 
@@ -16,7 +17,13 @@ Next.js site for `https://heritagecanon.com`.
 - display subtitle comes from `thesis_subtitle`
 - metadata can still use `full_title`
 - art cards use the centered `cover_image` asset
-- book buy links localize to the reader's Amazon storefront when possible
+- book buy links are scanned during sync and carry `verified_domains`
+- runtime storefront fallback order is:
+  - reader locale storefront if verified
+  - otherwise `amazon.com` if verified
+  - otherwise `amazon.co.uk` if verified
+  - otherwise no buy link
+- links with no verified storefronts are excluded from the published catalog
 - optional essay links may come from source `book.json`
 - preferred source schema:
   - `essays: [{ "label": "Substack", "url": "https://..." }]`
@@ -40,6 +47,12 @@ Refresh catalog data and web assets:
 
 ```bash
 python3 scripts/sync_catalog.py
+```
+
+This also writes:
+
+```bash
+content/amazon_storefront_audit.json
 ```
 
 Install dependencies:

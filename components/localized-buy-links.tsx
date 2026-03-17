@@ -28,7 +28,7 @@ export function LocalizedBuyLinks({ links }: LocalizedBuyLinksProps) {
     () =>
       links.map((link) => ({
         ...link,
-        url: domain ? buildLocalizedAmazonUrl(link, domain) : '#',
+        url: buildLocalizedAmazonUrl(link, domain ?? 'www.amazon.com'),
       })),
     [domain, links],
   )
@@ -36,18 +36,19 @@ export function LocalizedBuyLinks({ links }: LocalizedBuyLinksProps) {
   return (
     <div className="mt-8">
       <div className="flex flex-wrap gap-3">
-        {localizedLinks.map((link) => (
-          <a
-            key={link.format}
-            href={link.url}
-            target={domain ? '_blank' : undefined}
-            rel={domain ? 'noreferrer' : undefined}
-            aria-disabled={!domain}
-            className="w-full rounded-full border border-white/10 bg-white px-4 py-3 text-center text-sm font-semibold uppercase tracking-[0.18em] text-[#111318] transition hover:bg-[#d0a85c] sm:w-auto"
-          >
-            {link.label}
-          </a>
-        ))}
+        {localizedLinks
+          .filter((link) => Boolean(link.url))
+          .map((link) => (
+            <a
+              key={link.format}
+              href={link.url ?? '#'}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full rounded-full border border-white/10 bg-white px-4 py-3 text-center text-sm font-semibold uppercase tracking-[0.18em] text-[#111318] transition hover:bg-[#d0a85c] sm:w-auto"
+            >
+              {link.label}
+            </a>
+          ))}
       </div>
     </div>
   )

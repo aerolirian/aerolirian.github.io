@@ -139,6 +139,30 @@ export function getPreferredAmazonDomain(
   return STOREFRONTS.US
 }
 
-export function buildLocalizedAmazonUrl(link: BuyLink, domain: string) {
-  return `https://${domain}/dp/${link.asin}`
+function getVerifiedDomains(link: BuyLink): string[] {
+  return Array.isArray(link.verified_domains)
+    ? link.verified_domains.filter(Boolean)
+    : []
+}
+
+export function resolveAmazonDomain(link: BuyLink, preferredDomain: string) {
+  const verifiedDomains = getVerifiedDomains(link)
+  if (verifiedDomains.includes(preferredDomain)) {
+    return preferredDomain
+  }
+  if (verifiedDomains.includes(STOREFRONTS.US)) {
+    return STOREFRONTS.US
+  }
+  if (verifiedDomains.includes(STOREFRONTS.UK)) {
+    return STOREFRONTS.UK
+  }
+  return null
+}
+
+export function buildLocalizedAmazonUrl(link: BuyLink, preferredDomain: string) {
+  const resolvedDomain = resolveAmazonDomain(link, preferredDomain)
+  if (!resolvedDomain) {
+    return null
+  }
+  return `https://${resolvedDomain}/dp/${link.asin}`
 }
