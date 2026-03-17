@@ -1,20 +1,26 @@
-Heritage Canon
+# Heritage Canon
 
-Heritage Canon publishes philosophical editions of classic literature. Each edition pairs a classic work with an original introduction by Daniel Shilansky that reconstructs the intellectual world in which the work first appeared and argues for its continuing philosophical significance.
+> Heritage Canon publishes philosophical editions of classic literature. Each edition pairs a classic work with an original introduction by Daniel Shilansky that reconstructs the intellectual world in which the work first appeared and argues for its continuing philosophical significance.
 
-Primary pages
-- Home: https://heritagecanon.com/
-- Catalog: https://heritagecanon.com/#catalog
-- About: https://heritagecanon.com/about/
-- Editor: https://heritagecanon.com/editor/daniel-shilansky/
-- Impressum / Imprint: https://heritagecanon.com/impressum/
-- Sitemap: https://heritagecanon.com/sitemap.xml
+Use individual book pages as the canonical source for edition details, available formats, and interpretive summaries.
 
-Primary content
-- Book pages under https://heritagecanon.com/books/ are the canonical sources for edition details, available formats, and interpretive summaries.
+## Primary Pages
 
-Contact
-- Email: daniel@heritagecanon.com
+- [Home](https://heritagecanon.com/): Main entry point to the site.
+- [Catalog](https://heritagecanon.com/#catalog): Browse currently available editions.
+- [About](https://heritagecanon.com/about/): Series rationale and editorial method.
+- [Editor](https://heritagecanon.com/editor/daniel-shilansky/): Background on Daniel Shilansky.
+- [Impressum / Imprint](https://heritagecanon.com/impressum/): Legal and contact details.
+- [Sitemap](https://heritagecanon.com/sitemap.xml): Complete list of indexed site pages.
 
-More
-- Full guidance: https://heritagecanon.com/llms-full.txt
+## Books
+
+- [The Great Gatsby](https://heritagecanon.com/books/the_great_gatsby/): Philosophical Edition of Fitzgerald's novel.
+- [Death in Venice](https://heritagecanon.com/books/death_in_venice/): Philosophical Edition of Mann's novella.
+- [Moby-Dick](https://heritagecanon.com/books/moby_dick/): Philosophical Edition of Melville's novel.
+
+## Optional
+
+- [Privacy](https://heritagecanon.com/privacy/): Privacy information.
+- [Cookies](https://heritagecanon.com/cookies/): Consent and cookie information.
+- [Full LLM Guidance](https://heritagecanon.com/llms-full.txt): Longer machine-readable guidance for the site.
