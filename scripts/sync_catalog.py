@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import hashlib
 import html
 import json
+import os
 import re
 import shutil
 from pathlib import Path
 from textwrap import shorten
 
+import requests
 from PIL import Image
 
 ROOT = Path('/home/ubuntu/gdrive/heritage_audiobooks')
@@ -15,6 +18,7 @@ BOOKS_DIR = ROOT / 'books'
 SITE_ROOT = Path(__file__).resolve().parent.parent
 CONTENT_PATH = SITE_ROOT / 'content' / 'catalog.json'
 AMAZON_AUDIT_PATH = SITE_ROOT / 'content' / 'amazon_storefront_audit.json'
+INTRO_CLAIM_CACHE_PATH = SITE_ROOT / '.cache' / 'intro_claim_ai_cache.json'
 COVERS_DIR = SITE_ROOT / 'public' / 'assets' / 'covers'
 ART_DIR = SITE_ROOT / 'public' / 'assets' / 'art'
 LOGO_SRC = ROOT / 'assets-dont-delete' / 'heritage_canon_logo_white_notext.PNG'
@@ -68,10 +72,52 @@ STOREFRONT_TERRITORIES = {
     'www.amazon.in': {'IN'},
 }
 ALL_STOREFRONT_TERRITORIES = set().union(*STOREFRONT_TERRITORIES.values())
+OPENAI_MODEL = 'gpt-5-nano'
+INTRO_CLAIM_EVAL_VERSION = 'v2'
+
+
+_INTRO_CLAIM_CACHE: dict[str, str] | None = None
 
 
 def read_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding='utf-8'))
+
+
+def load_secret(name: str) -> str:
+    value = os.environ.get(name, '').strip()
+    if value:
+        return value
+    secret_path = Path('/home/ubuntu/.heritage_audiobooks.json')
+    if not secret_path.exists():
+        return ''
+    try:
+        data = json.loads(secret_path.read_text(encoding='utf-8'))
+    except Exception:
+        return ''
+    return str(data.get(name.lower()) or data.get(name) or '').strip()
+
+
+def load_intro_claim_cache() -> dict[str, str]:
+    global _INTRO_CLAIM_CACHE
+    if _INTRO_CLAIM_CACHE is not None:
+        return _INTRO_CLAIM_CACHE
+    if INTRO_CLAIM_CACHE_PATH.exists():
+        try:
+            _INTRO_CLAIM_CACHE = json.loads(INTRO_CLAIM_CACHE_PATH.read_text(encoding='utf-8'))
+        except Exception:
+            _INTRO_CLAIM_CACHE = {}
+    else:
+        _INTRO_CLAIM_CACHE = {}
+    return _INTRO_CLAIM_CACHE
+
+
+def save_intro_claim_cache() -> None:
+    cache = load_intro_claim_cache()
+    INTRO_CLAIM_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    INTRO_CLAIM_CACHE_PATH.write_text(
+        json.dumps(cache, ensure_ascii=False, indent=2),
+        encoding='utf-8',
+    )
 
 
 def clean_text(text: str) -> str:
@@ -194,6 +240,25 @@ def abstract_text(book_dir: Path, slug: str) -> str:
     return clean_text(abstract_path.read_text(encoding='utf-8', errors='ignore'))
 
 
+def intro_claim_candidates(book_dir: Path, slug: str) -> list[str]:
+    candidates: list[str] = []
+    summary = thesis_summary_text(book_dir, slug)
+    if summary:
+        candidates.extend(split_sentences(summary)[:4])
+    abstract = abstract_text(book_dir, slug)
+    if abstract:
+        candidates.extend(split_sentences(abstract)[:4])
+    deduped: list[str] = []
+    seen: set[str] = set()
+    for candidate in candidates:
+        text = clean_text(candidate)
+        if not text or text in seen:
+            continue
+        deduped.append(text)
+        seen.add(text)
+    return deduped
+
+
 def is_weak_intro_claim(claim: str) -> bool:
     text = clean_text(claim)
     if not text or len(text) < 80:
@@ -269,22 +334,82 @@ def score_claim_sentence(sentence: str) -> int:
     return score
 
 
+def ai_select_intro_claim(slug: str, candidates: list[str]) -> str:
+    api_key = load_secret('OPENAI_API_KEY')
+    if not api_key or not candidates:
+        return ''
+
+    cache = load_intro_claim_cache()
+    cache_key = f'{INTRO_CLAIM_EVAL_VERSION}:{slug}:{hashlib.sha256(json.dumps(candidates, ensure_ascii=False).encode("utf-8")).hexdigest()}'
+    if cache_key in cache:
+        choice = cache[cache_key]
+        return choice if choice in candidates else ''
+
+    numbered = '\n'.join(f'{idx}. {candidate}' for idx, candidate in enumerate(candidates, start=1))
+    prompt = (
+        'Choose the single best candidate sentence to answer the FAQ question '
+        '"What does the introduction argue about this book?" on a book product page.\n'
+        'Rules:\n'
+        '- Choose exactly one candidate sentence verbatim, or 0 if none is good enough.\n'
+        "- Prefer a sentence that directly states the novel's argument, intervention, conflict, or thesis.\n"
+        "- A sentence beginning with 'It argues' or 'It examines how' is acceptable if it clearly states the novel's thesis.\n"
+        '- Reject sentences that mainly describe the essay/article rather than the book.\n'
+        '- Reject generic wrap-up lines and title/byline lines.\n'
+        '- Output only a single integer.\n\n'
+        f'Candidates:\n{numbered}\n'
+    )
+
+    try:
+        response = requests.post(
+            'https://api.openai.com/v1/responses',
+            headers={
+                'Authorization': f'Bearer {api_key}',
+                'Content-Type': 'application/json',
+            },
+            json={
+                'model': OPENAI_MODEL,
+                'reasoning': {'effort': 'minimal'},
+                'max_output_tokens': 16,
+                'input': prompt,
+            },
+            timeout=30,
+        )
+        response.raise_for_status()
+        data = response.json()
+    except Exception:
+        return ''
+
+    output_text = str(data.get('output_text') or '').strip()
+    if not output_text:
+        for item in data.get('output', []):
+            for content in item.get('content', []):
+                text = content.get('text')
+                if text:
+                    output_text = str(text).strip()
+                    break
+            if output_text:
+                break
+
+    match = re.search(r'\b(\d+)\b', output_text)
+    if not match:
+        return ''
+    choice = int(match.group(1))
+    selected = candidates[choice - 1] if 1 <= choice <= len(candidates) else ''
+    cache[cache_key] = selected
+    save_intro_claim_cache()
+    return selected
+
+
 def read_intro_claim(book_dir: Path, slug: str) -> str:
-    candidates: list[str] = []
-
-    summary = thesis_summary_text(book_dir, slug)
-    if summary:
-        candidates.extend(split_sentences(summary)[:4])
-
-    abstract = abstract_text(book_dir, slug)
-    if abstract:
-        candidates.extend(split_sentences(abstract)[:4])
-
+    candidates = intro_claim_candidates(book_dir, slug)
     if not candidates:
         return ''
 
-    clean_candidates = [clean_text(candidate) for candidate in candidates]
-    strong_candidates = [candidate for candidate in clean_candidates if not is_weak_intro_claim(candidate)]
+    ai_choice = ai_select_intro_claim(slug, candidates)
+    if ai_choice:
+        return ai_choice.strip()
+
+    strong_candidates = [candidate for candidate in candidates if not is_weak_intro_claim(candidate)]
     if not strong_candidates:
         return ''
     claim = max(strong_candidates, key=score_claim_sentence)
