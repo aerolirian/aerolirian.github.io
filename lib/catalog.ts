@@ -150,21 +150,57 @@ export function getFormats(books: Book[]): string[] {
   return [...new Set(books.flatMap((book) => book.formats))]
 }
 
+function stableIndex(seed: string, size: number) {
+  if (size <= 0) return 0
+  let hash = 0
+  for (const char of seed) {
+    hash = (hash * 31 + char.charCodeAt(0)) >>> 0
+  }
+  return hash % size
+}
+
+function takeRotated(pool: Book[], seed: string, limit: number, used: Set<string>) {
+  if (limit <= 0 || pool.length === 0) return []
+  const start = stableIndex(seed, pool.length)
+  const rotated = [...pool.slice(start), ...pool.slice(0, start)]
+  const picked: Book[] = []
+  for (const book of rotated) {
+    if (used.has(book.slug)) continue
+    picked.push(book)
+    used.add(book.slug)
+    if (picked.length === limit) break
+  }
+  return picked
+}
+
 export function getRelatedBooks(slug: string, limit = 3): Book[] {
   const current = getBook(slug)
   if (!current) return getBooks().slice(0, limit)
   const others = getBooks().filter((book) => book.slug !== slug)
-  return others
-    .sort((a, b) => {
-      const aScore =
-        Number(a.author === current.author) * 2 +
-        Number(a.formats.includes('hardcover'))
-      const bScore =
-        Number(b.author === current.author) * 2 +
-        Number(b.formats.includes('hardcover'))
-      return bScore - aScore || a.title.localeCompare(b.title)
-    })
-    .slice(0, limit)
+  const used = new Set<string>()
+  const related: Book[] = []
+
+  const sameAuthor = others
+    .filter((book) => book.author === current.author)
+    .sort((a, b) => a.title.localeCompare(b.title))
+  related.push(...takeRotated(sameAuthor, `${slug}:author`, 1, used))
+
+  const similar = others
+    .filter(
+      (book) =>
+        !used.has(book.slug) &&
+        (book.genre === current.genre ||
+          book.formats.some((format) => current.formats.includes(format))),
+    )
+    .sort((a, b) => a.title.localeCompare(b.title))
+  related.push(...takeRotated(similar, `${slug}:similar`, limit - related.length, used))
+
+  const remainder = others
+    .filter((book) => !used.has(book.slug))
+    .sort((a, b) => a.title.localeCompare(b.title))
+  related.push(...takeRotated(remainder, `${slug}:remainder`, limit - related.length, used))
+
+  return related.slice(0, limit)
 }
 
 export function getFeaturedBooks(limit = 6): Book[] {
