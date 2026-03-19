@@ -5,10 +5,8 @@ import html
 import json
 import re
 import shutil
-import subprocess
 from pathlib import Path
 from textwrap import shorten
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from PIL import Image
 
@@ -23,9 +21,6 @@ LOGO_SRC = ROOT / 'assets-dont-delete' / 'heritage_canon_logo_white_notext.PNG'
 LOGO_DEST = SITE_ROOT / 'public' / 'assets' / 'heritage-canon-logo.png'
 BIO_SRC = ROOT / 'assets-dont-delete' / 'bio.png'
 BIO_DEST = SITE_ROOT / 'public' / 'assets' / 'bio.webp'
-HEADLESS_SHELL = Path(
-    '/home/ubuntu/.cache/ms-playwright/chromium_headless_shell-1208/chrome-linux/headless_shell'
-)
 AMAZON_DOMAINS = [
     'www.amazon.com',
     'www.amazon.ca',
@@ -49,9 +44,6 @@ AMAZON_DOMAINS = [
     'www.amazon.co.jp',
     'www.amazon.in',
 ]
-PRIMARY_AMAZON_FALLBACKS = ['www.amazon.com', 'www.amazon.co.uk']
-AMAZON_AUDIT_WORKERS = 10
-AMAZON_AUDIT_TIMEOUT_SECONDS = 25
 STOREFRONT_TERRITORIES = {
     'www.amazon.com': {'US'},
     'www.amazon.ca': {'CA'},
@@ -299,79 +291,6 @@ def eligible_amazon_domains(book_dir: Path) -> list[str]:
     return eligible or AMAZON_DOMAINS
 
 
-def extract_amazon_page_details(html_text: str) -> tuple[str, str, bool]:
-    page_title = ''
-    title_match = re.search(r'<title[^>]*>(.*?)</title>', html_text, re.I | re.S)
-    if title_match:
-        page_title = re.sub(r'\s+', ' ', title_match.group(1)).strip()
-
-    product_title = ''
-    product_match = re.search(r'id="productTitle"[^>]*>(.*?)</span>', html_text, re.I | re.S)
-    if product_match:
-        product_title = re.sub(r'<[^>]+>', ' ', product_match.group(1))
-        product_title = re.sub(r'\s+', ' ', product_title).strip()
-
-    lower = html_text.lower()
-    has_brand_signal = 'heritage canon' in lower or 'daniel shilansky' in lower
-    return page_title, product_title, has_brand_signal
-
-
-def audit_amazon_storefront(title: str, author: str, asin: str, domain: str) -> dict:
-    if not HEADLESS_SHELL.exists():
-        raise FileNotFoundError(f'Amazon audit browser not found: {HEADLESS_SHELL}')
-
-    url = f'https://{domain}/dp/{asin}'
-    try:
-        result = subprocess.run(
-            [str(HEADLESS_SHELL), '--dump-dom', url],
-            capture_output=True,
-            text=True,
-            timeout=AMAZON_AUDIT_TIMEOUT_SECONDS,
-            check=False,
-        )
-    except subprocess.TimeoutExpired:
-        return {
-            'asin': asin,
-            'domain': domain,
-            'url': url,
-            'status': 'timeout',
-            'page_title': '',
-            'product_title': '',
-        }
-
-    html_text = result.stdout
-    page_title, product_title, has_brand_signal = extract_amazon_page_details(html_text)
-    expected_title = normalize_match_text(title)
-    expected_author = normalize_match_text(author)
-    product_norm = normalize_match_text(product_title or page_title)
-    html_norm = normalize_match_text(html_text)
-    has_expected_title = bool(expected_title and expected_title in product_norm)
-    has_expected_author = bool(expected_author and expected_author in html_norm)
-
-    if not product_title:
-        status = 'dead'
-    elif has_expected_title and has_expected_author and has_brand_signal:
-        status = 'ok'
-    elif has_expected_title and has_expected_author:
-        status = 'wrong_edition'
-    elif has_expected_title:
-        status = 'wrong_title_match'
-    else:
-        status = 'unrelated'
-
-    return {
-        'asin': asin,
-        'domain': domain,
-        'url': url,
-        'status': status,
-        'page_title': page_title,
-        'product_title': product_title,
-        'has_brand_signal': has_brand_signal,
-        'has_expected_title': has_expected_title,
-        'has_expected_author': has_expected_author,
-    }
-
-
 def audit_buy_links(
     links: list[dict],
     title: str,
@@ -380,61 +299,25 @@ def audit_buy_links(
 ) -> tuple[list[dict], list[dict]]:
     if not links:
         return [], []
-
-    checks: dict[tuple[str, str], dict] = {}
-    for link in links:
-        for domain in eligible_domains:
-            checks[(link['asin'], domain)] = {
-                'asin': link['asin'],
-                'domain': domain,
-                'title': title,
-                'author': author,
-            }
-
-    audit_rows: list[dict] = []
-    with ThreadPoolExecutor(max_workers=AMAZON_AUDIT_WORKERS) as executor:
-        futures = {
-            executor.submit(
-                audit_amazon_storefront,
-                item['title'],
-                item['author'],
-                item['asin'],
-                item['domain'],
-            ): item
-            for item in checks.values()
+    filtered_links = [
+        {
+            **link,
+            'verified_domains': eligible_domains,
         }
-        for future in as_completed(futures):
-            audit_rows.append(future.result())
-
-    verified_by_asin: dict[str, list[str]] = {}
-    for link in links:
-        asin = link['asin']
-        verified_domains = [
-            domain
-            for domain in eligible_domains
-            if any(
-                row['asin'] == asin and row['domain'] == domain and row['status'] == 'ok'
-                for row in audit_rows
-            )
-        ]
-        verified_by_asin[asin] = verified_domains
-
-    filtered_links = []
-    for link in links:
-        verified_domains = verified_by_asin[link['asin']]
-        if not verified_domains:
-            continue
-        filtered_links.append(
-            {
-                **link,
-                'verified_domains': verified_domains,
-            }
-        )
-
-    return filtered_links, sorted(
-        audit_rows,
-        key=lambda row: (row['asin'], eligible_domains.index(row['domain'])),
-    )
+        for link in links
+        if eligible_domains
+    ]
+    audit_rows = [
+        {
+            'asin': link['asin'],
+            'domain': domain,
+            'url': f'https://{domain}/dp/{link["asin"]}',
+            'status': 'eligible_by_rights',
+        }
+        for link in links
+        for domain in eligible_domains
+    ]
+    return filtered_links, audit_rows
 
 
 def published_links(pub_status: dict) -> list[dict]:
