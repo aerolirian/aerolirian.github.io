@@ -67,6 +67,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
     name: author.name,
     birthDate: author.birthYear || undefined,
     deathDate: author.deathYear || undefined,
+    description: author.shortBio,
     url: `${SITE.url}/authors/${author.slug}`,
   }
   const collectionJsonLd = {
@@ -103,9 +104,25 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
           <p className="mt-4 text-sm uppercase tracking-[0.22em] text-zinc-500">{dates}</p>
         ) : null}
         <p className="mt-6 max-w-3xl text-base leading-relaxed text-zinc-300 sm:text-lg">
+          {author.shortBio}
+        </p>
+        <dl className="mt-6 grid gap-4 text-sm text-zinc-300 sm:grid-cols-3">
+          <div className="rounded-[1.25rem] border border-white/10 bg-white/[0.03] p-4">
+            <dt className="text-[0.68rem] uppercase tracking-[0.2em] text-zinc-500">Nationality</dt>
+            <dd className="mt-2">{author.nationality}</dd>
+          </div>
+          <div className="rounded-[1.25rem] border border-white/10 bg-white/[0.03] p-4">
+            <dt className="text-[0.68rem] uppercase tracking-[0.2em] text-zinc-500">Period</dt>
+            <dd className="mt-2">{author.period}</dd>
+          </div>
+          <div className="rounded-[1.25rem] border border-white/10 bg-white/[0.03] p-4">
+            <dt className="text-[0.68rem] uppercase tracking-[0.2em] text-zinc-500">Themes</dt>
+            <dd className="mt-2">{author.themes.join(', ')}</dd>
+          </div>
+        </dl>
+        <p className="mt-6 max-w-3xl text-base leading-relaxed text-zinc-300 sm:text-lg">
           Heritage Canon currently carries {author.books.length}{' '}
           {author.books.length === 1 ? 'edition' : 'editions'} by {author.name}.
-          This page gathers the available philosophical editions in one place.
         </p>
         <div className="mt-6">
           <Link

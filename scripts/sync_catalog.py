@@ -178,30 +178,144 @@ def intro_dir(book_dir: Path) -> Path:
     return book_dir / 'introduction'
 
 
+def thesis_summary_text(book_dir: Path, slug: str) -> str:
+    summary_path = intro_dir(book_dir) / f'summary_{slug}.txt'
+    if not summary_path.exists():
+        return ''
+    text = summary_path.read_text(encoding='utf-8', errors='ignore')
+    match = re.search(r'--- Thesis Summary .*?---\s*(.*?)(?:\n---|\Z)', text, re.S | re.I)
+    return clean_text(match.group(1)) if match else ''
+
+
+def abstract_text(book_dir: Path, slug: str) -> str:
+    abstract_path = intro_dir(book_dir) / f'abstract_{slug}.txt'
+    if not abstract_path.exists():
+        return ''
+    return clean_text(abstract_path.read_text(encoding='utf-8', errors='ignore'))
+
+
+def is_weak_intro_claim(claim: str) -> bool:
+    text = clean_text(claim)
+    if not text or len(text) < 80:
+        return True
+
+    lowered = text.lower()
+    weak_openers = (
+        "daniel shilansky's essay",
+        'this essay',
+        'the essay',
+        'the analysis',
+        'the work explores',
+        'the work examines',
+        'key themes such as',
+        'ultimately,',
+        'by situating',
+    )
+    weak_fragments = (
+        'offers a comprehensive philosophical analysis',
+        'examines the philosophical and epistemological implications',
+        'examines ',
+        'explores how ',
+    )
+
+    return lowered.startswith(weak_openers) or any(fragment in lowered for fragment in weak_fragments)
+
+
+def score_claim_sentence(sentence: str) -> int:
+    text = clean_text(sentence)
+    if not text:
+        return -999
+
+    lowered = text.lower()
+    score = 0
+
+    strong_terms = (
+        'argues',
+        'intervenes',
+        'dramatizes',
+        'functions',
+        'occupies',
+        'constructs',
+        'demonstrates',
+        'reveals',
+        'shows',
+        'embodies',
+        'conflict',
+        'debate',
+        'tradition',
+        'question',
+    )
+    for term in strong_terms:
+        if term in lowered:
+            score += 2
+
+    if lowered.startswith(("daniel shilansky's essay", 'the essay', 'this essay')):
+        score -= 6
+    if lowered.startswith('key themes such as'):
+        score -= 8
+    if lowered.startswith('ultimately,') or lowered.startswith('by situating'):
+        score -= 6
+    if lowered.startswith('the novella') or lowered.startswith('the novel') or lowered.startswith('the work'):
+        score += 1
+    if 'offers a comprehensive philosophical analysis' in lowered:
+        score -= 6
+    if len(text) < 80:
+        score -= 3
+    if len(text) > 280:
+        score -= 2
+    if ' by daniel shilansky' in lowered:
+        score -= 2
+
+    return score
+
+
+def rewrite_claim_sentence(sentence: str) -> str:
+    text = clean_text(sentence)
+    rewrites = [
+        (r"^Daniel Shilansky's essay examines\s+", ''),
+        (r"^Daniel Shilansky's essay explores\s+", ''),
+        (r'^The essay examines\s+', ''),
+        (r'^The essay explores\s+', ''),
+        (r'^This essay examines\s+', ''),
+        (r'^This essay explores\s+', ''),
+        (r'^It argues that\s+', ''),
+        (r'^It examines how\s+', ''),
+        (r'^It explores how\s+', ''),
+        (r'^The analysis highlights\s+', ''),
+        (r'^The work demonstrates that\s+', ''),
+        (r'^The work demonstrates how\s+', ''),
+        (r'^The work explores\s+', ''),
+    ]
+    for pattern, replacement in rewrites:
+        new_text = re.sub(pattern, replacement, text, flags=re.I)
+        if new_text != text:
+            text = new_text
+            break
+
+    text = re.sub(r'^"([^"]+)" by [^.]+ ', r'"\1" ', text)
+    text = text.replace(', and how its formal structure', ', while its formal structure')
+    return text[:1].upper() + text[1:] if text else ''
+
+
 def read_intro_claim(book_dir: Path, slug: str) -> str:
-    base = intro_dir(book_dir)
-    summary_path = base / f'summary_{slug}.txt'
-    abstract_path = base / f'abstract_{slug}.txt'
+    candidates: list[str] = []
 
-    claim = ''
+    summary = thesis_summary_text(book_dir, slug)
+    if summary:
+        candidates.extend(split_sentences(summary)[:4])
 
-    if summary_path.exists():
-        text = summary_path.read_text(encoding='utf-8', errors='ignore')
-        match = re.search(r'--- Thesis Summary .*?---\s*(.*?)(?:\n---|\Z)', text, re.S | re.I)
-        if match:
-            summary = clean_text(match.group(1))
-            sentences = split_sentences(summary)
-            if sentences:
-                claim = sentences[0]
+    abstract = abstract_text(book_dir, slug)
+    if abstract:
+        candidates.extend(split_sentences(abstract)[:4])
 
-    if not claim and abstract_path.exists():
-        abstract = clean_text(abstract_path.read_text(encoding='utf-8', errors='ignore'))
-        sentences = split_sentences(abstract)
-        if sentences:
-            claim = sentences[0]
-            if 'by Daniel Shilansky' in claim and len(sentences) > 1:
-                claim = sentences[1]
+    if not candidates:
+        return ''
 
+    rewritten_candidates = [rewrite_claim_sentence(candidate) for candidate in candidates]
+    strong_candidates = [candidate for candidate in rewritten_candidates if not is_weak_intro_claim(candidate)]
+
+    pool = strong_candidates or rewritten_candidates
+    claim = max(pool, key=score_claim_sentence)
     return claim.strip()
 
 
@@ -378,6 +492,7 @@ def published_links(pub_status: dict) -> list[dict]:
                 'price_currency': 'USD' if price is not None else None,
                 'seller': 'Amazon',
                 'item_condition': 'https://schema.org/NewCondition',
+                'availability': 'https://schema.org/InStock',
             }
         )
     return links

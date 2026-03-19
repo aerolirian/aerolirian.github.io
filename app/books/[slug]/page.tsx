@@ -163,6 +163,7 @@ export default async function BookPage({ params }: BookPageProps) {
               name: link.seller,
             }
           : undefined,
+        availability: link.availability || undefined,
         itemCondition: link.item_condition || undefined,
         url: `https://${domain}/dp/${link.asin}`,
       }

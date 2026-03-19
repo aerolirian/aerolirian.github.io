@@ -1,0 +1,92 @@
+{
+  "Algernon Blackwood": {
+    "short_bio": "Algernon Blackwood was an English writer of supernatural fiction whose best work turns occult and wilderness terror into serious metaphysical inquiry.",
+    "nationality": "British",
+    "period": "Late Victorian / early modernist",
+    "themes": ["the sublime", "limits of the human", "metaphysical terror", "nature"]
+  },
+  "Booth Tarkington": {
+    "short_bio": "Booth Tarkington was an American novelist of social change and civic decline, known for anatomizing ambition, class, and the moral texture of modernizing America.",
+    "nationality": "American",
+    "period": "Progressive Era / early twentieth century",
+    "themes": ["civic life", "ambition", "modernity", "social change"]
+  },
+  "Edith Wharton": {
+    "short_bio": "Edith Wharton was an American novelist of manners whose work studies freedom, convention, innocence, and the costs of social form.",
+    "nationality": "American",
+    "period": "Gilded Age / early modernist",
+    "themes": ["social form", "freedom", "innocence", "moral experience"]
+  },
+  "F. Scott Fitzgerald": {
+    "short_bio": "F. Scott Fitzgerald was an American novelist of desire, class, and self-invention whose fiction exposes the beauty and ruin of modern longing.",
+    "nationality": "American",
+    "period": "Modernist",
+    "themes": ["desire", "self-creation", "nostalgia", "class"]
+  },
+  "H. G. Wells": {
+    "short_bio": "H. G. Wells was an English novelist and social critic who used speculative fiction to test the moral and political consequences of modernity.",
+    "nationality": "British",
+    "period": "Late Victorian / Edwardian",
+    "themes": ["modernity", "technology", "politics", "social order"]
+  },
+  "Herman Melville": {
+    "short_bio": "Herman Melville was an American novelist whose fiction joins adventure, metaphysics, and political argument in some of the nineteenth century’s most ambitious prose.",
+    "nationality": "American",
+    "period": "Nineteenth century",
+    "themes": ["obsession", "knowledge", "democracy", "metaphysics"]
+  },
+  "Ivan Alekseevich Bunin": {
+    "short_bio": "Ivan Bunin was a Russian writer of unsparing realism whose prose confronts loss, rural life, and the limits of moral and symbolic interpretation.",
+    "nationality": "Russian",
+    "period": "Late imperial / émigré modern",
+    "themes": ["realism", "peasant life", "loss", "observation"]
+  },
+  "James Joyce": {
+    "short_bio": "James Joyce was an Irish modernist writer whose fiction transformed the representation of consciousness, language, exile, and spiritual revolt.",
+    "nationality": "Irish",
+    "period": "Modernist",
+    "themes": ["consciousness", "apostasy", "language", "selfhood"]
+  },
+  "Knut Hamsun": {
+    "short_bio": "Knut Hamsun was a Norwegian novelist whose work probes instinct, rural life, anti-modern feeling, and the psychic costs of civilization.",
+    "nationality": "Norwegian",
+    "period": "Late nineteenth / early twentieth century",
+    "themes": ["anti-modernity", "instinct", "rural life", "civilization"]
+  },
+  "Lewis Carroll": {
+    "short_bio": "Lewis Carroll was an English writer and logician whose fiction turns childhood fantasy into a sustained test of language, logic, and intelligibility.",
+    "nationality": "British",
+    "period": "Victorian",
+    "themes": ["logic", "language", "nonsense", "reason"]
+  },
+  "Lord Dunsany": {
+    "short_bio": "Lord Dunsany was an Anglo-Irish writer of fantasy whose work stages desire, enchantment, and transcendence against the limits of ordinary life.",
+    "nationality": "Anglo-Irish",
+    "period": "Early twentieth century",
+    "themes": ["desire", "enchantment", "transcendence", "fantasy"]
+  },
+  "Sinclair Lewis": {
+    "short_bio": "Sinclair Lewis was an American novelist of middle-class conformity, civic fraud, and the moral impoverishment of modern commercial life.",
+    "nationality": "American",
+    "period": "Early twentieth century",
+    "themes": ["conformity", "commercial culture", "selfhood", "social criticism"]
+  },
+  "Thomas Hardy": {
+    "short_bio": "Thomas Hardy was an English novelist and poet whose fiction explores fate, desire, moral conflict, and the pressure of social and natural necessity.",
+    "nationality": "British",
+    "period": "Victorian / early modern",
+    "themes": ["fate", "desire", "moral conflict", "necessity"]
+  },
+  "Thomas Mann": {
+    "short_bio": "Thomas Mann was a German novelist whose work investigates culture, discipline, decadence, irony, and the unstable relation between art and life.",
+    "nationality": "German",
+    "period": "Modernist",
+    "themes": ["discipline", "decadence", "art and life", "bourgeois culture"]
+  },
+  "Willa Cather": {
+    "short_bio": "Willa Cather was an American novelist whose fiction gives durable form to migration, settlement, memory, and the moral meaning of place.",
+    "nationality": "American",
+    "period": "Early twentieth century",
+    "themes": ["place", "memory", "migration", "moral life"]
+  }
+}

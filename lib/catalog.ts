@@ -1,3 +1,4 @@
+import authorMetadata from '@/content/author-metadata.json'
 import catalog from '@/content/catalog.json'
 
 export type BuyLink = {
@@ -9,6 +10,7 @@ export type BuyLink = {
   price_currency?: string | null
   seller?: string | null
   item_condition?: string | null
+  availability?: string | null
   verified_domains?: string[]
 }
 
@@ -51,6 +53,14 @@ type CatalogPayload = {
 }
 
 const payload = catalog as CatalogPayload
+const authorMetadataMap = authorMetadata as Record<string, AuthorMetadata>
+
+type AuthorMetadata = {
+  short_bio: string
+  nationality: string
+  period: string
+  themes: string[]
+}
 
 export const EDITOR = {
   name: 'Daniel Shilansky',
@@ -99,6 +109,10 @@ export type AuthorRecord = {
   slug: string
   birthYear?: number
   deathYear?: number
+  shortBio: string
+  nationality: string
+  period: string
+  themes: string[]
   books: Book[]
 }
 
@@ -122,6 +136,21 @@ export function getAuthorHref(name: string) {
   return `/authors/${slugifyPersonName(name)}`
 }
 
+function getRequiredAuthorMetadata(name: string): AuthorMetadata {
+  const metadata = authorMetadataMap[name]
+  if (
+    !metadata ||
+    !metadata.short_bio?.trim() ||
+    !metadata.nationality?.trim() ||
+    !metadata.period?.trim() ||
+    !Array.isArray(metadata.themes) ||
+    metadata.themes.length === 0
+  ) {
+    throw new Error(`Missing required author metadata for ${name}`)
+  }
+  return metadata
+}
+
 export function getAuthorRecords(books = getBooks()): AuthorRecord[] {
   const byAuthor = new Map<string, AuthorRecord>()
 
@@ -129,6 +158,7 @@ export function getAuthorRecords(books = getBooks()): AuthorRecord[] {
     const existing = byAuthor.get(book.author)
     const birthYear = toYearNumber(book.author_birth_year)
     const deathYear = toYearNumber(book.author_death_year)
+    const metadata = getRequiredAuthorMetadata(book.author)
 
     if (existing) {
       existing.books.push(book)
@@ -142,6 +172,10 @@ export function getAuthorRecords(books = getBooks()): AuthorRecord[] {
       slug: slugifyPersonName(book.author),
       birthYear,
       deathYear,
+      shortBio: metadata.short_bio,
+      nationality: metadata.nationality,
+      period: metadata.period,
+      themes: metadata.themes,
       books: [book],
     })
   }
