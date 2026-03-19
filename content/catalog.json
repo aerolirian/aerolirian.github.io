@@ -131,7 +131,7 @@
       "title": "Arrowsmith",
       "full_title": "Arrowsmith: Philosophical Edition — What RFK Jr. and Big Pharma Have in Common",
       "thesis_subtitle": "What RFK Jr. and Big Pharma Have in Common",
-      "intro_claim": "Through a detailed analysis of characters and institutional settings, the essay reveals that the conflict between these visions of science cannot be resolved within existing social frameworks, emphasizing the costs of pursuing scientific integrity across a lifetime.",
+      "intro_claim": "It argues that the novel demonstrates how institutional and social pressures distort these ideals, leading to corruption and ethical dilemmas.",
       "essays": [
         {
           "label": "Zenodo",
@@ -301,7 +301,7 @@
       "title": "Buddenbrooks",
       "full_title": "Buddenbrooks: Philosophical Edition — Fate, Decline, and the Illusion of Self",
       "thesis_subtitle": "Fate, Decline, and the Illusion of Self",
-      "intro_claim": "How the novel embodies the tension between Schopenhauerian pessimism and Nietzschean affirmation, illustrating how inherited social and familial structures shape individual consciousness and action across generations.",
+      "intro_claim": "It demonstrates that the decline depicted in the novel results from the intersection of metaphysical, historical, and social forces, emphasizing the limitations of philosophical frameworks to fully capture human complexity.",
       "essays": [
         {
           "label": "Zenodo",
@@ -601,7 +601,7 @@
       "title": "Elmer Gantry",
       "full_title": "Elmer Gantry: Philosophical Edition — Fate and Hypocrisy in the Revivalist Soul",
       "thesis_subtitle": "Fate and Hypocrisy in the Revivalist Soul",
-      "intro_claim": "The philosophical implications of institutional selection, emotional manipulation, and the construction of selfhood, drawing on traditions such as pragmatism, Kantian ethics, and existentialism.",
+      "intro_claim": "Elmer Gantry is best understood as a pragmatist audit of revivalist religion internally divided between two incompatible critical standards: an aesthetic standard inherited from Mencken, which condemns revivalism for its vulgarity and cultural degradation, and a consequentialist standard derived from the pragmatist tradition of James and Dewey, which condemns it for suppressing intelligent self-direction and producing dishonest human types.",
       "essays": [],
       "author": "Sinclair Lewis",
       "author_birth_year": 1885,
@@ -721,7 +721,6 @@
       "title": "Growth of the Soil",
       "full_title": "Growth of the Soil: Philosophical Edition — What Trump, Orbán, and Marine Le Pen Owe to a Norwegian Farmer",
       "thesis_subtitle": "What Trump, Orbán, and Marine Le Pen Owe to a Norwegian Farmer",
-      "intro_claim": "The novel embodies a counter-Enlightenment critique emphasizing rooted, instinctual life, while its formal structure enacts the Schiller problem of naïve versus sentimental consciousness.",
       "essays": [
         {
           "label": "Zenodo",
@@ -961,7 +960,6 @@
       "title": "Moby Dick",
       "full_title": "Moby Dick: Philosophical Edition — Reason, Obsession, and the Abyss; Or, Make The Pequod Great Again",
       "thesis_subtitle": "Reason, Obsession, and the Abyss;\nOr, Make The Pequod Great Again",
-      "intro_claim": "The novel's structure and language embody the limitations of empiricism and idealism in understanding the whale and the universe, emphasizing the persistent inaccessibility of ultimate meaning.",
       "essays": [
         {
           "label": "Zenodo",
@@ -1624,7 +1622,7 @@
       "title": "The Village",
       "full_title": "The Village: Philosophical Edition — Truth Against Ideology and Illusion",
       "thesis_subtitle": "Truth Against Ideology and Illusion",
-      "intro_claim": "Bunin's meticulous, non-ideological observation challenges traditional Russian literary representations of peasant life, emphasizing the limitations inherent in viewing the village through symbolic or ideological lenses.",
+      "intro_claim": "It argues that Bunin's meticulous, non-ideological observation challenges traditional Russian literary representations of peasant life, emphasizing the limitations inherent in viewing the village through symbolic or ideological lenses.",
       "essays": [],
       "author": "Ivan Alekseevich Bunin",
       "author_birth_year": 1870,
@@ -1976,7 +1974,7 @@
       "title": "Ulysses",
       "full_title": "Ulysses: Philosophical Edition — The Impossible Self of Consciousness",
       "thesis_subtitle": "The Impossible Self of Consciousness",
-      "intro_claim": "The novel’s engagement with the structural inadequacies of language and narrative in capturing the continuous flow of mental life, emphasizing how formal experimentation reveals the constitutive boundaries of human understanding.",
+      "intro_claim": "Ulysses intervenes in the epistemological dispute between William James and Henri Bergson concerning whether consciousness can be adequately represented in language.",
       "essays": [],
       "author": "James Joyce",
       "author_birth_year": 1882,

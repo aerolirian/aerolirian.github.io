@@ -269,34 +269,6 @@ def score_claim_sentence(sentence: str) -> int:
     return score
 
 
-def rewrite_claim_sentence(sentence: str) -> str:
-    text = clean_text(sentence)
-    rewrites = [
-        (r"^Daniel Shilansky's essay examines\s+", ''),
-        (r"^Daniel Shilansky's essay explores\s+", ''),
-        (r'^The essay examines\s+', ''),
-        (r'^The essay explores\s+', ''),
-        (r'^This essay examines\s+', ''),
-        (r'^This essay explores\s+', ''),
-        (r'^It argues that\s+', ''),
-        (r'^It examines how\s+', ''),
-        (r'^It explores how\s+', ''),
-        (r'^The analysis highlights\s+', ''),
-        (r'^The work demonstrates that\s+', ''),
-        (r'^The work demonstrates how\s+', ''),
-        (r'^The work explores\s+', ''),
-    ]
-    for pattern, replacement in rewrites:
-        new_text = re.sub(pattern, replacement, text, flags=re.I)
-        if new_text != text:
-            text = new_text
-            break
-
-    text = re.sub(r'^"([^"]+)" by [^.]+ ', r'"\1" ', text)
-    text = text.replace(', and how its formal structure', ', while its formal structure')
-    return text[:1].upper() + text[1:] if text else ''
-
-
 def read_intro_claim(book_dir: Path, slug: str) -> str:
     candidates: list[str] = []
 
@@ -311,11 +283,11 @@ def read_intro_claim(book_dir: Path, slug: str) -> str:
     if not candidates:
         return ''
 
-    rewritten_candidates = [rewrite_claim_sentence(candidate) for candidate in candidates]
-    strong_candidates = [candidate for candidate in rewritten_candidates if not is_weak_intro_claim(candidate)]
-
-    pool = strong_candidates or rewritten_candidates
-    claim = max(pool, key=score_claim_sentence)
+    clean_candidates = [clean_text(candidate) for candidate in candidates]
+    strong_candidates = [candidate for candidate in clean_candidates if not is_weak_intro_claim(candidate)]
+    if not strong_candidates:
+        return ''
+    claim = max(strong_candidates, key=score_claim_sentence)
     return claim.strip()
 
 
