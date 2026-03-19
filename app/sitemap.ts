@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-import { EDITOR, SITE, getBooks } from '@/lib/catalog'
+import { EDITOR, SITE, getAuthorRecords, getBooks } from '@/lib/catalog'
 
 export const dynamic = 'force-static'
 
@@ -23,6 +23,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE.url}/books/${book.slug}`,
       changeFrequency: 'weekly',
       priority: 0.9,
+    })
+  }
+
+  for (const author of getAuthorRecords()) {
+    pages.push({
+      url: `${SITE.url}/authors/${author.slug}`,
+      changeFrequency: 'monthly',
+      priority: 0.6,
     })
   }
 

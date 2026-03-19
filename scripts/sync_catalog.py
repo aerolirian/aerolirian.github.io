@@ -437,6 +437,8 @@ def main() -> None:
                 'thesis_subtitle': (data.get('thesis_subtitle') or '').strip(),
                 'essays': extract_essays(data),
                 'author': (data.get('author') or '').strip(),
+                'author_birth_year': data.get('author_birth_year'),
+                'author_death_year': data.get('author_death_year'),
                 'intro_author': (data.get('intro_author') or 'Daniel Shilansky').strip(),
                 'genre': (data.get('genre') or '').strip(),
                 'year': str(data.get('first_publication_year') or ''),

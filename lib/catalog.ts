@@ -20,6 +20,8 @@ export type Book = {
   thesis_subtitle: string
   essays?: EssayLink[]
   author: string
+  author_birth_year?: number | null
+  author_death_year?: number | null
   intro_author: string
   genre: string
   year: string
@@ -78,6 +80,70 @@ export function getAuthors(books: Book[]): string[] {
   return [...new Set(books.map((book) => book.author))].sort((a, b) =>
     a.localeCompare(b),
   )
+}
+
+export type AuthorRecord = {
+  name: string
+  slug: string
+  birthYear?: number
+  deathYear?: number
+  books: Book[]
+}
+
+function toYearNumber(value: number | string | null | undefined) {
+  if (typeof value === 'number' && Number.isFinite(value)) return value
+  if (typeof value === 'string' && value.trim()) {
+    const parsed = Number(value)
+    if (Number.isFinite(parsed)) return parsed
+  }
+  return undefined
+}
+
+export function slugifyPersonName(name: string) {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+export function getAuthorHref(name: string) {
+  return `/authors/${slugifyPersonName(name)}`
+}
+
+export function getAuthorRecords(books = getBooks()): AuthorRecord[] {
+  const byAuthor = new Map<string, AuthorRecord>()
+
+  for (const book of books) {
+    const existing = byAuthor.get(book.author)
+    const birthYear = toYearNumber(book.author_birth_year)
+    const deathYear = toYearNumber(book.author_death_year)
+
+    if (existing) {
+      existing.books.push(book)
+      if (existing.birthYear == null && birthYear != null) existing.birthYear = birthYear
+      if (existing.deathYear == null && deathYear != null) existing.deathYear = deathYear
+      continue
+    }
+
+    byAuthor.set(book.author, {
+      name: book.author,
+      slug: slugifyPersonName(book.author),
+      birthYear,
+      deathYear,
+      books: [book],
+    })
+  }
+
+  return [...byAuthor.values()]
+    .map((author) => ({
+      ...author,
+      books: [...author.books].sort((a, b) => a.title.localeCompare(b.title)),
+    }))
+    .sort((a, b) => a.name.localeCompare(b.name))
+}
+
+export function getAuthorBySlug(slug: string): AuthorRecord | undefined {
+  return getAuthorRecords().find((author) => author.slug === slug)
 }
 
 export function getFormats(books: Book[]): string[] {

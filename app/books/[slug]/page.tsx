@@ -6,7 +6,14 @@ import { notFound } from 'next/navigation'
 import { BookTile } from '@/components/book-tile'
 import { JsonLd } from '@/components/json-ld'
 import { LocalizedBuyLinks } from '@/components/localized-buy-links'
-import { EDITOR, SITE, getBook, getBooks, getRelatedBooks } from '@/lib/catalog'
+import {
+  EDITOR,
+  SITE,
+  getAuthorHref,
+  getBook,
+  getBooks,
+  getRelatedBooks,
+} from '@/lib/catalog'
 
 type BookPageProps = {
   params: Promise<{ slug: string }>
@@ -142,7 +149,9 @@ export default async function BookPage({ params }: BookPageProps) {
               {book.thesis_subtitle}
             </p>
             <p className="mt-4 text-sm uppercase tracking-[0.22em] text-zinc-500">
-              {book.author}
+              <Link href={getAuthorHref(book.author)} className="transition hover:text-zinc-300">
+                {book.author}
+              </Link>
             </p>
             <LocalizedBuyLinks links={book.buy_links} />
             <div className="mt-8 grid gap-4 border-t border-white/10 pt-6 text-sm text-zinc-300 sm:grid-cols-2">
