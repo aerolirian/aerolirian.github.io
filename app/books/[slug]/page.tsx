@@ -19,6 +19,20 @@ type BookPageProps = {
   params: Promise<{ slug: string }>
 }
 
+function renderParagraph(paragraph: string) {
+  const parts = paragraph.split(/(\*[^*]+\*)/g).filter(Boolean)
+  return parts.map((part, index) => {
+    if (part.startsWith('*') && part.endsWith('*') && part.length > 2) {
+      return (
+        <em key={`${part}-${index}`} className="italic">
+          {part.slice(1, -1)}
+        </em>
+      )
+    }
+    return <span key={`${part}-${index}`}>{part}</span>
+  })
+}
+
 export async function generateStaticParams() {
   return getBooks().map((book) => ({ slug: book.slug }))
 }
@@ -217,7 +231,7 @@ export default async function BookPage({ params }: BookPageProps) {
               .split(/\n{2,}/)
               .filter(Boolean)
               .map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+                <p key={paragraph}>{renderParagraph(paragraph)}</p>
               ))}
           </div>
         </div>
