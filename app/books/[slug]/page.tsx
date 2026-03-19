@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -17,6 +18,12 @@ import {
 
 type BookPageProps = {
   params: Promise<{ slug: string }>
+}
+
+type FaqItem = {
+  question: string
+  answer: ReactNode
+  schemaAnswer: string
 }
 
 function renderParagraph(paragraph: string) {
@@ -63,6 +70,55 @@ export default async function BookPage({ params }: BookPageProps) {
   const book = getBook(slug)
   if (!book) notFound()
   const related = getRelatedBooks(slug)
+  const faqItems: FaqItem[] = [
+    {
+      question: 'What makes this edition different from a standard reprint?',
+      answer:
+        'It is not just a reprint of the text. It pairs the complete original work with a new philosophical introduction that reconstructs the conflicts, assumptions, and historical pressures that shaped why the book was written and how it was originally understood.',
+      schemaAnswer:
+        'It is not just a reprint of the text. It pairs the complete original work with a new philosophical introduction that reconstructs the conflicts, assumptions, and historical pressures that shaped why the book was written and how it was originally understood.',
+    },
+    {
+      question: 'Who is Daniel Shilansky, and what is his role in this edition?',
+      answer: (
+        <>
+          Daniel Shilansky is the{' '}
+          <Link href={`/editor/${EDITOR.slug}`} className="text-[#d0a85c] underline decoration-white/10 underline-offset-4 transition hover:text-white">
+            editor
+          </Link>{' '}
+          of Heritage Canon and the author of this edition’s introduction. His work focuses on how literature and film participate in philosophical argument, and he writes for both general and academic readers.
+        </>
+      ),
+      schemaAnswer:
+        'Daniel Shilansky is the editor of Heritage Canon and the author of this edition’s introduction. His work focuses on how literature and film participate in philosophical argument, and he writes for both general and academic readers.',
+    },
+    {
+      question: 'Do I need to read the introduction before the novel?',
+      answer:
+        'No. You can read it first (if you do not mind plot spoilers) or return to it after the novel; the edition is designed to work either way.',
+      schemaAnswer:
+        'No. You can read it first if you do not mind plot spoilers, or return to it after the novel; the edition is designed to work either way.',
+    },
+    {
+      question: 'Is the introduction academic or written for general readers?',
+      answer:
+        'It is intellectually serious but written for general readers, not only for specialists.',
+      schemaAnswer:
+        'It is intellectually serious but written for general readers, not only for specialists.',
+    },
+    {
+      question: 'Is this text complete and unabridged?',
+      answer: 'Yes. The literary text is presented complete and unabridged.',
+      schemaAnswer: 'Yes. The literary text is presented complete and unabridged.',
+    },
+    {
+      question: 'Why does this edition use the label “Philosophical Edition”?',
+      answer:
+        'Because the introduction treats the book not just as a plot to summarize or a historical artifact to place, but as an intervention in larger questions of selfhood, morality, religion, desire, freedom, politics, and the shape of modern life.',
+      schemaAnswer:
+        'Because the introduction treats the book not just as a plot to summarize or a historical artifact to place, but as an intervention in larger questions of selfhood, morality, religion, desire, freedom, politics, and the shape of modern life.',
+    },
+  ]
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -119,8 +175,28 @@ export default async function BookPage({ params }: BookPageProps) {
     offers: book.buy_links.map((link) => ({
       '@type': 'Offer',
       category: link.label,
-      priceCurrency: 'USD',
+      price: link.price ?? undefined,
+      priceCurrency: link.price_currency || undefined,
+      seller: link.seller
+        ? {
+            '@type': 'Organization',
+            name: link.seller,
+          }
+        : undefined,
+      itemCondition: link.item_condition || undefined,
       url: link.url,
+    })),
+  }
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.schemaAnswer,
+      },
     })),
   }
 
@@ -128,6 +204,7 @@ export default async function BookPage({ params }: BookPageProps) {
     <main className="pb-20">
       <JsonLd data={breadcrumbJsonLd} />
       <JsonLd data={bookJsonLd} />
+      <JsonLd data={faqJsonLd} />
       <section className="product-hero-section relative overflow-hidden border-b border-white/10">
         <div className="absolute inset-0">
           <Image
@@ -254,6 +331,28 @@ export default async function BookPage({ params }: BookPageProps) {
             Read bio
           </Link>
         </aside>
+      </section>
+
+      <section className="mx-auto w-full max-w-7xl px-4 pb-8 sm:px-5 lg:px-8">
+        <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
+          FAQ
+        </p>
+        <h2 className="mt-4 font-serif text-4xl leading-[0.94] tracking-[-0.04em] text-white sm:text-5xl">
+          About this edition
+        </h2>
+        <div className="mt-8 space-y-4">
+          {faqItems.map((item) => (
+            <div
+              key={item.question}
+              className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5 sm:p-6"
+            >
+              <h3 className="font-serif text-xl leading-tight text-white sm:text-2xl">
+                {item.question}
+              </h3>
+              <div className="mt-3 text-base leading-relaxed text-zinc-300">{item.answer}</div>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-4 pb-8 sm:px-5 lg:px-8">
