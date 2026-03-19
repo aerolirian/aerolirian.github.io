@@ -5,6 +5,10 @@ export type BuyLink = {
   format: 'ebook' | 'paperback' | 'hardcover' | 'audiobook' | string
   asin: string
   url: string
+  price?: number | null
+  price_currency?: string | null
+  seller?: string | null
+  item_condition?: string | null
   verified_domains?: string[]
 }
 
@@ -18,6 +22,7 @@ export type Book = {
   title: string
   full_title: string
   thesis_subtitle: string
+  intro_claim?: string
   essays?: EssayLink[]
   author: string
   author_birth_year?: number | null
@@ -31,6 +36,13 @@ export type Book = {
   description: string
   excerpt: string
   formats: string[]
+  prices?: Record<
+    string,
+    {
+      amount?: number | null
+      currency?: string | null
+    }
+  >
   buy_links: BuyLink[]
 }
 

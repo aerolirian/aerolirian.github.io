@@ -45,9 +45,22 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 3.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1882,
+      "author_death_year": 1941,
+      "prices": {
+        "ebook": {
+          "amount": 3.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "A Portrait of the Artist as a Young Man intervenes in the idealist-naturalist debate about the status of self-knowledge by occupying a precise third position: it argues, through formal rather than discursive means, that self-knowledge is genuinely transformative without being liberatory in any clean idealist sense."
     },
     {
       "slug": "alice_in_wonderland",
@@ -94,9 +107,22 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 2.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1832,
+      "author_death_year": 1898,
+      "prices": {
+        "ebook": {
+          "amount": 2.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "Alice's Adventures in Wonderland dramatizes the gap between formal validity and semantic intelligibility — a gap obscured by both the rationalist tradition (Whately) and the empiricist tradition (Mill), each of which assumed that properly conducted reasoning would find its conditions of application jointly satisfied in any coherent domain."
     },
     {
       "slug": "arrowsmith",
@@ -152,7 +178,11 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 3.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Paperback",
@@ -179,9 +209,26 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 19.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1885,
+      "author_death_year": 1951,
+      "prices": {
+        "ebook": {
+          "amount": 3.99,
+          "currency": "USD"
+        },
+        "paperback": {
+          "amount": 19.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "Arrowsmith earns its place in intellectual history by dramatizing rather than merely illustrating the conflict between two philosophically coherent but mutually incompatible accounts of scientific moral seriousness: the clinical tradition's insistence on obligation to the present suffering individual, and the pure research tradition's insistence on obligation to the verified knowledge that alone can serve humanity's future."
     },
     {
       "slug": "babbitt",
@@ -227,9 +274,22 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 3.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1885,
+      "author_death_year": 1951,
+      "prices": {
+        "ebook": {
+          "amount": 3.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "Babbitt occupies a precise position in the intellectual debate of 1922 by dramatizing a form of unfreedom that neither the Progressive nor the cultural-critical tradition could fully accommodate."
     },
     {
       "slug": "buddenbrooks",
@@ -268,9 +328,22 @@
             "www.amazon.com",
             "www.amazon.eg",
             "www.amazon.in"
-          ]
+          ],
+          "price": 4.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1875,
+      "author_death_year": 1955,
+      "prices": {
+        "ebook": {
+          "amount": 4.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "The essay explores how the novel embodies the tension between Schopenhauerian pessimism and Nietzschean affirmation, illustrating how inherited social and familial structures shape individual consciousness and action across generations."
     },
     {
       "slug": "death_comes_for_the_archbishop",
@@ -316,9 +389,17 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": null,
+          "price_currency": null,
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1873,
+      "author_death_year": 1947,
+      "prices": {},
+      "intro_claim": "Death Comes for the Archbishop intervenes in the historicist debate — the dominant intellectual position, running from Hegel through Feuerbach, Marx, and Nietzsche, that all human institutions including religion are products of historical forces and therefore transient — not by refuting historicism on its own terms but by constructing, through formal and narrative means, an experience of time that the historicist model cannot accommodate."
     },
     {
       "slug": "death_in_venice",
@@ -357,7 +438,11 @@
           "url": "https://www.amazon.com/dp/B0GRJBZCL3",
           "verified_domains": [
             "www.amazon.com"
-          ]
+          ],
+          "price": 2.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Paperback",
@@ -366,7 +451,11 @@
           "url": "https://www.amazon.com/dp/B0GS2DL415",
           "verified_domains": [
             "www.amazon.com"
-          ]
+          ],
+          "price": 9.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Hardcover",
@@ -375,9 +464,30 @@
           "url": "https://www.amazon.com/dp/B0GS2T1J4M",
           "verified_domains": [
             "www.amazon.com"
-          ]
+          ],
+          "price": 18.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1875,
+      "author_death_year": 1955,
+      "prices": {
+        "ebook": {
+          "amount": 2.99,
+          "currency": "USD"
+        },
+        "paperback": {
+          "amount": 9.99,
+          "currency": "USD"
+        },
+        "hardcover": {
+          "amount": 18.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "\"Death in Venice\" by Thomas Mann explores the profound tension between rational discipline and irrational desire within the human soul."
     },
     {
       "slug": "dubliners",
@@ -425,7 +535,11 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 2.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Paperback",
@@ -453,9 +567,22 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": null,
+          "price_currency": null,
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1882,
+      "author_death_year": 1941,
+      "prices": {
+        "ebook": {
+          "amount": 2.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "Dubliners occupies a philosophically precise position between two historically available accounts of human agency: the mechanist position, which holds that recognition of one's condition changes nothing in the causal order, and the recognitive position, which holds that genuine perception of one's situation is already a form of transcendence and the beginning of moral agency."
     },
     {
       "slug": "elmer_gantry",
@@ -501,9 +628,22 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 3.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1885,
+      "author_death_year": 1951,
+      "prices": {
+        "ebook": {
+          "amount": 3.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "Elmer Gantry is best understood as a pragmatist audit of revivalist religion internally divided between two incompatible critical standards: an aesthetic standard inherited from Mencken, which condemns revivalism for its vulgarity and cultural degradation, and a consequentialist standard derived from the pragmatist tradition of James and Dewey, which condemns it for suppressing intelligent self-direction and producing dishonest human types."
     },
     {
       "slug": "far_from_the_madding_crowd",
@@ -550,9 +690,17 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": null,
+          "price_currency": null,
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1840,
+      "author_death_year": 1928,
+      "prices": {},
+      "intro_claim": "Far from the Madding Crowd does not adjudicate between Mill's insistence on the discontinuity of moral life from natural process and Spencer's insistence on their continuity, but instead constructs a formal structure in which both positions are simultaneously operative."
     },
     {
       "slug": "growth_of_the_soil",
@@ -609,7 +757,11 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 3.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Paperback",
@@ -636,7 +788,11 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 15.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Hardcover",
@@ -663,9 +819,30 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 29.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1859,
+      "author_death_year": 1952,
+      "prices": {
+        "ebook": {
+          "amount": 3.99,
+          "currency": "USD"
+        },
+        "paperback": {
+          "amount": 15.99,
+          "currency": "USD"
+        },
+        "hardcover": {
+          "amount": 29.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "Daniel Shilansky's essay examines Knut Hamsun's novel Growth of the Soil within the context of the philosophical debate over modern civilization's costs."
     },
     {
       "slug": "main_street",
@@ -712,7 +889,11 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 3.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Paperback",
@@ -739,9 +920,22 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": null,
+          "price_currency": null,
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1885,
+      "author_death_year": 1951,
+      "prices": {
+        "ebook": {
+          "amount": 3.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "The essay examines how the conflict between individual self-cultivation and community self-determination manifests structurally and morally in the town of Gopher Prairie, emphasizing the intractable nature of this tension."
     },
     {
       "slug": "moby_dick",
@@ -799,7 +993,11 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 3.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Paperback",
@@ -828,9 +1026,26 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 23.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1819,
+      "author_death_year": 1891,
+      "prices": {
+        "ebook": {
+          "amount": 3.99,
+          "currency": "USD"
+        },
+        "paperback": {
+          "amount": 23.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "Daniel Shilansky's essay, \"Reason, Obsession, and the Abyss; Or, Make The Pequod Great Again,\" offers a comprehensive philosophical analysis of Herman Melville's *Moby Dick*."
     },
     {
       "slug": "o_pioneers",
@@ -876,9 +1091,22 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 2.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1873,
+      "author_death_year": 1947,
+      "prices": {
+        "ebook": {
+          "amount": 2.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "O Pioneers! intervenes in the conflict between two historically available accounts of knowledge — the voluntarist tradition, which treats knowing as instrumental transformation, and the receptive tradition, which treats it as passive spiritual openness — by dramatizing a third possibility that neither framework adequately theorizes."
     },
     {
       "slug": "the_age_of_innocence",
@@ -925,9 +1153,17 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": null,
+          "price_currency": null,
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1862,
+      "author_death_year": 1937,
+      "prices": {},
+      "intro_claim": "Wharton's novel matters philosophically because it identifies a dimension of the conflict between liberal and conservative traditions that neither had adequately confronted: the question of what is genuinely lost when the passage from innocence to experience becomes irreversible."
     },
     {
       "slug": "the_centaur",
@@ -973,9 +1209,22 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 2.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1869,
+      "author_death_year": 1951,
+      "prices": {
+        "ebook": {
+          "amount": 2.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "The Centaur participates in the early twentieth-century philosophical debate between scientific naturalism and its critics, but it does so by pressing beyond the positions that debate made available."
     },
     {
       "slug": "the_gentleman_from_indiana",
@@ -1021,9 +1270,22 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 3.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1869,
+      "author_death_year": 1946,
+      "prices": {
+        "ebook": {
+          "amount": 3.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "The Gentleman from Indiana enters a historically specific philosophical conflict between two positions on democratic civic virtue: the educative or republican view, which holds that an exceptional individual can genuinely cultivate moral capacity in a community so that it persists after his departure, and the Tocquevillian or sociological view, which holds that democratic communities structurally tend toward moral passivity and merely outsource their conscience to exceptional individuals without internalizing their values."
     },
     {
       "slug": "the_great_gatsby",
@@ -1081,7 +1343,11 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 2.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Paperback",
@@ -1109,7 +1375,11 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 9.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Hardcover",
@@ -1137,9 +1407,30 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 24.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1896,
+      "author_death_year": 1940,
+      "prices": {
+        "ebook": {
+          "amount": 2.99,
+          "currency": "USD"
+        },
+        "paperback": {
+          "amount": 9.99,
+          "currency": "USD"
+        },
+        "hardcover": {
+          "amount": 24.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "Fitzgerald's novel stages a collision between 19th-century American Romantic Idealism (the infinite, plastic will) and 20th-century Naturalism/economic determinism (finite, rigid material constraints)."
     },
     {
       "slug": "the_king_of_elflands_daughter",
@@ -1180,7 +1471,11 @@
             "www.amazon.com",
             "www.amazon.eg",
             "www.amazon.in"
-          ]
+          ],
+          "price": 2.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Paperback",
@@ -1191,7 +1486,11 @@
             "www.amazon.com",
             "www.amazon.eg",
             "www.amazon.in"
-          ]
+          ],
+          "price": 9.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Hardcover",
@@ -1202,9 +1501,30 @@
             "www.amazon.com",
             "www.amazon.eg",
             "www.amazon.in"
-          ]
+          ],
+          "price": 18.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1878,
+      "author_death_year": 1957,
+      "prices": {
+        "ebook": {
+          "amount": 2.99,
+          "currency": "USD"
+        },
+        "paperback": {
+          "amount": 9.99,
+          "currency": "USD"
+        },
+        "hardcover": {
+          "amount": 18.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "Dunsany's novel intervenes in the debate between positivism and Romanticism by refusing the assumption both traditions share: that the relationship between the ordinary world and the enchanted world is structured as a relationship between a desiring subject and a potential object."
     },
     {
       "slug": "the_turmoil",
@@ -1250,9 +1570,22 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 3.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1869,
+      "author_death_year": 1946,
+      "prices": {
+        "ebook": {
+          "amount": 3.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "The Turmoil engages the central philosophical dispute of its moment — between the acquisitive self validated by Spencerian evolutionary thought and the cultivated self defended by the Ruskinian and Arnoldian critical tradition — not by adjudicating between them but by raising a more troubling third possibility derived from the Jamesian account of the self as environmentally constituted process."
     },
     {
       "slug": "the_village",
@@ -1298,9 +1631,22 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 2.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1870,
+      "author_death_year": 1953,
+      "prices": {
+        "ebook": {
+          "amount": 2.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "Daniel Shilansky's essay examines the philosophical and epistemological implications of Ivan Bunin's novel The Village."
     },
     {
       "slug": "the_wendigo",
@@ -1357,7 +1703,11 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 1.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Paperback",
@@ -1384,7 +1734,11 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 9.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Hardcover",
@@ -1411,9 +1765,30 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 14.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1869,
+      "author_death_year": 1951,
+      "prices": {
+        "ebook": {
+          "amount": 1.99,
+          "currency": "USD"
+        },
+        "paperback": {
+          "amount": 9.99,
+          "currency": "USD"
+        },
+        "hardcover": {
+          "amount": 14.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "Blackwood's The Wendigo functions as a philosophical thought experiment that exposes a shared structural assumption underlying both the Burkean-Kantian sublime tradition and the new experimental psychology of 1910."
     },
     {
       "slug": "the_willows",
@@ -1470,7 +1845,11 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 1.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Paperback",
@@ -1497,7 +1876,11 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 9.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Hardcover",
@@ -1524,9 +1907,30 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 13.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1869,
+      "author_death_year": 1951,
+      "prices": {
+        "ebook": {
+          "amount": 1.99,
+          "currency": "USD"
+        },
+        "paperback": {
+          "amount": 9.99,
+          "currency": "USD"
+        },
+        "hardcover": {
+          "amount": 13.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "The essay examines Algernon Blackwood's \"The Willows\" as a literary articulation of the philosophical concept that certain aspects of reality are constitutively inaccessible to human understanding."
     },
     {
       "slug": "ulysses",
@@ -1573,9 +1977,22 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 3.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1882,
+      "author_death_year": 1941,
+      "prices": {
+        "ebook": {
+          "amount": 3.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "Ulysses intervenes in the epistemological dispute between William James and Henri Bergson concerning whether consciousness can be adequately represented in language."
     },
     {
       "slug": "when_the_sleeper_wakes",
@@ -1622,7 +2039,11 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": 2.99,
+          "price_currency": "USD",
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         },
         {
           "label": "Paperback",
@@ -1649,9 +2070,22 @@
             "www.amazon.com.au",
             "www.amazon.co.jp",
             "www.amazon.in"
-          ]
+          ],
+          "price": null,
+          "price_currency": null,
+          "seller": "Amazon",
+          "item_condition": "https://schema.org/NewCondition"
         }
-      ]
+      ],
+      "author_birth_year": 1866,
+      "author_death_year": 1946,
+      "prices": {
+        "ebook": {
+          "amount": 2.99,
+          "currency": "USD"
+        }
+      },
+      "intro_claim": "Wells's novel constitutes a sustained imaginative examination of what happens when the logic of capital concentration and technological organization is followed to its conclusion, producing a world that exposes the shared assumption of agency — the belief that understanding leads to effective action — as the precise point at which both liberal-evolutionary and socialist traditions fail to reckon honestly with the evidence of their own time."
     }
   ]
 }

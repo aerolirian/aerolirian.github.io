@@ -174,6 +174,37 @@ def split_sentences(text: str) -> list[str]:
     return [part.strip() for part in re.split(r'(?<=[.!?])\s+(?=[A-Z“"])', text) if part.strip()]
 
 
+def intro_dir(book_dir: Path) -> Path:
+    return book_dir / 'introduction'
+
+
+def read_intro_claim(book_dir: Path, slug: str) -> str:
+    base = intro_dir(book_dir)
+    summary_path = base / f'summary_{slug}.txt'
+    abstract_path = base / f'abstract_{slug}.txt'
+
+    claim = ''
+
+    if summary_path.exists():
+        text = summary_path.read_text(encoding='utf-8', errors='ignore')
+        match = re.search(r'--- Thesis Summary .*?---\s*(.*?)(?:\n---|\Z)', text, re.S | re.I)
+        if match:
+            summary = clean_text(match.group(1))
+            sentences = split_sentences(summary)
+            if sentences:
+                claim = sentences[0]
+
+    if not claim and abstract_path.exists():
+        abstract = clean_text(abstract_path.read_text(encoding='utf-8', errors='ignore'))
+        sentences = split_sentences(abstract)
+        if sentences:
+            claim = sentences[0]
+            if 'by Daniel Shilansky' in claim and len(sentences) > 1:
+                claim = sentences[1]
+
+    return claim.strip()
+
+
 def chunk_sentences(text: str, target_chars: int = 360) -> list[str]:
     sentences = split_sentences(text)
     if len(sentences) <= 2:
@@ -322,22 +353,31 @@ def audit_buy_links(
 
 def published_links(pub_status: dict) -> list[dict]:
     mapping = [
-        ('kdp_ebook_asin', 'Kindle', 'ebook'),
-        ('kdp_paperback_asin', 'Paperback', 'paperback'),
-        ('kdp_hardcover_asin', 'Hardcover', 'hardcover'),
-        ('audiobook_audible_asin', 'Audiobook', 'audiobook'),
+        ('kdp_ebook_asin', 'kdp_ebook_price', 'Kindle', 'ebook'),
+        ('kdp_paperback_asin', 'kdp_paperback_price', 'Paperback', 'paperback'),
+        ('kdp_hardcover_asin', 'kdp_hardcover_price', 'Hardcover', 'hardcover'),
+        ('audiobook_audible_asin', None, 'Audiobook', 'audiobook'),
     ]
     links = []
-    for key, label, fmt in mapping:
+    for key, price_key, label, fmt in mapping:
         asin = (pub_status.get(key) or '').strip()
         if not asin:
             continue
+        raw_price = pub_status.get(price_key) if price_key else None
+        try:
+            price = float(raw_price) if raw_price is not None and raw_price != '' else None
+        except (TypeError, ValueError):
+            price = None
         links.append(
             {
                 'label': label,
                 'format': fmt,
                 'asin': asin,
                 'url': f'https://www.amazon.com/dp/{asin}',
+                'price': price,
+                'price_currency': 'USD' if price is not None else None,
+                'seller': 'Amazon',
+                'item_condition': 'https://schema.org/NewCondition',
             }
         )
     return links
@@ -435,6 +475,7 @@ def main() -> None:
                 'title': (data.get('title') or slug.replace('_', ' ').title()).strip(),
                 'full_title': (data.get('full_title') or data.get('title') or '').strip(),
                 'thesis_subtitle': (data.get('thesis_subtitle') or '').strip(),
+                'intro_claim': read_intro_claim(book_dir, slug),
                 'essays': extract_essays(data),
                 'author': (data.get('author') or '').strip(),
                 'author_birth_year': data.get('author_birth_year'),
@@ -448,6 +489,14 @@ def main() -> None:
                 'description': description,
                 'excerpt': excerpt,
                 'formats': [link['format'] for link in buy_links],
+                'prices': {
+                    link['format']: {
+                        'amount': link.get('price'),
+                        'currency': link.get('price_currency'),
+                    }
+                    for link in buy_links
+                    if link.get('price') is not None
+                },
                 'buy_links': buy_links,
             }
         )

@@ -70,6 +70,9 @@ export default async function BookPage({ params }: BookPageProps) {
   const book = getBook(slug)
   if (!book) notFound()
   const related = getRelatedBooks(slug)
+  const introClaimAnswer =
+    book.intro_claim ||
+    'Each introduction advances a specific interpretive claim about the work rather than offering only background or summary.'
   const faqItems: FaqItem[] = [
     {
       question: 'What makes this edition different from a standard reprint?',
@@ -77,6 +80,11 @@ export default async function BookPage({ params }: BookPageProps) {
         'It is not just a reprint of the text. It pairs the complete original work with a new philosophical introduction that reconstructs the conflicts, assumptions, and historical pressures that shaped why the book was written and how it was originally understood.',
       schemaAnswer:
         'It is not just a reprint of the text. It pairs the complete original work with a new philosophical introduction that reconstructs the conflicts, assumptions, and historical pressures that shaped why the book was written and how it was originally understood.',
+    },
+    {
+      question: 'What does the introduction argue about this book?',
+      answer: introClaimAnswer,
+      schemaAnswer: introClaimAnswer,
     },
     {
       question: 'Who is Daniel Shilansky, and what is his role in this edition?',
@@ -137,6 +145,29 @@ export default async function BookPage({ params }: BookPageProps) {
       },
     ],
   }
+  const bookOffers = book.buy_links.flatMap((link) => {
+    const domains = link.verified_domains?.length
+      ? link.verified_domains
+      : [new URL(link.url).host]
+
+    return domains.map((domain) => {
+      const isAmazonCom = domain === 'www.amazon.com'
+      return {
+        '@type': 'Offer',
+        category: link.label,
+        price: isAmazonCom ? link.price ?? undefined : undefined,
+        priceCurrency: isAmazonCom ? link.price_currency || undefined : undefined,
+        seller: link.seller
+          ? {
+              '@type': 'Organization',
+              name: link.seller,
+            }
+          : undefined,
+        itemCondition: link.item_condition || undefined,
+        url: `https://${domain}/dp/${link.asin}`,
+      }
+    })
+  })
   const bookJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Book',
@@ -172,20 +203,7 @@ export default async function BookPage({ params }: BookPageProps) {
             },
           }))
         : undefined,
-    offers: book.buy_links.map((link) => ({
-      '@type': 'Offer',
-      category: link.label,
-      price: link.price ?? undefined,
-      priceCurrency: link.price_currency || undefined,
-      seller: link.seller
-        ? {
-            '@type': 'Organization',
-            name: link.seller,
-          }
-        : undefined,
-      itemCondition: link.item_condition || undefined,
-      url: link.url,
-    })),
+    offers: bookOffers,
   }
   const faqJsonLd = {
     '@context': 'https://schema.org',
