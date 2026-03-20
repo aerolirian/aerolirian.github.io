@@ -100,6 +100,8 @@ Current route coverage:
 - `/`
 - `/about`
 - `/editor/daniel-shilansky`
+- `/impressum`
+- `/terms`
 - `/books/[slug]`
 - `/privacy`
 - `/cookies`

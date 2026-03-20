@@ -19,11 +19,14 @@ export function Footer() {
           <Link href="/impressum" className="transition hover:text-zinc-200">
             Impressum / Imprint
           </Link>
+          <Link href="/terms" className="transition hover:text-zinc-200">
+            Terms
+          </Link>
           <Link href="/privacy" className="transition hover:text-zinc-200">
             Privacy
           </Link>
           <Link href="/cookies" className="transition hover:text-zinc-200">
-            Cookies
+            Cookies / Consent
           </Link>
           <CookiePreferencesButton />
         </div>

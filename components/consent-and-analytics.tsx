@@ -135,7 +135,7 @@ export function ConsentAndAnalytics() {
 
       <Script
         id="cookieconsent-lib"
-        src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"
+        src="/vendor/cookieconsent/cookieconsent.umd.js"
         strategy="afterInteractive"
       />
       <Script id="cookieconsent-init" strategy="afterInteractive">

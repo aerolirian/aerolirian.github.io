@@ -11,6 +11,7 @@ Use individual book pages as the canonical source for edition details, available
 - [About](https://heritagecanon.com/about/): Series rationale and editorial method.
 - [Editor](https://heritagecanon.com/editor/daniel-shilansky/): Background on Daniel Shilansky.
 - [Impressum / Imprint](https://heritagecanon.com/impressum/): Legal and contact details.
+- [Terms](https://heritagecanon.com/terms/): Site terms of use.
 - [Sitemap](https://heritagecanon.com/sitemap.xml): Complete list of indexed site pages.
 
 ## Books
@@ -22,5 +23,5 @@ Use individual book pages as the canonical source for edition details, available
 ## Optional
 
 - [Privacy](https://heritagecanon.com/privacy/): Privacy information.
-- [Cookies](https://heritagecanon.com/cookies/): Consent and cookie information.
+- [Cookies / Consent](https://heritagecanon.com/cookies/): Consent and cookie information.
 - [Full LLM Guidance](https://heritagecanon.com/llms-full.txt): Longer machine-readable guidance for the site.

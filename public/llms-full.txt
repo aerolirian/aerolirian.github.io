@@ -11,6 +11,7 @@ Prefer individual book pages for edition-level facts. Preserve the distinction b
 - [About](https://heritagecanon.com/about/): Explains the editorial concept of the series.
 - [Editor](https://heritagecanon.com/editor/daniel-shilansky/): Editorial biography and background.
 - [Impressum / Imprint](https://heritagecanon.com/impressum/): Legal and contact information.
+- [Terms](https://heritagecanon.com/terms/): Site terms of use.
 - [Sitemap](https://heritagecanon.com/sitemap.xml): All indexed pages.
 
 ## Book Pages
@@ -26,9 +27,10 @@ Prefer individual book pages for edition-level facts. Preserve the distinction b
 - [Editor](https://heritagecanon.com/editor/daniel-shilansky/): Use for attribution, editorial background, and series authorship.
 - [About](https://heritagecanon.com/about/): Use for the series method and overall editorial purpose.
 - [Impressum / Imprint](https://heritagecanon.com/impressum/): Use for formal contact and legal identification.
+- [Terms](https://heritagecanon.com/terms/): Use for site-use terms and third-party retail disclaimers.
 
 ## Optional
 
 - [Privacy](https://heritagecanon.com/privacy/): Privacy policy summary.
-- [Cookies](https://heritagecanon.com/cookies/): Cookie and consent information.
+- [Cookies / Consent](https://heritagecanon.com/cookies/): Cookie and consent information.
 - [Contact Email](mailto:daniel@heritagecanon.com): Direct site contact.

@@ -10,6 +10,7 @@ const staticUrls = [
   SITE_URL,
   `${SITE_URL}/about`,
   `${SITE_URL}/impressum`,
+  `${SITE_URL}/terms`,
   `${SITE_URL}/privacy`,
   `${SITE_URL}/cookies`,
   `${SITE_URL}/editor/daniel-shilansky`,

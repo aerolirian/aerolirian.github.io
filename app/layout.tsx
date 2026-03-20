@@ -81,10 +81,10 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#f5efe5" />
         {CONSENT_ENABLED ? (
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css"
-          />
+          <>
+            {/* eslint-disable-next-line @next/next/no-css-tags */}
+            <link rel="stylesheet" href="/vendor/cookieconsent/cookieconsent.css" />
+          </>
         ) : null}
       </head>
       <body
