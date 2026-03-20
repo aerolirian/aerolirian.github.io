@@ -133,6 +133,32 @@ Recommended default:
 - use `Umami` as primary analytics
 - add `GA4` only if needed
 
+## Search Console automation
+
+Local reporting is available through:
+
+```bash
+/home/ubuntu/.venvs/gsc/bin/python scripts/gsc_report.py
+```
+
+This writes local reports to:
+
+```bash
+reports/search-console/latest.md
+reports/search-console/latest.json
+reports/search-console/YYYY-MM-DD.md
+reports/search-console/YYYY-MM-DD.json
+```
+
+It uses:
+
+- property: `sc-domain:heritagecanon.com`
+- service account key: `/home/ubuntu/.secrets/search-console-service-account.json`
+
+Current automation:
+
+- daily cron snapshot of Search Console performance and sitemap status
+
 ## Deploy
 
 GitHub Pages deploys from `.github/workflows/deploy-pages.yml`.
