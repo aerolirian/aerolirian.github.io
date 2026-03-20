@@ -9,7 +9,7 @@ type BookTileProps = {
 }
 
 export function BookTile({ book, compact = false }: BookTileProps) {
-  const art = book.art_out || book.cover_out
+  const art = book.art_card_out || book.art_out || book.cover_out
 
   return (
     <article className="book-tile group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.03] shadow-[0_20px_80px_rgba(0,0,0,0.25)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#d0a85c]/35 hover:shadow-[0_30px_100px_rgba(0,0,0,0.38)]">

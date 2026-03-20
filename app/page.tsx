@@ -79,11 +79,12 @@ export default function HomePage() {
                 >
                   <div className="hero-feature-media relative min-h-[19rem] overflow-hidden rounded-[1.35rem]">
                     <Image
-                      src={book.art_out || book.cover_out}
+                      src={book.art_hero_out || book.art_out || book.cover_out}
                       alt={book.title}
                       fill
                       className="object-cover transition duration-500 group-hover:scale-[1.03]"
                       sizes="100vw"
+                      priority={book.slug === featured[0]?.slug}
                     />
                     <div className="hero-feature-overlay absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-[#090b10] via-[#090b10]/72 to-transparent" />
                     <div className="absolute inset-x-5 bottom-5">
@@ -121,11 +122,12 @@ export default function HomePage() {
             >
               <div className="hero-feature-media relative min-h-[18rem] overflow-hidden rounded-[1.35rem] sm:min-h-[16rem]">
                 <Image
-                  src={book.art_out || book.cover_out}
+                  src={book.art_hero_out || book.art_out || book.cover_out}
                   alt={book.title}
                   fill
                   className="object-cover transition duration-500 group-hover:scale-[1.03]"
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority={index === 0}
                 />
                 <div className="hero-feature-overlay absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-[#090b10] via-[#090b10]/72 to-transparent" />
                 <div className="absolute inset-x-5 bottom-5">

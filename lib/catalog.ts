@@ -35,6 +35,8 @@ export type Book = {
   publisher: string
   cover_out: string
   art_out: string
+  art_card_out?: string
+  art_hero_out?: string
   description: string
   excerpt: string
   formats: string[]

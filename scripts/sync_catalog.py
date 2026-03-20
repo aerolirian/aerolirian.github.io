@@ -160,6 +160,25 @@ def export_cover(src: Path, slug: str) -> str:
     return f'/assets/covers/{slug}.webp'
 
 
+def export_image_variant(
+    src: Path,
+    dest: Path,
+    *,
+    target_width: int,
+    quality: int,
+) -> str:
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    if dest.exists() and dest.stat().st_mtime >= src.stat().st_mtime:
+        return f'/{dest.relative_to(SITE_ROOT / "public").as_posix()}'
+    with Image.open(src) as image:
+        art = image.convert('RGB')
+        if art.width > target_width:
+            target_height = int(round(art.height * (target_width / art.width)))
+            art = art.resize((target_width, target_height), Image.LANCZOS)
+        art.save(dest, format='WEBP', quality=quality, method=6)
+    return f'/{dest.relative_to(SITE_ROOT / "public").as_posix()}'
+
+
 def choose_art(book_dir: Path) -> Path | None:
     candidates = [
         book_dir / 'cover_image' / 'cover_generated.png',
@@ -184,6 +203,24 @@ def export_art(src: Path, slug: str) -> str:
             art = art.resize((target_width, target_height), Image.LANCZOS)
         art.save(dest, format='WEBP', quality=86, method=6)
     return f'/assets/art/{slug}.webp'
+
+
+def export_art_variants(src: Path, slug: str) -> dict[str, str]:
+    return {
+        'art_out': export_art(src, slug),
+        'art_card_out': export_image_variant(
+            src,
+            ART_DIR / f'{slug}-card.webp',
+            target_width=720,
+            quality=80,
+        ),
+        'art_hero_out': export_image_variant(
+            src,
+            ART_DIR / f'{slug}-hero.webp',
+            target_width=1200,
+            quality=84,
+        ),
+    }
 
 
 def export_bio(src: Path) -> None:
@@ -680,7 +717,7 @@ def main() -> None:
             continue
         art_src = choose_art(book_dir) or cover_src
         description, excerpt = read_description(book_dir)
-        art_out = export_art(art_src, slug)
+        art_variants = export_art_variants(art_src, slug)
         books.append(
             {
                 'slug': slug,
@@ -697,7 +734,7 @@ def main() -> None:
                 'year': str(data.get('first_publication_year') or ''),
                 'publisher': 'Heritage Canon',
                 'cover_out': export_cover(cover_src, slug),
-                'art_out': art_out,
+                **art_variants,
                 'description': description,
                 'excerpt': excerpt,
                 'formats': [link['format'] for link in buy_links],

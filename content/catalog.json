@@ -61,7 +61,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/a_portrait_of_the_artist_as_a_young_man-card.webp",
+      "art_hero_out": "/assets/art/a_portrait_of_the_artist_as_a_young_man-hero.webp"
     },
     {
       "slug": "alice_in_wonderland",
@@ -124,7 +126,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/alice_in_wonderland-card.webp",
+      "art_hero_out": "/assets/art/alice_in_wonderland-hero.webp"
     },
     {
       "slug": "arrowsmith",
@@ -232,7 +236,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/arrowsmith-card.webp",
+      "art_hero_out": "/assets/art/arrowsmith-hero.webp"
     },
     {
       "slug": "babbitt",
@@ -294,7 +300,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/babbitt-card.webp",
+      "art_hero_out": "/assets/art/babbitt-hero.webp"
     },
     {
       "slug": "buddenbrooks",
@@ -349,7 +357,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/buddenbrooks-card.webp",
+      "art_hero_out": "/assets/art/buddenbrooks-hero.webp"
     },
     {
       "slug": "death_comes_for_the_archbishop",
@@ -406,7 +416,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/death_comes_for_the_archbishop-card.webp",
+      "art_hero_out": "/assets/art/death_comes_for_the_archbishop-hero.webp"
     },
     {
       "slug": "death_in_venice",
@@ -497,7 +509,9 @@
             "www.amazon.com"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/death_in_venice-card.webp",
+      "art_hero_out": "/assets/art/death_in_venice-hero.webp"
     },
     {
       "slug": "dubliners",
@@ -594,7 +608,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/dubliners-card.webp",
+      "art_hero_out": "/assets/art/dubliners-hero.webp"
     },
     {
       "slug": "elmer_gantry",
@@ -656,7 +672,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/elmer_gantry-card.webp",
+      "art_hero_out": "/assets/art/elmer_gantry-hero.webp"
     },
     {
       "slug": "far_from_the_madding_crowd",
@@ -714,7 +732,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/far_from_the_madding_crowd-card.webp",
+      "art_hero_out": "/assets/art/far_from_the_madding_crowd-hero.webp"
     },
     {
       "slug": "growth_of_the_soil",
@@ -858,7 +878,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/growth_of_the_soil-card.webp",
+      "art_hero_out": "/assets/art/growth_of_the_soil-hero.webp"
     },
     {
       "slug": "main_street",
@@ -953,7 +975,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/main_street-card.webp",
+      "art_hero_out": "/assets/art/main_street-hero.webp"
     },
     {
       "slug": "moby_dick",
@@ -1064,7 +1088,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/moby_dick-card.webp",
+      "art_hero_out": "/assets/art/moby_dick-hero.webp"
     },
     {
       "slug": "o_pioneers",
@@ -1126,7 +1152,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/o_pioneers-card.webp",
+      "art_hero_out": "/assets/art/o_pioneers-hero.webp"
     },
     {
       "slug": "the_age_of_innocence",
@@ -1184,7 +1212,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/the_age_of_innocence-card.webp",
+      "art_hero_out": "/assets/art/the_age_of_innocence-hero.webp"
     },
     {
       "slug": "the_centaur",
@@ -1246,7 +1276,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/the_centaur-card.webp",
+      "art_hero_out": "/assets/art/the_centaur-hero.webp"
     },
     {
       "slug": "the_gentleman_from_indiana",
@@ -1308,7 +1340,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/the_gentleman_from_indiana-card.webp",
+      "art_hero_out": "/assets/art/the_gentleman_from_indiana-hero.webp"
     },
     {
       "slug": "the_great_gatsby",
@@ -1456,7 +1490,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/the_great_gatsby-card.webp",
+      "art_hero_out": "/assets/art/the_great_gatsby-hero.webp"
     },
     {
       "slug": "the_king_of_elflands_daughter",
@@ -1553,7 +1589,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/the_king_of_elflands_daughter-card.webp",
+      "art_hero_out": "/assets/art/the_king_of_elflands_daughter-hero.webp"
     },
     {
       "slug": "the_turmoil",
@@ -1615,7 +1653,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/the_turmoil-card.webp",
+      "art_hero_out": "/assets/art/the_turmoil-hero.webp"
     },
     {
       "slug": "the_village",
@@ -1677,7 +1717,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/the_village-card.webp",
+      "art_hero_out": "/assets/art/the_village-hero.webp"
     },
     {
       "slug": "the_wendigo",
@@ -1822,7 +1864,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/the_wendigo-card.webp",
+      "art_hero_out": "/assets/art/the_wendigo-hero.webp"
     },
     {
       "slug": "the_willows",
@@ -1967,7 +2011,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/the_willows-card.webp",
+      "art_hero_out": "/assets/art/the_willows-hero.webp"
     },
     {
       "slug": "ulysses",
@@ -2030,7 +2076,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/ulysses-card.webp",
+      "art_hero_out": "/assets/art/ulysses-hero.webp"
     },
     {
       "slug": "when_the_sleeper_wakes",
@@ -2125,7 +2173,9 @@
             "www.amazon.in"
           ]
         }
-      ]
+      ],
+      "art_card_out": "/assets/art/when_the_sleeper_wakes-card.webp",
+      "art_hero_out": "/assets/art/when_the_sleeper_wakes-hero.webp"
     }
   ]
 }

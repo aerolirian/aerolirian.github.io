@@ -60,7 +60,7 @@ export async function generateMetadata({
       title: book.full_title || book.title,
       description: book.description,
       url: `${SITE.url}/books/${book.slug}`,
-      images: [book.art_out || book.cover_out],
+      images: [book.art_hero_out || book.art_out || book.cover_out],
     },
   }
 }
@@ -174,7 +174,7 @@ export default async function BookPage({ params }: BookPageProps) {
     '@type': 'Book',
     name: book.title,
     alternateName: book.full_title || undefined,
-    image: [`${SITE.url}${book.cover_out}`, `${SITE.url}${book.art_out || book.cover_out}`],
+    image: [`${SITE.url}${book.cover_out}`, `${SITE.url}${book.art_hero_out || book.art_out || book.cover_out}`],
     description: book.description,
     author: {
       '@type': 'Person',
@@ -227,7 +227,7 @@ export default async function BookPage({ params }: BookPageProps) {
       <section className="product-hero-section relative overflow-hidden border-b border-white/10">
         <div className="absolute inset-0">
           <Image
-            src={book.art_out || book.cover_out}
+            src={book.art_hero_out || book.art_out || book.cover_out}
             alt={book.title}
             fill
             className="object-cover"
