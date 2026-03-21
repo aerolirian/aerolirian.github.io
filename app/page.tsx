@@ -49,9 +49,10 @@ export default function HomePage() {
             Philosophical Editions
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-300 sm:mt-6 sm:text-lg">
-            Heritage Canon is an independent press. The books currently on this
-            site belong to Philosophical Editions, a series that pairs classic
-            works with new introductions by Daniel Shilansky.
+            Heritage Canon is an independent press. The books currently
+            featured here belong to Philosophical Editions, a series that pairs
+            classic works with new introductions by Daniel Shilansky and
+            presents each one through a specific interpretive claim.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
             <a
