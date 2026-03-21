@@ -94,11 +94,11 @@ export default async function BookPage({ params }: BookPageProps) {
           <Link href={`/editor/${EDITOR.slug}`} className="text-[#d0a85c] underline decoration-white/10 underline-offset-4 transition hover:text-white">
             editor
           </Link>{' '}
-          of Heritage Canon and the author of this edition’s introduction. His work focuses on how literature and film participate in philosophical argument, and he writes for both general and academic readers.
+          of Heritage Canon and the author of this edition’s introduction in the Philosophical Editions series. His work focuses on how literature and film participate in philosophical argument, and he writes for both general and academic readers.
         </>
       ),
       schemaAnswer:
-        'Daniel Shilansky is the editor of Heritage Canon and the author of this edition’s introduction. His work focuses on how literature and film participate in philosophical argument, and he writes for both general and academic readers.',
+        'Daniel Shilansky is the editor of Heritage Canon and the author of this edition’s introduction in the Philosophical Editions series. His work focuses on how literature and film participate in philosophical argument, and he writes for both general and academic readers.',
     },
     {
       question: 'Do I need to read the introduction before the novel?',

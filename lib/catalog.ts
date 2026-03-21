@@ -70,7 +70,7 @@ export const EDITOR = {
   role: 'Editor, Heritage Canon',
   image: '/assets/bio.webp',
   bio: [
-    'Daniel Shilansky is the editor of Heritage Canon, a press publishing philosophical editions of classic literature. Each edition pairs the original work with a critical introduction that reconstructs the intellectual world that shaped it: the philosophical debates, historical pressures, and ways of reading that its first audience brought to the text and that time has since obscured.',
+    'Daniel Shilansky is the editor of Heritage Canon, an independent press. The books currently featured on this site belong to the Philosophical Editions series, which pairs classic works with new introductions that reconstruct the intellectual world in which they first appeared.',
     'His research focuses on the relationship between narrative art and the Western philosophical tradition, especially the ways works of literature and film participate in philosophical argument rather than merely illustrating it. He writes on the philosophy embedded in narrative art for both academic and general audiences, on the conviction that the arguments in canonical works are neither obscure nor rarefied, but live and available to any serious reader.',
     'He studied at Tel Aviv University.',
   ],
@@ -80,7 +80,7 @@ export const SITE = {
   name: 'Heritage Canon',
   url: 'https://heritagecanon.com',
   description:
-    'Classic literature with original philosophical introductions. Every edition argues a specific case about the work.',
+    'Heritage Canon is an independent press. The books currently featured on this site belong to the Philosophical Editions series.',
   email: 'daniel@heritagecanon.com',
   legalName: 'Daniel Shilansky',
   imprint: 'Heritage Canon',

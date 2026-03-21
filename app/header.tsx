@@ -18,7 +18,7 @@ export function Header() {
               Heritage Canon
             </p>
             <p className="hidden text-sm text-zinc-500 sm:block">
-              Philosophical editions of classic literature
+              Independent press
             </p>
           </div>
         </Link>

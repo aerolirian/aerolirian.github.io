@@ -43,15 +43,15 @@ export default function HomePage() {
       <section className="mx-auto grid w-full max-w-7xl gap-10 px-4 pb-14 pt-10 sm:px-5 sm:pt-14 lg:grid-cols-[1.05fr_minmax(0,0.95fr)] lg:px-8 lg:pt-20">
         <div className="max-w-3xl">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#d0a85c]">
-            Now in print
+            Current series
           </p>
           <h1 className="mt-4 max-w-[11ch] font-serif text-4xl leading-[0.9] tracking-[-0.04em] text-white sm:mt-5 sm:text-6xl md:text-7xl">
-            Philosophical editions of classic literature
+            Philosophical Editions
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-300 sm:mt-6 sm:text-lg">
-            Every classic was written into a world of arguments — about
-            morality, freedom, God, what literature itself should do. Most of
-            that world has gone quiet. These editions restore it.
+            Heritage Canon is an independent press. The books currently on this
+            site belong to Philosophical Editions, a series that pairs classic
+            works with new introductions by Daniel Shilansky.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
             <a
@@ -64,7 +64,7 @@ export default function HomePage() {
               href="/editor/daniel-shilansky"
               className="rounded-full border border-white/12 bg-white/[0.03] px-5 py-3 text-center text-sm font-semibold uppercase tracking-[0.18em] text-zinc-200 transition hover:border-white/20 hover:bg-white/[0.05]"
             >
-              Meet the editor
+              About the series
             </Link>
           </div>
         </div>

@@ -63,19 +63,20 @@ export default function AboutPage() {
             About Heritage Canon
           </p>
           <h1 className="mt-5 max-w-[11ch] font-serif text-5xl leading-[0.92] tracking-[-0.04em] text-[#201b16] sm:text-6xl md:text-7xl">
-            What Heritage Canon is
+            Heritage Canon and the Philosophical Editions series
           </h1>
           <div className="mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-[#3f352c]">
             <p>
-              Heritage Canon publishes philosophical editions of classic
-              literature. Each edition pairs the complete original work with a
-              new introduction by Daniel Shilansky.
+              Heritage Canon is an independent press. The books currently
+              featured on this site belong to one of its series, Philosophical
+              Editions.
             </p>
             <p>
-              The introductions reconstruct the intellectual world that shaped
-              the book: the philosophical debates, historical pressures, and
-              ways of reading that its first audience brought to it, and that
-              later editions often leave aside.
+              In that series, each volume pairs the complete original work with
+              a new introduction by Daniel Shilansky. The introductions
+              reconstruct the intellectual world that shaped the book: the
+              philosophical debates, historical pressures, and ways of reading
+              that its first audience brought to it.
             </p>
             <p>
               The aim is not to modernize the work, abridge it, or turn it into
@@ -90,13 +91,13 @@ export default function AboutPage() {
       <section className="mx-auto grid w-full max-w-6xl gap-10 border-y border-[#d9c7ae] px-4 py-10 sm:px-5 lg:grid-cols-[minmax(0,1fr)_18rem] lg:px-8">
         <div className="max-w-3xl">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#8f6a2a]">
-            What makes the series distinctive
+            What defines Philosophical Editions
           </p>
           <div className="mt-5 space-y-4 text-[1.04rem] leading-relaxed text-[#3f352c]">
             <p>
               Most reprints provide either no interpretive frame at all or a
-              general introduction that stays at the level of background. These
-              editions are narrower and more explicit than that.
+              general introduction that stays at the level of background.
+              Philosophical Editions is narrower and more explicit than that.
             </p>
             <p>
               Each introduction advances a definite claim about the work. The
@@ -110,15 +111,15 @@ export default function AboutPage() {
             Short version
           </p>
           <p className="mt-4 text-[1.02rem] leading-relaxed text-[#3f352c]">
-            A Heritage Canon book is a classic work plus a new philosophical
-            introduction that argues for a specific reading of it.
+            On this site, a Philosophical Editions book is a classic work plus
+            a new introduction that argues for a specific reading of it.
           </p>
         </aside>
       </section>
 
       <section className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-5 lg:px-8">
         <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#8f6a2a]">
-          What a Heritage Canon edition is
+          What a Philosophical Editions volume includes
         </p>
         <div className="mt-6 grid gap-5 lg:grid-cols-3">
           {corePoints.map((item) => (
@@ -163,9 +164,9 @@ export default function AboutPage() {
             Not this
           </p>
           <p className="mt-4 text-[1.02rem] leading-relaxed text-[#3f352c]">
-            Heritage Canon is not an abridgment, not a prestige facsimile, and
-            not a classroom notes edition. It is a publishing series built
-            around original introductions.
+            Philosophical Editions is not an abridgment, not a prestige
+            facsimile, and not a classroom notes edition. It is one Heritage
+            Canon series built around original introductions.
           </p>
           <div className="mt-6 flex flex-col gap-3">
             <Link

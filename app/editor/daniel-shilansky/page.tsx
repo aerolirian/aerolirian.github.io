@@ -9,7 +9,7 @@ import { EDITOR, SITE, getFeaturedBooks } from '@/lib/catalog'
 export const metadata: Metadata = {
   title: 'Daniel Shilansky',
   description:
-    'Series editor of Heritage Canon and author of the philosophical introductions.',
+    'Editor of Heritage Canon and author of the introductions for the Philosophical Editions series.',
   alternates: {
     canonical: `${SITE.url}/editor/${EDITOR.slug}`,
   },
@@ -55,7 +55,7 @@ export default function EditorPage() {
 
         <div className="max-w-4xl">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-[#8f6a2a]">
-            Series editor
+            Editor
           </p>
           <h1 className="mt-5 font-serif text-5xl leading-[0.92] tracking-[-0.04em] text-[#201b16] sm:text-6xl">
             {EDITOR.name}
@@ -85,9 +85,10 @@ export default function EditorPage() {
               criticism tends to flatten or miss.
             </p>
             <p>
-              The Heritage Canon introductions are written from that premise.
-              They are meant to be intellectually serious without becoming
-              professionalized prose written only for specialists.
+              The introductions for the Philosophical Editions series are
+              written from that premise. They are meant to be intellectually
+              serious without becoming professionalized prose written only for
+              specialists.
             </p>
           </div>
         </div>
@@ -113,7 +114,7 @@ export default function EditorPage() {
               In the catalog
             </p>
             <h2 className="mt-4 max-w-[13ch] font-serif text-4xl leading-[0.94] tracking-[-0.04em] text-[#201b16] sm:text-5xl">
-              Editions introduced by Daniel Shilansky
+              Books in the current series
             </h2>
           </div>
           <Link
